@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/BUTTON_BUTTONLIGHT"
+        android:layout_width="wrap_content"
+        android:layout_height="200dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/Button_Test_ButtonLight" />
+
+    <Button
+        android:id="@+id/Button_Success"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="25dip"
+        android:text="@string/Button_Status_Success" />
+
+    <Button
+        android:id="@+id/Button_Fail"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="25dip"
+        android:text="@string/Button_Status_Fail" />
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!--
+         <Button
+        android:id="@+id/Button_backup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/values_bklight" />
+    <Button
+        android:id="@+id/Button_backdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/Button_backup"
+        android:text="@string/values_light" />
+    -->
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/values_bk_msg"
+        android:textSize="20dip" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/Button_Success"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_true"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Success"/>
+
+        <Button
+            android:id="@+id/Button_Fail"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_fail"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Fail"/>
+    </RelativeLayout>
+
+</RelativeLayout>

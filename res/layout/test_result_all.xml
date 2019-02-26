@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rl_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_banben"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Button_Test_banben"
+                android:textColor="#0000ff"
+                android:textSize="25dip" />
+
+            <TextView
+                android:id="@+id/tv_banben_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="20dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_jiaozhun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Button_Test_jiaozhun"
+                android:textColor="#00ffff"
+                android:textSize="25dip" />
+
+            <TextView
+                android:id="@+id/tv_jiaozhun_choose"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="25dip" />
+        </LinearLayout>
+
+        <LinearLayout
+        	android:id="@+id/finger_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility = "gone">
+
+            <TextView
+                android:id="@+id/finger_active_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/finger_active_status"
+                android:textColor="#00ffff"
+                android:textSize="25dip"/>
+
+            <TextView
+                android:id="@+id/finger_active_result"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="25dip"/>
+        </LinearLayout>
+
+        <LinearLayout
+        	android:id="@+id/google_key_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility = "gone">
+
+            <TextView
+                android:id="@+id/google_key_active_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/google_key_active_status"
+                android:textColor="#00ffff"
+                android:textSize="25dip"/>
+
+            <TextView
+                android:id="@+id/google_key_active_result"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="25dip"/>
+        </LinearLayout>
+        
+        <!--  yangkun add for coupling test results 2018/02/03   -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/wireless_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wireless_test_title"
+                android:textColor="#00ffff"
+                android:textSize="25dip"
+                android:visibility = "gone" />
+
+            <TextView
+                android:id="@+id/wireless_test_result"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="25dip"
+                android:visibility = "gone" />
+        </LinearLayout>
+        <!-- add end  -->
+        <!--  yangkun add for NSFT test results 2018/04/18   -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/nsft_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nsft_test_title"
+                android:textColor="#00ffff"
+                android:textSize="25dip"
+                android:visibility = "gone" />
+
+            <TextView
+                android:id="@+id/nsft_test_result"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="25dip"
+                android:visibility = "gone" />
+        </LinearLayout>
+        <!-- add end  -->
+	<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_testall_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="20dip" 
+		android:text="@string/testall_res"
+		/>
+
+            <TextView
+                android:id="@+id/tv_testall_choose"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#0000ff"
+                android:textSize="25dip" 
+		android:text="@string/msg_fou"
+		/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_ts"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/values_success"
+                android:textColor="@color/green"
+                android:textSize="25dp" />
+
+            <ListView
+                android:id="@+id/tv_true"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" 
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/values_fail"
+                android:textColor="@color/red"
+                android:textSize="25dp" />
+
+            <ListView
+                android:id="@+id/tv_false"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

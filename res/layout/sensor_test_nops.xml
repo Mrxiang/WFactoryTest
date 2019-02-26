@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+    	android:layout_width="match_parent"
+   		android:layout_height="match_parent"
+   		android:orientation="vertical"
+       	android:layout_marginBottom="65dip">
+   		
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+<!--     <TextView -->
+<!--         android:id="@+id/textView1" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentLeft="true" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:text="@string/title_activity_sensor" -->
+<!--         android:textSize="20dip" -->
+<!--         android:textAppearance="?android:attr/textAppearanceLarge" /> -->
+
+<!--     <TextView -->
+<!--             android:id="@+id/Gsensor_Title" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/Text_Gsensor" -->
+<!--             android:textSize="20dip" -->
+<!--             android:layout_alignParentLeft="true" -->
+<!--             android:layout_alignParentTop="true" -->
+<!--             android:textAppearance="?android:attr/textAppearanceLarge" /> -->
+
+        <TextView
+            android:id="@+id/tv_G"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Text_Gsensor"
+            android:textColor="#0000ff"
+            android:textSize="20dip" 
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/tv_G_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_G"
+            android:layout_alignParentTop="true"
+            android:textSize="20dip" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_G"
+        android:text="@string/GSensor_Test_Info"
+        android:textSize="20dip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:orientation="vertical" >
+
+
+        <TextView
+            android:id="@+id/Gsensor_X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/Gsensor_Y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/Gsensor_Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!--add by yds start-->
+        <TextView
+            android:id="@+id/GySensor_X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/GySensor_Y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/GySensor_Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <!--add by yds end-->
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/RL_xyz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        
+
+        <!-- add by leiyaotao for XYZ change -->
+        <!-- X -->
+        <TextView
+            android:id="@+id/tv_G_X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G"
+            android:text="@string/tv_G_X1"
+            android:textColor="#0000ff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/tv_G_XR"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G"
+            android:layout_toRightOf="@+id/tv_G_X"
+            android:text="@string/tv_G_ceshi"
+            android:textSize="20dip" />
+        
+        <TextView
+            android:id="@+id/tv_G_X1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G"
+            android:layout_toRightOf="@+id/tv_G_XR"
+            android:text="@string/tv_G_X2"
+            android:textColor="#0000ff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/tv_G_XR1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G"
+            android:layout_toRightOf="@+id/tv_G_X1"
+            android:text="@string/tv_G_ceshi"
+            android:textSize="20dip" />
+        <!-- X end -->
+        <!-- Y -->
+        <TextView
+            android:id="@+id/tv_G_Y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_X"
+            android:text="@string/tv_G_Y1"
+            android:textColor="#0000ff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/tv_G_YR"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_X"
+            android:layout_toRightOf="@+id/tv_G_Y"
+            android:text="@string/tv_G_ceshi"
+            android:textSize="20dip" />
+        
+        <TextView
+            android:id="@+id/tv_G_Y1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_X"
+            android:layout_toRightOf="@+id/tv_G_YR"
+            android:text="@string/tv_G_Y2"
+            android:textColor="#0000ff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/tv_G_YR1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_X"
+            android:layout_toRightOf="@+id/tv_G_Y1"
+            android:text="@string/tv_G_ceshi"
+            android:textSize="20dip" />
+        <!-- Y end -->
+        <!-- Z -->
+        <TextView
+            android:id="@+id/tv_G_Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_Y"
+            android:text="@string/tv_G_Z1"
+            android:textColor="#0000ff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/tv_G_ZR"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_Y"
+            android:layout_toRightOf="@+id/tv_G_Z"
+            android:text="@string/tv_G_ceshi"
+            android:textSize="20dip" />
+        
+        <TextView
+            android:id="@+id/tv_G_Z1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_Y"
+            android:layout_toRightOf="@+id/tv_G_ZR"
+            android:text="@string/tv_G_Z2"
+            android:textColor="#0000ff"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/tv_G_ZR1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_G_Y"
+            android:layout_toRightOf="@+id/tv_G_Z1"
+            android:text="@string/tv_G_ceshi"
+            android:textSize="20dip" />
+        
+        <!-- Z end -->
+        <!-- end -->
+        </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/RL_xyz_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+	android:orientation="vertical"
+        android:layout_below="@+id/linearLayout1" >
+	    <ImageView
+	        android:id="@+id/gsensor_orientation_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:src="@drawable/g_sensor_orientation_up"
+	        android:layout_below="@+id/linearLayout1"
+	        android:layout_gravity="center"
+	        android:visibility="invisible"/>
+	        <LinearLayout
+		        android:id="@+id/RL_xyz_icon"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_below="@+id/linearLayout1" >
+			    <ImageView
+			        android:id="@+id/gsensor_orientation_left"
+			        android:layout_width="wrap_content"
+			        android:layout_weight="1"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentLeft="true"
+			        android:src="@drawable/g_sensor_orientation_left"
+			        android:layout_below="@+id/gsensor_orientation_up"
+			        android:visibility="invisible"/>
+			    <ImageView
+			        android:layout_width="wrap_content"
+			        android:layout_weight="1"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/g_sensor_orientation_right"
+			        android:visibility="invisible"/>
+			    <ImageView
+			        android:id="@+id/gsensor_orientation_right"
+			        android:layout_width="wrap_content"
+			        android:layout_weight="1"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"
+			        android:src="@drawable/g_sensor_orientation_right"
+			        android:layout_below="@+id/gsensor_orientation_up"
+			        android:visibility="invisible"/>
+			    </LinearLayout>
+	    <ImageView
+	        android:id="@+id/gsensor_orientation_down"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:src="@drawable/g_sensor_orientation_down"
+	        android:layout_below="@+id/gsensor_orientation_left"
+	        android:layout_gravity="center"
+	        android:visibility="invisible"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/ll_juli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/RL_xyz"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical" >
+
+<!--         <TextView -->
+<!--             android:id="@+id/AlsPs_title" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/Text_ALSPS" -->
+<!--             android:textSize="20dip" -->
+<!--             android:textAppearance="?android:attr/textAppearanceLarge" /> -->
+        <TextView
+            android:id="@+id/tv_AL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/als_help_message"
+            android:textColor="#0000ff"
+            android:textSize="18dip"
+	    android:layout_marginTop="10dp" />
+        <!-- android:text="@string/Text_ALS" -->
+
+        <TextView
+            android:id="@+id/tv_AL_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip" 
+	    android:layout_marginTop="20dp"
+	    android:visible="false"
+            android:layout_toRightOf="@+id/tv_AL"/>    
+
+<!--
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ALSSensor_Test_Info_False"
+            android:textSize="20dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_below="@+id/tv_AL"/>
+-->
+        <TextView
+            android:id="@+id/AlsPs_Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:text="@string/values_is" 
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_below="@+id/tv_AL"/>
+        
+        
+        
+        
+
+        <TextView
+            android:id="@+id/AlsPs_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+	    android:textColor="#0000ff"
+	    android:layout_marginTop="15dp"
+            android:text="@string/Text_APS"
+	    android:visible="false"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_below="@+id/AlsPs_Light"/>
+	<TextView
+            android:id="@+id/AlsPs_pro_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip" 
+	    android:layout_marginTop="15dp"
+	    android:visible="false"
+	    android:text="@string/Text_ALSPS_VALUE_AWAY"
+            android:layout_toRightOf="@+id/AlsPs_pro"
+            android:layout_below="@+id/AlsPs_Light"/>    
+        <TextView
+            android:id="@+id/AlsPs_Proxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/values_is" 
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@+id/AlsPs_pro"/>
+        
+
+		<TextView
+            android:id="@+id/compass_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compass_title" 
+            android:textSize="20dip" 
+			android:textColor="#FF0000FF"
+            android:layout_below="@id/AlsPs_Proxi"
+			android:layout_marginTop="15dip"/>
+
+		<TextView
+            android:id="@+id/compass_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compass_value" 
+            android:textSize="20dip" 
+			android:textColor="#FFFF0000"
+            android:layout_below="@+id/AlsPs_Proxi"
+			android:layout_toRightOf="@id/compass_title"
+			android:layout_marginTop="15dip"/>
+
+    </RelativeLayout>
+
+    
+<!-- <LinearLayout -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentLeft="true" -->
+<!--         android:layout_below="@+id/ll_juli" -->
+<!--         android:layout_marginTop="5dp" -->
+<!--         android:orientation="vertical" > -->
+<!--         <TextView -->
+<!--             android:id="@+id/tv_AL" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/Text_ALS" -->
+<!--             android:textColor="#0000ff" -->
+<!--             android:textSize="20dip" /> -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/tv_AL_result" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:textSize="20dip" /> -->
+
+        
+<!--               <TextView -->
+<!--             android:id="@+id/tv_AP" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_below="@+id/tv_AL" -->
+<!--             android:text="@string/Text_APS" -->
+<!--             android:textColor="#0000ff" -->
+<!--             android:textSize="25dip" /> -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/tv_AP_result" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_below="@+id/tv_AL" -->
+<!--             android:layout_toRightOf="@+id/tv_AP" -->
+<!--             android:textSize="25dip" /> -->
+<!--         --> 
+<!--     </LinearLayout> -->
+	</RelativeLayout>
+	</ScrollView>
+	
+    <RelativeLayout
+        android:id="@+id/RV_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/Button_Success"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_true"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Success" />
+
+        <Button
+            android:id="@+id/Button_Fail"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_fail"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Fail" />
+    </RelativeLayout>
+
+</RelativeLayout>

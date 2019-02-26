@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+        <Button
+            android:id="@+id/Button_tpSuccess"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_above="@+id/Button_tpFail"
+            android:layout_alignParentRight="true"
+            android:text="@string/Button_Status_Success" />
+
+        <Button
+            android:id="@+id/Button_tpFail"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/Button_Status_Fail" />
+
+</RelativeLayout>

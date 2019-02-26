@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+	<TextView 
+		android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ageing_test"
+        android:textSize="20dip"
+        android:layout_marginTop="30dip"
+        android:layout_marginBottom="40dip"
+        android:paddingTop="7dip"
+        android:paddingBottom="5dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:layout_gravity="center"
+	  	/>
+	  	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		<Button
+	        android:id="@+id/button_loud_speaker"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:text="@string/turn_off_loud_speaker"
+	        android:textSize="18dip" />
+
+	    <Button
+	        android:id="@+id/button_speaker"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:text="@string/turn_off_speaker"
+	        android:textSize="18dip" />
+	</LinearLayout>
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		<Button
+	        android:id="@+id/button_mic"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:text="@string/turn_off_mic"
+	        android:textSize="18dip" />
+
+		<Button
+	        android:id="@+id/button_vibrate"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:text="@string/turn_off_vibrate"
+	        android:textSize="18dip" />
+	</LinearLayout>
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		<Button
+	        android:id="@+id/button_camera"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:text="@string/turn_on_camera"
+	        android:textSize="18dip" />
+
+	    <Button
+	        android:id="@+id/button_flash"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:text="@string/turn_off_flash"
+	        android:textSize="18dip" />
+	</LinearLayout>
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="bottom"
+	    android:gravity="bottom"
+	    android:orientation="horizontal"
+	    >
+		<Button
+	        android:id="@+id/button_lcd"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:layout_gravity="bottom|left"
+	        android:text="@string/turn_off_lcd"
+	        android:textSize="18dip" />
+
+	    <Button
+	        android:id="@+id/button_exit"
+	        android:layout_width="150dip"
+	        android:layout_height="60dip"
+	        android:layout_gravity="bottom|right"
+	        android:text="@string/values_main2"
+	        android:textSize="18dip" />
+	</LinearLayout>
+	
+</LinearLayout>

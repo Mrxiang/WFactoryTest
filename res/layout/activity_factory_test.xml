@@ -1,0 +1,419 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00ffff" >
+
+    <LinearLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+	    android:layout_marginTop="10dip"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+        
+	    <Button
+	        android:id="@+id/BUTTON_ALL"
+	        android:layout_width="0dip"
+	        android:layout_height="50dip"
+			android:layout_gravity="bottom"
+	        android:text="@string/Button_Test_All"
+	        android:textSize="18dip"
+	        android:layout_weight="1" />
+	    
+	    <Button
+	        android:id="@+id/BUTTON_RESET"
+	        android:layout_width="0dip"
+	        android:layout_height="50dip"
+			android:layout_gravity="bottom"
+	        android:text="@string/Button_Reset"
+	        android:textSize="18dip"
+	        android:layout_weight="1"
+	        android:visibility = "gone"
+       		android:layout_marginRight="5dip" />
+	</LinearLayout>
+	<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+       	android:layout_below="@id/head"
+       	android:layout_marginBottom="65dip">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true" >
+	    
+        
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip" >
+
+            <Button
+                android:id="@+id/BUTTON_LCD"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_LCD"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+
+            <Button
+                android:id="@+id/BUTTON_CAMERA"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_MainCamera"
+                android:textSize="18dip"
+                android:visibility="gone" />
+            
+            <Button
+                android:id="@+id/BUTTON_FRONT_CAMERA"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_SubCamera"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <!--
+                 <Button
+                android:id="@+id/BUTTON_LOUDSPEAKER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_LoudSpeaker"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_EARPHONE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_earphone"
+                android:visibility="gone" />
+            -->
+
+            <Button
+                android:id="@+id/BUTTON_SENSOR"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Sensor"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_WIFI"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_WIFI"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_BT"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_BlueTooth"
+                android:textSize="18dip"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <!--
+                 <Button
+                android:id="@+id/BUTTON_BUTTONLIGHT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_ButtonLight"
+                android:visibility="gone" />
+            -->
+
+            <Button
+                android:id="@+id/BUTTON_PHONE"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Phone"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_KEY"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Key"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_FMRADIO"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_FMRadio"
+                android:textSize="18dip"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow07"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <!--
+                     <Button
+                android:id="@+id/BUTTON_APSPS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_ALSPS" />
+            -->
+
+            <Button
+                android:id="@+id/BUTTON_MIC"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Mic"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_MIC_PHONE"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/values_mic_test"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_LOUDSPEAKER"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_LoudSpeaker"
+                android:textSize="18dip"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow08"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/BUTTON_VIRBATE"
+                android:layout_width="0dip"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Vibrate"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_TP"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_TP"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BUTTON_SIMCARD"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_SIMcard"
+                android:textSize="18dip"
+                android:visibility="gone" />
+        </TableRow>
+        
+         <TableRow
+            android:id="@+id/TableRow09"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+                
+           <Button
+                android:id="@+id/BUTTON_SDcard"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_SDcard"
+                android:textSize="18dip"
+                android:visibility="gone" />
+             
+           
+           
+           <Button
+                android:id="@+id/BUTTON_SPEAKER"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Speaker"
+                android:textSize="18dip"
+                android:visibility="gone" /> 
+
+           <Button
+                android:id="@+id/BUTTON_GPS"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Gps"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+           
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/TableRow10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+                
+              
+           <Button
+               android:id="@+id/BUTTON_BATTERY"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+               android:layout_weight="1"
+               android:text="@string/Button_Test_Battery"
+               android:textSize="18dip"
+               android:visibility="gone" />
+	    <Button
+                android:id="@+id/BUTTON_Hall"
+                android:layout_width="0dip"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Hall"
+                android:textSize="18dip"
+                android:visibility="gone" />           
+
+           <!-- chenbill add for silent install start -->
+           <Button
+                android:id="@+id/BUTTON_ONEKEY_INSTALL"
+                android:layout_width="wrap_content"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_OneKey_Install"
+                android:textSize="18dip"
+                android:visibility="gone" /> 
+           <!-- chenbill add for silent install end -->
+            <Button
+                android:id="@+id/BUTTON_BACKLIGHT"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_BackLight"
+                android:textSize="18dip"
+                android:visibility="gone" />
+
+           <Button
+               android:id="@+id/BUTTON_FINGERPRINT"
+               android:layout_width="0dip"
+               android:layout_height="60dip"
+               android:layout_weight="1"
+               android:text="@string/Button_Test_Fingerprint"
+               android:textSize="18dip"
+               android:visibility="gone" />
+	<Button
+                android:id="@+id/BUTTON_EARPHONE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_earphone"
+                android:visibility="gone" />
+           
+        </TableRow>
+
+	<TableRow
+            android:id="@+id/TableRow11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+	    <Button
+                android:id="@+id/BUTTON_INFRARED"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_Infrared"
+                android:textSize="18dip"
+                android:visibility="gone" />
+	    <Button
+                android:id="@+id/BUTTON_OTG"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_OTG"
+                android:textSize="18dip"
+                android:visibility="gone" />
+         
+	    <Button
+                android:id="@+id/BUTTON_MAIN2_CAMERA"
+                android:layout_width="0dip"
+                android:layout_height="60dip"
+                android:layout_weight="1"
+                android:text="@string/Button_Test_DeputyCamera"
+                android:textSize="18dip"
+                android:visibility="gone" />
+	
+        </TableRow>
+    </TableLayout>
+	</ScrollView>
+	
+	<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="62dip"
+			android:layout_alignParentBottom="true">
+	    <Button
+	        android:id="@+id/BUTTON_ALL2"
+	        android:layout_width="0dip"
+	        android:layout_height="62dip"
+			android:layout_weight="1"
+			android:layout_gravity="center"
+	        android:text="@string/values_main1"
+	        android:textSize="18dip" />
+	
+	    <Button
+	        android:id="@+id/BUTTON_CHIP_INFO"
+	        android:layout_width="0dip"
+	        android:layout_height="62dip"
+			android:layout_weight="1"
+			android:layout_gravity="center"
+	        android:text="@string/chip_info_button"
+	        android:textSize="18dip"
+			android:visibility="gone" />
+
+	    <Button
+	        android:id="@+id/BUTTON_ALL3"
+	        android:layout_width="0dip"
+	        android:layout_height="62dip"
+			android:layout_weight="1"
+			android:layout_gravity="center"
+	        android:text="@string/values_main2"
+	        android:textSize="18dip" />
+	</LinearLayout>
+</RelativeLayout>

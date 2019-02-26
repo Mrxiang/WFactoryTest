@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<!--     <TextView
+        android:id="@+id/tx_mic_e"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:text="@string/values_mic_e"
+        android:textSize="25dip"/> -->
+     <TextView
+        android:id="@+id/tx_mic"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:text="@string/values_mic"
+        android:textSize="25dip"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/dual_mic_test_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tx_mic"
+        android:padding="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/Button_maic_mic"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:textSize="25dip"
+            android:text="@string/Button_maic_mic" />
+
+        <Button
+            android:id="@+id/Button_ref_mic"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textSize="25dip"
+            android:text="@string/Button_ref_mic" />
+    </RelativeLayout>
+    
+<!--     <TextView
+        android:id="@+id/tx_sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:text="@string/values_sp"
+        android:layout_below="@+id/tx_mic"
+        android:textSize="25dip"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tx_loud"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:text="@string/values_loud"
+        android:layout_below="@+id/tx_sp"
+        android:textSize="25dip"
+        android:visibility="gone"/>
+ -->
+ 
+	  <Button
+		android:id="@+id/Button_Replay"
+		android:layout_width="150dip"
+		android:layout_height="60dip"
+		android:textSize="25dip"
+		android:text="@string/Button_replay" 
+		android:layout_centerInParent="true"
+		/>
+	<Button
+		android:id="@+id/Button_reconding"
+		android:layout_width="150dip"
+		android:layout_height="60dip"
+		android:textSize="25dip"
+		android:text="@string/Button_reconding" 
+		android:layout_below="@id/Button_Replay"
+		android:layout_alignLeft="@id/Button_Replay"
+		/>
+
+			
+			
+    <RelativeLayout
+        android:id="@+id/RV_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/Button_Success"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_true"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Success" />
+
+        <Button
+            android:id="@+id/Button_Fail"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_fail"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Fail" />
+    </RelativeLayout>
+</RelativeLayout>

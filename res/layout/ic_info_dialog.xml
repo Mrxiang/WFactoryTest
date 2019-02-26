@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dip"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#dd000000"
+    >
+	<TextView 
+		android:id="@+id/ic_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dip"
+        android:text="@string/ic_info_title"
+        android:paddingTop="7dip"
+        android:paddingBottom="5dip"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+	android:textColor="#FFFFFFFF"
+	  	/>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:src="@drawable/ic_info_dialog_split_gray"
+		/>
+
+
+	<TextView 
+		android:id="@+id/CPU_chip" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="#FFFFFFFF"></TextView>
+    
+    <TextView 
+		android:layout_marginTop="10dip"
+		android:id="@+id/Display_ic" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="#FFFFFFFF"></TextView>
+		
+  	<TextView
+		android:layout_marginTop="10dip"
+		android:id="@+id/TouchPanel_ic" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="#FFFFFFFF"></TextView>
+  	
+ 	<TextView
+		android:layout_marginTop="10dip"
+		android:id="@+id/cam_ic_main" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="#FFFFFFFF"></TextView>
+		
+  	<TextView
+		android:layout_marginTop="10dip"
+		android:id="@+id/cam_ic_sub" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="#FFFFFFFF"></TextView>	
+
+
+
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:src="@drawable/ic_info_dialog_split_gray"
+		/>
+	<Button
+		android:id="@+id/ic_ok_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/msg_ok"
+		/>
+</LinearLayout>

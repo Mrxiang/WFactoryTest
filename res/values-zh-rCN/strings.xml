@@ -1,0 +1,340 @@
+<resources>
+
+    <string name="app_name">工厂测试</string>
+    <string name="title_activity_factory_test">工厂模式</string>
+    <string name="title_activity_phone_test">电话</string>
+    <string name="title_activity_vibate_test">马达</string>
+    <string name="title_activity_LCD_test">LCD</string>
+    <string name="title_activity_camera_test">照相机</string>
+    <string name="title_activity_fmradio_test">收音机</string>
+    <string name="title_activity_LoudSpeaker_test">揚声器</string>
+    <string name="title_activity_EarPhone_test">耳机</string>
+    <string name="title_activity_SDCard_test">T卡/内存</string>
+    <string name="title_activity_key_test">按键(灯)</string>
+    <string name="title_activity_Speaker_test">听筒</string>
+    <string name="title_activity_BackLight_test">背光</string>
+    <string name="title_activity_Mic_test">耳机麦克</string>
+    <string name="title_activity_SimCard_test">SIM卡</string>
+    <string name="title_activity_BT_test">蓝牙</string>
+    <string name="title_activity_WIFI_test">WIFI</string>
+    <string name="title_activity_buttonlight_test">按键灯</string>
+    <string name="title_activity_tp_test">触屛</string>
+    <string name="title_activity_all_test">测试结果</string>
+    <string name="title_activity_battery_test">电池</string>
+    <string name="title_activity_memory_test">內存</string>
+    <string name="title_activity_sensor_test">传感器</string>
+    <string name="title_activity_gps_test">Gps</string>
+    <string name="title_activity_infrared_test">红外控制</string>
+    <string name="Button_Test_banben">版本号:</string>
+    <string name="Button_Test_jiaozhun">是否已校准:</string>
+    <string name="msg_shi">是</string>
+    <string name="msg_fou">否</string>
+    <string name="Button_Test_All">测试全部</string>
+    <string name="Button_Test_LCD">LCD/+</string>
+    <string name="Button_Test_LCD_without_BL"> LCD </string>
+    <string name="Button_Test_MainCamera">摄像头</string>
+    <string name="Button_Test_SubCamera">前摄像头</string>
+    <string name="Button_Test_TP">触屛</string>
+    <string name="Button_Test_Battery">电池</string>
+    <string name="Button_Test_Key">按键(灯)</string>
+    <string name="Button_Test_LoudSpeaker">揚声器</string>
+    <string name="Button_Test_Mic">耳机麦克</string>
+    <string name="Button_Test_earphone">耳机</string>
+    <string name="Button_Test_FMRadio">收音机</string>
+    <string name="Button_Test_Speaker">听筒</string>
+    <string name="Button_Test_Gps">GPS</string>
+    <string name="Button_Test_Infrared">红外控制</string>
+    <string name="Button_Test_OTG">OTG</string>
+    <string name="Button_Test_BlueTooth">蓝牙</string>
+    <string name="Button_Test_Vibrate">马达</string>
+    <string name="Button_Test_Phone">电话</string>
+    <string name="Button_Test_BackLight">背光</string>
+    <string name="Button_Test_ButtonLight">按键灯</string>
+    <string name="Button_Test_Flash">Flash</string>
+    <string name="Button_Test_SDcard">T卡/内存</string>
+    <string name="Button_Test_SIMcard">SIM卡</string>
+    <string name="Button_Test_WIFI">WIFI</string>
+    <string name="Button_Test_Gsensor">感应器</string>
+    <string name="Button_Test_ALSPS">ALS/PSsensor</string>
+    <string name="Button_Test_NEICUN">內存</string>
+    <string name="Button_Status_Success">成功</string>
+    <string name="Button_Status_Fail">失败</string>
+    <string name="LCD_NEXT">下一个</string>
+    <string name="Button_Test_Sensor">感应器</string>
+    <string name="msg_title">耳机</string>
+    <string name="msg_masse">请插入耳机再试!</string>
+    <string name="msg_masse_no">请拔出耳机测试!</string>
+    <string name="msg_ok">确定</string>
+    <string name="msg_sdcard">SD卡不存在</string>
+    <string name="msg_sdcard_new">SD卡不存在,Mic测试失败 !</string>
+    <string name="msg_record">正在录音...</string>
+    <string name="msg_recordstop">录音停止...</string>
+    <string name="msg_stoprecord">停止录音</string>
+    <string name="msg_play">播放</string>
+    <string name="msg_playstop">停止播放</string>
+    <string name="msg_recordrun">正在播放...</string>
+    <string name="msg_sensor_alps">请遮盖屛幕上方</string>
+    <string name="msg_shanguang">闪光灯测试中...</string>
+    <string name="msg_shexiang">摄像头测试中...</string>
+    <string name="msg_shanguang_ok">闪光灯测试，请点击下方手电筒按钮（注意：本界面只测试一轮将进入照相机测试）.</string>
+    <string name="msg_shexiang_ok">摄像头完成.</string>
+    
+    <string name="msg_vibrate_text">马达测试中:\n感受机身震动判断马达是否有效</string>
+    
+    <string name="msg_sim">SIM状态:</string>
+    <string name="msg_sim1">SIM1状态:</string>
+    <string name="msg_sim2">SIM2状态:</string>
+   <string name="msg_sim_state">状态良好,可用</string>
+    <string name="msg_sim_stateno">无法取得SIM状态</string>
+    <string name="msg_1">无卡</string>
+    <string name="msg_2">未知状态</string>
+    <string name="msg_3">需要NetworkPIN解锁</string>
+    <string name="msg_4">需要PIN解锁</string>
+    <string name="msg_5">需要PUK解锁</string>
+    <string name="msg_6">良好</string>
+    
+    <string name="msg_camera_erro">闪光灯测试矢败!</string>
+    <string name="msg_bton">搜索蓝牙</string>
+    <string name="msg_btoff">关閉蓝牙</string>
+    <string name="msg_btname">蓝牙名称:</string>
+    <string name="msg_btvalue">蓝牙地址:</string>
+    <string name="msg_btwait">蓝牙关閉中,请稍后再试....</string>    
+    
+    <string name="msg_wifion">打开WIFI</string>
+    <string name="msg_wifioff">关閉WIFI</string>
+    <string name="msg_wifien">WIFI可用</string>
+    <string name="msg_wifidis">WIFI不可用</string>
+    
+    <string name="msg_buttonon">按键灯开</string>
+    <string name="msg_buttonoff">按键灯关</string>
+    
+    
+    <string name="values_sd1">T卡是否存在:</string>
+    <string name="values_sd2">T卡路径:</string>
+    <string name="values_sd3">包路径:</string>
+    <string name="values_sd4">创建文件：</string>
+    <string name="values_sd5">删除文件是否成功:</string>
+    <string name="values_sd6">读取文件:</string>
+    <string name="values_sd7">T卡测试结果:</string>
+    
+    <string name="values_mic_e">耳机麦克测试:正在录音...</string>
+    <string name="values_mic_e1">耳机麦克测试:录音完成(录音时长4S)...</string>
+    <string name="values_mic_e2">耳机麦克测试:正在播放...</string>
+    <string name="values_mic_e3">耳机麦克测试完毕!.</string>
+    
+    <string name="values_mic">手机麦克测试:正在录音...</string>
+    <string name="values_mic_7">手机麦克测试:录音完成(录音时长4S)...</string>
+    <string name="values_mic_2">手机麦克测试:正在播放...</string>
+    <string name="values_mic_3">手机麦克测试完毕!.</string>
+    
+    <string name="values_mic_test">手机麦克</string>
+    
+    <string name="values_infrared_control_test">红外控制测试 ...</string>
+    
+    <string name="values_mic_1">手机麦克测试完毕!</string>
+    <string name="values_loud">正在进行揚声器测试...</string>
+    <string name="values_loud_2">揚声器测试完毕!</string>
+    <string name="values_sp">正在进行听筒测试...</string>
+    <string name="values_sp_2">听筒测试完毕!</string>
+    <string name="values_main1">测试报告</string>
+    <string name="values_main2">退出测试</string>
+    
+    <string name="Large_Text">T卡错误</string>
+    <string name="values_is">values is</string>
+   <string name="values_success">测试成功:</string>
+   <string name="values_fail">测试失败:</string>
+   <string name="values_bk_msg">背光测试:观察背光亮度变化</string>
+   <string name="values_bklight">背光亮度增加</string>
+    <string name="values_light">背光亮度减小</string>
+   <string name="values_menu">菜单键</string>
+    <string name="values_main">主屛键</string>
+    <string name="values_return">返回键</string>
+    <string name="values_volueup">音量+</string>
+    <string name="values_voluedown">音量-</string>
+    <string name="values_record">开始录音</string>
+    <string name="values_power">电源键</string>
+    <string name="values_camera"> 拍照键 </string>
+    <string name="values_mada">马达测试中...</string>
+    <string name="values_sao">扫描网络</string>
+    <string name="values_lanya">检测蓝牙:</string>
+    <string name="values_dakai">打开Wifi</string>
+    <string name="values_guanbi">关闭Wifi</string>
+    <string name="values_vzhuangt">Wifi状态</string>
+    <string name="values_dangqian">正在扫描Wifi网络:</string>
+    <string name="values_tptest">完成TP测试需要画图三次!</string>
+    <string name="values_tptest1">TP测试完成!</string>
+   <string name="values_SDcard">检测到T卡：</string>
+   <string name="values_SDcardrong">T卡总容量:</string>
+   <string name="values_SDcardsheng">T卡剩余容量:</string>
+   <string name="values_SDcardno">T卡不存在</string>
+   <string name="values_memoryjie">内存测试结果:</string>
+  <string name="values_memoryzong"> 内存总容量:</string>
+   <string name="values_memorysheng">内存剩余容量:</string>
+   <string name="values_memorynei">手机内部存储总容量:</string>
+   <string name="values_memorymeisheng">手机内部存储剩余容量:</string>
+   <string name="values_wifidang">扫描到的wifi网络：</string>
+    <string name="no_link_equipment">OTG没有链接设备</string>
+    <string name="link_equipment">OTG已连接设备</string>
+ <!-- battery test stary -->
+    <!--BatteryLog part-->
+
+
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_label">电池状态:</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_scale_label">电池总百分比:</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_level_label">电池当前电量百分比:</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_label">电池健康程度:</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_voltage_label">电池电压:</string>
+    <!-- Battery Info screen. Units shown after a value.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_voltage_units">mV</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_temperature_label">电池温度:</string>
+    <!-- Battery Info screen. Units shown after a value.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_temperature_units">\u00B0 C</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_uptime">此次开机时长:</string>
+    <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_screen_on">亮屏时间:</string>
+    
+
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_unknown">未知</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging">充电中</string>
+    <!-- Battery Info screen. Units shown after a value.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging_ac">(AC)</string>
+    <!-- Battery Info screen. Units shown after a value.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging_usb">(USB)</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_discharging">Discharging</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_not_charging">未充电</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_full">充满</string>
+
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_unknown">未知</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_good">非常好</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_overheat">过热</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_dead">死亡</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_over_voltage">过压</string>
+    <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_unspecified_failure">未知错误</string>
+    
+        <string name="battery_charge_info_text">N</string>
+    <!-- battery test end -->
+    
+
+    <string name="read_only">\u0020(Read-only)</string>
+    
+
+    <string name="Button_Test_MEMORY">內存</string>
+    <string name="tv_G_X1">X+:</string>
+    <string name="tv_G_X2">X-:</string>
+    <string name="tv_G_Y1">Y+:</string>
+    <string name="tv_G_Y2">Y-:</string>
+    <string name="tv_G_Z1">Z+:</string>
+    <string name="tv_G_Z2">Z-:</string>
+    <string name="tv_G_ceshi">测试中..</string>
+
+    <string name="title_activity_sensor">传感器</string>
+    <string name="Text_APS">3. 距离传感器</string>
+    <string name="Text_ALS">2. 光度传感器</string>
+        <string name="Text_ALSPS">距离/光度传感器</string>
+         <string name="Text_Gsensor">1. 重力传感器</string>
+         <string name="GSensor_Test_Info">请倾斜转动机身以改变重力传感器值</string>
+         <string name="ALSSensor_Test_Info_Real">覆盖住光/距离传感器以改变它的值</string>
+         <string name="ALSSensor_Test_Info_False">请大面积触摸TP</string>
+        <string name="Text_ALSPS_VALUE_CLOSE">接近</string>
+        <string name="Text_ALSPS_VALUE_AWAY">远离</string>
+        <string name="als_help_message">"2. 光传感器：若环境光增强，数值变大；环境光减弱，数值变小；用手盖住光感，值为0，则光感有效。"</string>
+	<!-- chenbill add for silent install start -->
+	<string name="Button_OneKey_Install">一键安装</string>
+	<string name="install_unpacking">资源包解压中，请稍候...</string>
+	<!-- chenbill add for silent install end -->
+	
+	<string name="Button_Reset">"重置"</string>
+	<!--wlf add for compass-->
+	<string name="compass_title">* 罗盘指向:   </string>
+	<string name="compass_value">请检查手机是否有加速度感应器和地磁感应器</string>
+	<string name="compass_value_e">东</string>
+	<string name="compass_value_w">西</string>
+	<string name="compass_value_s">南</string>
+	<string name="compass_value_n">北</string>
+	<string name="compass_value_ne">东北</string>
+	<string name="compass_value_nw">西北</string>
+	<string name="compass_value_se">东南</string>
+	<string name="compass_value_sw">西南</string>
+	<!--wlf-->
+	<string name="chip_info_button">"芯片信息"</string>
+	<string name="picture_saved_at">照片保存成功</string>
+	<string name="ageing_test">"老化测试"</string>
+	<string name="turn_on_loud_speaker">"开启喇叭"</string>
+	<string name="turn_off_loud_speaker">"关闭喇叭"</string>
+	<string name="turn_on_speaker">"开启听筒"</string>
+	<string name="turn_off_speaker">"关闭听筒"</string>
+	<string name="turn_on_mic">"开启麦克"</string>
+	<string name="turn_off_mic">"停止录音并播放"</string>
+	<string name="turn_on_vibrate">"开启马达"</string>
+	<string name="turn_off_vibrate">"关闭马达"</string>
+	<string name="turn_on_camera">"开启相机"</string>
+	<string name="turn_off_camera">"关闭相机"</string>
+	<string name="turn_on_flash">"开启手电"</string>
+	<string name="turn_off_flash">"关闭手电"</string>
+	<string name="turn_off_lcd">"灭屏"</string>
+	<string name="values_agetest">"老化测试"</string>
+	<string name="Button_Test_Fingerprint">"指纹"</string>
+	<string name="cant_find_fm_app">未找到收音机应用程序！</string>
+	<!--pingyh-->
+	<string name="battery_info_current_voltage">充电电压: </string>
+	<string name="battery_info_current_electronicl">充电电流: </string>
+	<!--pingyh-->
+	<string name="msg_btrssi">蓝牙信号强度: </string>
+	<!--fangfengfan add start-->
+	<string name="Button_maic_mic">主MIC</string>
+	<string name="Button_ref_mic">副MIC</string>
+	<string name="main_mic_is_recording">主MIC(USB口附近)正在录音...</string>
+	<string name="ref_mic_is_recording">副MIC(后摄附近)正在录音...</string>
+	<string name="Button_replay">播放</string>
+	<string name="Button_key">耳机按键</string>
+	<string name="Button_reconding">录制</string>
+    <string name="draw_line_error">画线超出范围</string>
+	<!--fangfengfan add end-->
+		<!--zzk add start-->
+	<string name="camera_dual_mode_success">双摄像头测试成功</string>
+	<string name="camera_dual_mode_fali">双摄像头测试失败请确认是否进行过遮挡副摄像头</string>
+	<string name="camera_dual_mode_test">进入相机后请遮挡副摄像头进行双摄测试</string>
+	<!--zzk  add end-->
+	<!-- zjw add for Hall !-->
+	<string name="title_activity_Hall_test"> 霍尔 </string>
+	<string name="Button_Test_Hall"> 霍尔 </string>
+	<string name="Button_Status_Test"> 霍尔测试 </string>
+	<string name="msg_Hall_text"> 霍尔测试: \n请点击按钮并等待3秒钟 </string>
+	<string name="msg_Hall_text1"> 霍尔测试: \n测试结束 </string>
+	<!-- yangkun add for coupling test results 2018/02/03 -->
+	<string name="wireless_test_title"> "天线测试结果："</string>
+        <string name="nsft_test_title"> "综合测试结果："</string>
+	<!-- add end -->
+	<string name="finger_active_status">指纹状态：</string>
+	<string name="google_key_active_status">Google key状态：</string>
+	<string name="active_status">激活</string>
+	<string name="unactive_status">未激活</string>
+
+    <string name="single_board_test">单板测试</string>
+    <string name="worker_check_switch">开启或关闭工位检查</string>
+    <string name="worker_check_switch_on">开启工位检查</string>
+    <string name="worker_check_switch_off">关闭工位检查</string>
+    <string name="clear_status">清除测试状态</string>
+    <string name="back_camera1">后置照相机</string>
+    <string name="back_camera2">后置照相机2</string>
+    <string name="front_camera">前置照相机</string>
+    <string name="Test_LCD">LCD/背光</string>
+</resources>

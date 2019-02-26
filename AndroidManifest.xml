@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="waterworld.com.factorytest"
+    android:sharedUserId="android.uid.system">
+
+    <uses-feature android:name="android.hardware.autofocus" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.teleca.permission.ACCESS"></uses-permission>
+    <uses-permission android:name="android.permission.TRANSMIT_IR"/>
+
+    <!--wlf add start for wifiTest in M -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" >
+    </uses-feature>
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" >
+    </uses-feature>
+
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" >
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        >
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.ykq.intent.action.FACTORY_TEST_MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.FMRadioTest"
+            android:exported="false"
+            android:label="@string/title_activity_fmradio_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.FMRADIO_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.EarPhoneTest"
+            android:exported="false"
+            android:label="@string/title_activity_EarPhone_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.ykq.intent.action.EARPHONE_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.BackLightTest"
+            android:exported="false"
+            android:label="@string/title_activity_buttonlight_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.ykq.intent.action.BUTTONLIGHT_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.BatteryTest"
+            android:exported="false"
+            android:label="@string/title_activity_battery_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.BATTERY_TEST" />
+                <action android:name="com.ykq.intent.action.BATTERY_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.BTTest"
+            android:exported="false"
+            android:label="@string/title_activity_BT_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.BT_TEST" />
+                <action android:name="com.ykq.intent.action.BT_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.CameraTest"
+            android:exported="false"
+            android:label="@string/title_activity_camera_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.CAMERA_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.FrontCameraTest"
+            android:exported="false"
+            android:label="@string/title_activity_camera_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.FRONTCAMERA_TEST" />
+                <action android:name="com.ykq.intent.action.FRONTCAMERA_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.GpsTestResult">
+            <intent-filter>
+                <action android:name="com.waterworld.intent.action.GPS_TEST"/>
+                <action android:name="com.ykq.intent.action.GPS_TEST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.KeyTest"
+            android:exported="false"
+            android:label="@string/title_activity_key_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.KEY_TEST" />
+                <action android:name="com.ykq.intent.action.KEY_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.LCDTest"
+            android:exported="false"
+            android:label="@string/title_activity_LCD_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.LCD_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.LoudSpeakerTest"
+            android:exported="false"
+            android:label="@string/title_activity_LoudSpeaker_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.LOUDSPEAKER_TEST" />
+                <action android:name="com.ykq.intent.action.LOUDSPEAKER_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.MicTest"
+            android:exported="false"
+            android:label="@string/title_activity_Mic_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.MIC_TEST" />
+                <action android:name="com.ykq.intent.action.MIC_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.OTGTest"
+            android:exported="false"
+            android:label="@string/title_activity_otg_test"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.ykq.intent.action.OTG_TEST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.PhoneMicTest"
+            android:exported="false"
+            android:label="@string/values_mic_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.PHONEMIC_TEST" />
+                <action android:name="com.ykq.intent.action.PHONEMIC_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.PhoneTest"
+            android:exported="false"
+            android:label="@string/title_activity_phone_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.PHONE_TEST" />
+                <action android:name="com.ykq.intent.action.PHONE_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.SDcardTest"
+            android:exported="false"
+            android:label="@string/title_activity_SDCard_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.SDCARD_TEST" />
+                <action android:name="com.ykq.intent.action.SDCARD_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.SensorTest"
+            android:exported="false"
+            android:label="@string/title_activity_sensor_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.SENSOR_TEST" />
+                <action android:name="com.ykq.intent.action.SENSOR_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.SimCardTest"
+            android:exported="false"
+            android:label="@string/title_activity_SimCard_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.SIMCARD_TEST" />
+                <action android:name="com.ykq.intent.action.SIMCARD_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.SpeakerTest"
+            android:exported="false"
+            android:label="@string/title_activity_Speaker_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.SPEAKER_TEST" />
+                <action android:name="com.ykq.intent.action.SPEAKER_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.VibrateTest"
+            android:exported="false"
+            android:label="@string/title_activity_vibate_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.VIBRATE_TEST" />
+                <action android:name="com.ykq.intent.action.VIBRATE_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.WifiTest"
+            android:exported="false"
+            android:label="@string/title_activity_WIFI_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.WIFI_TEST" />
+                <action android:name="com.ykq.intent.action.WIFI_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.TPTest"
+            android:exported="false"
+            android:label="@string/title_activity_tp_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.TP_TEST" />
+                <action android:name="com.ykq.intent.action.TP_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

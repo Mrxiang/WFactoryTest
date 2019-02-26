@@ -1,0 +1,350 @@
+<resources>
+
+    <string name="app_name"> FactoryTest </string>
+    <string name="title_activity_factory_test"> factoryTest </string>
+    <string name="title_activity_phone_test"> Phone </string>
+    <string name="title_activity_vibate_test"> Motor </string>
+    <string name="title_activity_LCD_test"> LCD </string>
+    <string name="title_activity_camera_test"> Camera </string>
+    <string name="title_activity_fmradio_test"> FMRadio </string>
+    <string name="title_activity_LoudSpeaker_test"> LoudSpeak </string>
+    <string name="title_activity_EarPhone_test"> headphones </string>
+    <string name="title_activity_SDCard_test"> SD/Mem </string>
+    <string name="title_activity_key_test"> Key(light)</string>
+    <string name="title_activity_Speaker_test"> Receiver </string>
+    <string name="title_activity_BackLight_test"> BackLight </string>
+    <string name="title_activity_Mic_test"> Headset microphone </string>
+    <string name="title_activity_SimCard_test"> SIM </string>
+    <string name="title_activity_BT_test"> Bluetooth </string>
+    <string name="title_activity_WIFI_test"> WIFI </string>
+    <string name="title_activity_buttonlight_test"> key light </string>
+    <string name="title_activity_tp_test"> TP </string>
+    <string name="title_activity_all_test"> Test Results </string>
+    <string name="title_activity_battery_test"> Battery </string>
+    <string name="title_activity_memory_test"> Memory </string>
+    <string name="title_activity_sensor_test"> Sensor </string>
+    <string name="title_activity_gps_test">Gps</string>
+    <string name="title_activity_infrared_test">Infrared</string>
+    <string name="title_activity_otg_test">OTG</string>
+    <string name="Button_Test_OTG">OTG</string>
+    <string name="title_activity_hardware_info">HardwareInfomation</string>
+    <string name="Button_Test_banben"> Version: </string>
+    <string name="Button_Test_jiaozhun"> Has been calibrated: </string>
+    <string name="testall_res"> pass all : </string>
+    <string name="msg_shi"> Yes </string>
+    <string name="msg_fou"> No </string>
+    <string name="Button_Test_All"> Test All </string>
+    <string name="Button_Test_LCD"> LCD/BL </string>
+    <string name="Button_Test_LCD_without_BL"> LCD </string>
+    <string name="Button_Test_MainCamera"> Camera </string>
+    <string name="Button_Test_DeputyCamera"> DeputyCamera </string>
+    <string name="Button_Test_SubCamera"> SubCamera </string>
+    <string name="Button_Test_TP"> TP</string>
+    <string name="Button_Test_Battery"> Battery </string>
+    <string name="Button_Test_Key"> Key(Light)</string>
+    <string name="Button_Test_LoudSpeaker">LoudSpk</string>
+    <string name="Button_Test_Mic"> headset </string>
+    <string name="Button_Test_earphone"> headphones </string>
+    <string name="Button_Test_FMRadio"> FMRadio </string>
+    <string name="Button_Test_Speaker"> Receiver </string>
+    <string name="Button_Test_Gps">GPS</string>
+    <string name="Button_Test_Infrared">Infrared</string>
+    <string name="Button_Test_BlueTooth"> BlueTooth </string>
+    <string name="Button_Test_Vibrate"> Motor </string>
+    <string name="Button_Test_Phone"> Phone </string>
+    <string name="Button_Test_BackLight"> BackLight </string>
+    <string name="Button_Test_ButtonLight"> Key Light </string>
+    <string name="Button_Test_Flash"> Flash </string>
+    <string name="Button_Test_SDcard"> SD/Mem </string>
+    <string name="Button_Test_SIMcard"> SIM </string>
+    <string name="Button_Test_WIFI"> WIFI </string>
+    <string name="Button_Test_Gsensor"> Gsensor </string>
+    <string name="Button_Test_ALSPS"> ALS / PSsensor </string>
+    <string name="Button_Test_NEICUN"> Memory </string>
+    <string name="Button_Status_Success"> Success </string>
+    <string name="Button_Status_Fail"> Failed </string>
+    <string name="LCD_NEXT"> next </string>
+    <string name="Button_Test_Sensor"> Sensor </string>
+    <string name="msg_title"> headphones </string>
+    <string name="msg_masse"> Please insert the headset again! </string>
+    <string name="msg_masse_no"> Please Pull out  the headset again!</string>
+    <string name="msg_ok"> OK </string>
+    <string name="msg_sdcard"> SD card does not exist </string>
+    <string name="msg_sdcard_new"> SD card is not exist, Mic test failed! </string>
+    <string name="msg_record"> Recording ... </string>
+    <string name="msg_recordstop"> Recording stops ... </string>
+    <string name="msg_stoprecord"> Stop recording </string>
+    <string name="msg_play"> Play </string>
+    <string name="msg_playstop"> stop playback </string>
+    <string name="msg_recordrun"> Playing ... </string>
+    <string name="msg_sensor_alps"> Please covered the up of the screen </string>
+    <string name="msg_shanguang"> Flash test ... </string>
+    <string name="msg_shexiang"> Camera test ... </string>
+    <string name="msg_shanguang_ok"> Flash testing.Please Press The CameraButton </string>
+    <string name="msg_shexiang_ok"> Camera test finish. </string>
+    
+    <string name="msg_vibrate_text"> Motor tests: \nFeeling the Phone body vibrate Judge whether the motor is effectively </string>
+    
+    <string name="msg_sim">SIM Status:</string>
+    <string name="msg_sim1"> SIM1 Status: </string>
+    <string name="msg_sim2"> SIM2 Status: </string>
+   <string name="msg_sim_state"> Good condition, available </string>
+    <string name="msg_sim_stateno"> Unable to obtain SIM status </string>
+    <string name="msg_1"> No card </string>
+    <string name="msg_2"> Unknown status </string>
+    <string name="msg_3"> Need NetworkPIN unlock </string>
+    <string name="msg_4"> Require a PIN to unlock </string>
+    <string name="msg_5"> Need the PUK to unlock </string>
+    <string name="msg_6"> Good </string>
+    
+    <string name="msg_camera_erro"> Flash test failing! </string>
+    <string name="msg_bton"> search for Bluetooth </string>
+    <string name="msg_btoff"> Off Bluetooth </string>
+    <string name="msg_btname"> Bluetooth name: </string>
+    <string name="msg_btvalue"> Bluetooth Address: </string>
+    <string name="msg_btwait"> Bluetooth closing, please wait try again... </string>
+    
+    <string name="msg_wifion"> Open WIFI </string>
+    <string name="msg_wifioff"> Close WIFI </string>
+    <string name="msg_wifien"> WIFI available </string>
+    <string name="msg_wifidis"> WIFI unavailable </string>
+    
+    <string name="msg_buttonon"> Key lights on </string>
+    <string name="msg_buttonoff"> Key lights off </string>
+    
+    
+    <string name="values_sd1"> SDCard Exists: </string>
+    <string name="values_sd2"> SDCard Path: </string>
+    <string name="values_sd3"> Package path: </string>
+    <string name="values_sd4"> Create the file: </string>
+    <string name="values_sd5"> Delete files successfully: </string>
+    <string name="values_sd6"> Read the file: </string>
+    <string name="values_sd7"> SDCard test results: </string>
+    
+    <string name="values_mic_e"> Headset microphone test: is recording ... </string>
+    <string name="values_mic_e1"> Headset microphone test: recording is complete!(4s) ... </string>
+    <string name="values_mic_e2"> Headset microphone test: is Playing ... </string>
+    <string name="values_mic_e3"> Headset microphone test is complete!. </string>
+    
+    <string name="values_mic"> Mobile Mic Test: is recording ... </string>
+    <string name="values_mic_2"> Mobile Mic Test: is Playing ... </string>
+    <string name="values_mic_7"> Mobile Mic test: recording is complete!(4s) ... </string>
+    <string name="values_mic_3"> Mobile Mic test is complete!. </string>  
+    <string name="values_mic_test"> Mic </string>
+	
+    <string name="values_infrared_control_test">Infrared control test ...</string>
+    
+    <string name="values_mic_1"> Mobile Mic test is completed! </string>
+    <string name="values_loud"> LoudSpeaker Testing ... </string>
+    <string name="values_loud_2"> LoudSpeaker test is completed! </string>
+    <string name="values_sp"> Speaker Testing ... </string>
+    <string name="values_sp_2"> Speaker Test is completed! </string>
+    <string name="values_main1"> Test Report </string>
+    <string name="values_main2"> Exit Test </string>
+    
+    <string name="Large_Text"> SDCard error </string>
+    <string name="values_is"> values ​​is </string>
+   <string name="values_success"> Test success: </string>
+   <string name="values_fail"> Test failed: </string>
+   <string name="values_bk_msg"> Backlight Test: Observe the backlight brightness changes </string>
+   <string name="values_bklight"> increases </string>
+    <string name="values_light"> Reduced </string>
+   <string name="values_menu"> Menu </string>
+    <string name="values_main"> Home </string>
+    <string name="values_return"> Back </string>
+    <string name="values_volueup"> Volume + </string>
+    <string name="values_voluedown"> Volume - </string>
+    <string name="values_record"> Start recording </string>
+    <string name="values_power"> Power </string>
+    <string name="values_camera"> Capture </string>
+    <string name="values_mada"> Motor Testing ... </string>
+    <string name="values_sao"> Scan Network </string>
+    <string name="values_lanya"> detect Bluetooth: </string>
+    <string name="values_dakai"> open Wifi </string>
+    <string name="values_guanbi"> Close Wifi </string>
+    <string name="values_vzhuangt"> Wifi status </string>
+    <string name="values_dangqian"> Scanning Wifi network: </string>
+    <string name="values_tptest"> Complete TP test requires drawing three times! </string>
+    <string name="values_tptest1"> TP test is completed! </string>
+   <string name="values_SDcard"> Detected SDCard: </string>
+   <string name="values_SDcardrong"> SDCard total capacity: </string>
+   <string name="values_SDcardsheng"> SDCard remaining capacity: </string>
+   <string name="values_SDcardno"> SDCard does not exist </string>
+   <string name="values_memoryjie"> Mem Test Results: </string>
+  <string name="values_memoryzong"> Total Memory: </string>
+   <string name="values_memorysheng"> Remaining memory capacity: </string>
+   <string name="values_memorynei"> Internal phone storage capacity: </string>
+   <string name="values_memorymeisheng"> Phone internal memory remaining capacity: </string>
+   <string name="values_wifidang"> Scanned wifi network: </string>
+  
+    <string name="no_link_equipment">OTG is no link equipment </string>
+    <string name="link_equipment">OTG is link equipment </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_label"> Battery Status: </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_scale_label"> Total battery percentage: </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_level_label"> Current battery percentage: </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_label"> Battery Health Level: </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_voltage_label"> Battery voltage: </string>
+    <!-- Battery Info screen. Units shown after a value. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_voltage_units"> mV </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_temperature_label"> Battery temperature: </string>
+    <!-- Battery Info screen. Units shown after a value. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_temperature_units"> \u00B0 C </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_uptime"> The boot length: </string>
+    <!-- Battery Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_screen_on"> bright screen time: </string>
+    
+
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_unknown"> Unknown </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging"> charging </string>
+    <!-- Battery Info screen. Units shown after a value. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging_ac"> (AC) </string>
+    <!-- Battery Info screen. Units shown after a value. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_charging_usb"> (USB) </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_discharging"> Discharging </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_not_charging"> uncharged </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_status_full"> full </string>
+
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_unknown"> Unknown </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_good"> very good </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_overheat"> overheating </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_dead"> death </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_over_voltage"> overvoltage </string>
+    <!-- Battery Info screen. Value for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="battery_info_health_unspecified_failure"> unknown error </string>
+    
+        <string name="battery_charge_info_text"> N </string>
+    <!-- Battery test end -->
+    
+
+    <string name="read_only"> \u0020 (Read-only) </string>
+    
+
+    <string name="Button_Test_MEMORY"> Memory </string>
+    <string name="tv_G_X1"> X +: </string>
+    <string name="tv_G_X2"> X -: </string>
+    <string name="tv_G_Y1"> Y +: </string>
+    <string name="tv_G_Y2"> Y -: </string>
+    <string name="tv_G_Z1"> Z +: </string>
+    <string name="tv_G_Z2"> Z -: </string>
+    <string name="tv_G_ceshi"> Testing .. </string>
+
+    <string name="title_activity_sensor"> Sensor </string>
+    <string name="Text_APS"> 3. Psensor </string>
+    <string name="Text_ALS"> 2. ALsensor </string>
+        <string name="Text_ALSPS"> Psensor/ALsensor </string>
+         <string name="Text_Gsensor"> 1. Gsensor </string>
+         <string name="GSensor_Test_Info"> please turn the body to change the gravity tilt sensor value </string>
+         <string name="ALSSensor_Test_Info_Real"> cover the ALsensor / proximity sensor to change its value </string>
+         <string name="ALSSensor_Test_Info_False"> Please touch TP </string>
+        <string name="Text_ALSPS_VALUE_CLOSE"> Approaching </string>
+        <string name="Text_ALSPS_VALUE_AWAY"> Away </string>
+		<string name="als_help_message"> 2. ALsensor: If value increase when environmental light enhance, value decrease when environmental light weaken and value is 0 when blocking the ALsensor, It works well</string>
+	<!-- chenbill add for silent install start -->
+	<string name="Button_OneKey_Install">One key install</string>
+	<string name="install_unpacking">Application unpacking,please wait...</string>
+	<!-- chenbill add for silent install end -->
+	
+	<string name="Button_Reset">Reset</string>
+	<!--wlf add for compass-->
+	<string name="compass_title">* Compass Point:   </string>
+	<string name="compass_value">Please check are accelerometer and magnetic sensors work well</string>
+	<string name="compass_value_e">East</string>
+	<string name="compass_value_w">West</string>
+	<string name="compass_value_s">South</string>
+	<string name="compass_value_n">North</string>
+	<string name="compass_value_ne">North-East</string>
+	<string name="compass_value_nw">North-West</string>
+	<string name="compass_value_se">South-East</string>
+	<string name="compass_value_sw">South-West</string>
+	<!--wlf-->
+	<string name="ic_info_title">HW Info</string>
+	<string name="ageing_test">The aging test</string>
+	<string name="turn_on_loud_speaker">"Turn on loudSpeaker"</string>
+	<string name="turn_off_loud_speaker">"Turn off loudSpeaker"</string>
+	<string name="turn_on_speaker">"Turn on receiver"</string>
+	<string name="turn_off_speaker">"Turn off receiver"</string>
+	<string name="turn_on_mic">"Start record"</string>
+	<string name="turn_off_mic">"Stop record and play it"</string>
+	<string name="turn_on_vibrate">"Turn on vibrate"</string>
+	<string name="turn_off_vibrate">"Turn off vibrate"</string>
+	<string name="turn_on_camera">"Turn on camera"</string>
+	<string name="turn_off_camera">"Turn off camera"</string>
+	<string name="turn_on_flash">"Turn on flash"</string>
+	<string name="turn_off_flash">"Turn off flash"</string>
+	<string name="turn_off_lcd">"Turn off lcd"</string>
+	<string name="values_agetest">"Ageing test"</string>
+	<string name="Button_Test_Fingerprint">"Fingerprint"</string>
+	<string name="chip_info_button">Chip Info</string>
+	<string name="light_red">R</string>
+	<string name="light_green">G</string>
+	<string name="light_blue">B</string>
+	<string name="picture_saved_at">Picture saved success! </string>
+	<string name="cant_find_fm_app">Can\'t find FM app!</string>
+	<!--pingyh-->
+	<string name="battery_info_current_voltage">Charger Voltage : </string>
+	<string name="msg_btrssi">Bluetooth Rssi: </string>
+	<string name="battery_info_current_electronicl">Charger Electronic: </string>
+	<!--pingyh-->
+	<!--fangfengfan add start-->	
+	<string name="Button_maic_mic">Main MIC</string>
+	<string name="Button_ref_mic">Ref MIC</string>
+	<string name="main_mic_is_recording">Main MIC(near the USB port) is Recording...</string>
+	<string name="ref_mic_is_recording">Ref MIC(near the main camera) is Recording...</string>
+	<string name="Button_replay">playing</string>
+	<string name="Button_key">earphone</string>
+	<string name="Button_reconding">recording</string>
+    <string name="draw_line_error">Line drawing is beyond range</string>
+	<!--fangfengfan add end-->
+	<!--zzk add start-->
+	<string name="camera_dual_mode_success">CameraDualModeTestSuccess</string>
+	<string name="camera_dual_mode_fali">CameraDualModeTestFail...Are you block the vice camera?</string>
+	<string name="camera_dual_mode_test">Block the vice camera when entered the Camera</string>
+	<!--zzk  add end-->
+	<string name="title_activity_Hall_test"> Hall </string>
+	<string name="Button_Test_Hall"> Hall </string>
+	<string name="Button_Status_Test"> Hall Test </string>
+	<string name="msg_Hall_text"> Hall tests: \nPlease click the button and wait 3 seconds </string>
+	<string name="msg_Hall_text1"> Hall tests: \nTest Over </string>
+	<!-- yangkun add for coupling test results 2018/02/03 -->
+	<string name="wireless_test_title"> "Wireless test results : "</string>
+        <string name="nsft_test_title"> "NSFT test results : "</string>
+	<!-- add end -->
+	<string name="finger_active_status">Fingerprint status:</string>
+	<string name="google_key_active_status">Google key status:</string>
+	<string name="active_status">ACTIVE</string>
+	<string name="unactive_status">UNACTIVE</string>
+	<!-- wbin add for sw hw version-->
+	<string name="device_info_default">Unknown</string>
+    <string name="device_info_settings">Version</string>
+    <string name="sw_version">SW version</string>
+    <string name="sw_version_default">P88_Pride_1X_V01</string>
+    <string name="hw_version">HW version</string>
+    <string name="hw_version_default">V1.0</string>
+
+    <string name="single_board_test">single board test</string>
+    <string name="worker_check_switch">open or close work check</string>
+    <string name="worker_check_switch_on">worker check on</string>
+    <string name="worker_check_switch_off">worker check off</string>
+    <string name="clear_status">clear status</string>
+    <string name="back_camera1">back camera</string>
+    <string name="back_camera2">back camera2</string>
+    <string name="front_camera">front camera</string>
+    <string name="Test_LCD">LCD/Backlight</string>
+</resources>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="17dp"
+       android:text="@string/Large_Text"
+       android:textColor="#00ff00"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="17dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="22dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    
+    
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#0000ff"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="17dp"
+        android:text="@string/Large_Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="20dp"
+        android:text="@string/Large_Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="26dp"
+        android:text="@string/Large_Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="27dp"
+        android:text="@string/Large_Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    
+    
+    
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/Button_Success"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/Button_Status_Success" />
+
+        <Button
+            android:id="@+id/Button_Fail"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/Button_Status_Fail" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="25dip"
+            android:textColor="#0000ff" />
+        
+        <TextView
+            android:id="@+id/textView0_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="25dip"
+            android:textColor="#0000ff" />
+        
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView0"
+            android:text="@string/Large_Text"
+            android:textSize="22dip"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/Large_Text"
+            android:layout_below="@+id/textView1"
+            android:textSize="22dip"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/Large_Text"
+            android:layout_below="@+id/textView2"
+            android:textSize="22dip"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/Large_Text"
+            android:textSize="22dip"
+            android:layout_below="@+id/textView3"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/tv_T"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/values_sd7"
+            android:textColor="#0000ff"
+            android:textSize="25dip" 
+            android:layout_below="@+id/textView4"/>
+
+         <TextView
+            android:id="@+id/tv_T_result"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#00ff00"
+            android:textSize="25dip" 
+            android:layout_toRightOf="@+id/tv_T"
+            android:layout_below="@+id/textView4"/>
+         
+<!--         <TextView -->
+<!--             android:id="@+id/SDPathTextView" -->
+<!--             android:layout_width="fill_parent" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:textSize="22dip"  -->
+<!--             android:layout_below="@+id/tv_T"/> -->
+
+        <TextView
+            android:id="@+id/hasSDTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22dip" 
+            android:layout_below="@+id/tv_T_result"/>
+
+        <TextView
+            android:id="@+id/createFileTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22dip"
+            android:layout_below="@+id/hasSDTextView" />
+
+        <!--
+         <TextView
+        android:id="@+id/readFileTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dip" />
+        -->
+
+        <TextView
+            android:id="@+id/deleteFileTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22dip" 
+            android:layout_below="@+id/createFileTextView"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RV_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/Button_Success"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_true"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Success" />
+
+        <Button
+            android:id="@+id/Button_Fail"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_fail"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Fail" />
+    </RelativeLayout>
+
+</RelativeLayout>

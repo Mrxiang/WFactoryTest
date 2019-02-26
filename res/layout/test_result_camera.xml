@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+    android:id="@+id/surfaceview_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+        android:scaleType="center"
+    android:layout_alignParentTop="true"
+    android:layout_above="@+id/RV_button"
+    
+    >
+    
+     <SurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:visibility="gone" />
+     <ImageButton
+            android:id="@+id/Button_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_marginTop="30dip"
+            android:layout_marginRight="5dip"
+            android:textSize="18dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_flash_on_holo_light"/>
+    	<ImageButton
+            android:id="@+id/Button_capture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="50dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/btn_shutter_photo"/>
+    
+    </FrameLayout>
+    <RelativeLayout
+        android:id="@+id/RV_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/Button_Success"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_true"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Success" />
+
+        <Button
+            android:id="@+id/Button_Fail"
+            android:layout_width="150dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bk_fail"
+            android:textSize="25dip"
+            android:text="@string/Button_Status_Fail" />
+
+        <ImageView
+            android:id="@+id/btn_capture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/selector_light" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/flash_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/surfaceview_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="196dp"
+        android:text="@string/msg_shanguang_ok" />
+
+</RelativeLayout>
