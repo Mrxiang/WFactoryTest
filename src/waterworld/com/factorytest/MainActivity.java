@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -39,6 +40,7 @@ public class MainActivity extends Activity {
     private ListView        mListView;
     private FactoryAdapter  mAdapter;
 
+    private HandlerThread       mHandlerThread ;
     private Handler             handler;
     private List<FactoryBean>   mDatas;
     @Override
@@ -53,7 +55,10 @@ public class MainActivity extends Activity {
 
         initListView();
 
-        handler =  new Handler(){
+        mHandlerThread = new HandlerThread( "handler-thread") ;
+        //开启一个线程
+        mHandlerThread.start();
+        handler =  new Handler(mHandlerThread.getLooper()){
             int  handlerStatus=0;
             @Override
             public void handleMessage(Message msg) {
@@ -64,7 +69,7 @@ public class MainActivity extends Activity {
                         Log.d(TAG, "handleMessage: "+what);
                         try {
                             Log.d(TAG, "sleep: ");
-                            Thread.sleep(2000);
+                            Thread.sleep(1000);
                         }catch (Exception e){
                             e.printStackTrace();
                         }
