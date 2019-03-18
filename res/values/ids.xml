@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="selected_view" type="id"/>
+    <item name="list_item_fragment" type="id"/>
+    <item name="grid_item_fragment" type="id"/>
+
+</resources>

@@ -30,6 +30,7 @@
     <string name="msg_shi">是</string>
     <string name="msg_fou">否</string>
     <string name="Button_Test_All">测试全部</string>
+    <string name="testall_res">通过全部</string>
     <string name="Button_Test_LCD">LCD/+</string>
     <string name="Button_Test_LCD_without_BL"> LCD </string>
     <string name="Button_Test_MainCamera">摄像头</string>
@@ -136,7 +137,7 @@
     <string name="values_loud_2">揚声器测试完毕!</string>
     <string name="values_sp">正在进行听筒测试...</string>
     <string name="values_sp_2">听筒测试完毕!</string>
-    <string name="values_main1">测试报告</string>
+    <string name="test_report">测试报告</string>
     <string name="values_main2">退出测试</string>
     
     <string name="Large_Text">T卡错误</string>
@@ -328,6 +329,23 @@
 	<string name="active_status">激活</string>
 	<string name="unactive_status">未激活</string>
 
+	<string name="second_camera_test">辅摄测试</string>
+	<string name="remind"> "提醒"</string>
+	<string name="remind_content"> "请用手指遮挡辅摄像头进行测试并作出判断"</string>
+	<string name="Back_top_values">返回</string>
+    <string name="cust_build_version_titlebar_text">软件版本号</string>
+    <string name="cust_build_version_title">版本:</string>
+
+    <string name="hd_titlebar_text">硬件信息</string>
+    <string name="hd_pcba_title">PCBA Ver:</string>
+    <string name="hd_cpu_title">CPU:</string>
+    <string name="hd_lcm_title">LCD:</string>
+    <string name="hd_tp_title">TP:</string>
+    <string name="hd_flash_title">Flash:</string>
+    <string name="hd_front_camera_title">前摄像头:</string>
+    <string name="hd_back_camera_title">后摄像头:</string>
+    <string name="fingerprint_ic_title">指纹的IC:</string>
+   
     <string name="single_board_test">单板测试</string>
     <string name="worker_check_switch">开启或关闭工位检查</string>
     <string name="worker_check_switch_on">开启工位检查</string>
@@ -337,4 +355,8 @@
     <string name="back_camera2">后置照相机2</string>
     <string name="front_camera">前置照相机</string>
     <string name="Test_LCD">LCD/背光</string>
+    <string name="title_activity_hardware_info">硬件信息</string>
+    <string name="sure_exit">再按一次退出程序</string>
+    <string name="test_exit">退出</string>
+
 </resources>

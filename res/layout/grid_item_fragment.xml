@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@color/lightskyblue"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
+        <LinearLayout
+            android:id="@+id/image_switcher_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/btn_test_all"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_gravity="bottom"
+                android:text="@string/Button_Test_All"
+                android:textSize="18dip"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_test_reset"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_gravity="bottom"
+                android:text="@string/Button_Reset"
+                android:textSize="18dip"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <com.waterworld.factorytest.ext.ScrollGridView
+            android:id="@+id/grid_factory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="3"
+            android:horizontalSpacing="8dp"
+            android:verticalSpacing="6dp"
+            android:scrollbars="none"></com.waterworld.factorytest.ext.ScrollGridView>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btn_test_report"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_gravity="bottom"
+                android:text="@string/test_report"
+                android:textSize="18dip"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_test_exit"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_gravity="bottom"
+                android:text="@string/values_main2"
+                android:textSize="18dip"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -139,7 +139,7 @@
     <string name="values_loud_2"> LoudSpeaker test is completed! </string>
     <string name="values_sp"> Speaker Testing ... </string>
     <string name="values_sp_2"> Speaker Test is completed! </string>
-    <string name="values_main1"> Test Report </string>
+    <string name="test_report"> Test Report </string>
     <string name="values_main2"> Exit Test </string>
     
     <string name="Large_Text"> SDCard error </string>
@@ -331,13 +331,29 @@
 	<string name="active_status">ACTIVE</string>
 	<string name="unactive_status">UNACTIVE</string>
 	<!-- wbin add for sw hw version-->
+	<string name="second_camera_test"> "Second Camera Test"</string>
+	<string name="remind"> "Remind"</string>
+	<string name="remind_content"> "请用手指遮挡辅摄像头进行测试并作出判断"</string>
+	<string name="Back_top_values">Back</string>
 	<string name="device_info_default">Unknown</string>
     <string name="device_info_settings">Version</string>
     <string name="sw_version">SW version</string>
     <string name="sw_version_default">P88_Pride_1X_V01</string>
     <string name="hw_version">HW version</string>
     <string name="hw_version_default">V1.0</string>
-
+    
+    <string name="cust_build_version_titlebar_text">soft version</string>
+    <string name="cust_build_version_title">version:</string>
+    <string name="hd_titlebar_text">Hardware info</string>
+    <string name="hd_pcba_title">PCBA Ver:</string>
+    <string name="hd_cpu_title">Chipset:</string>
+    <string name="hd_lcm_title">LCD:</string>
+    <string name="hd_tp_title">TP:</string>
+    <string name="hd_flash_title">Flash:</string>
+    <string name="hd_front_camera_title">Front Camera:</string>
+    <string name="hd_back_camera_title">Back Camera:</string>
+    <string name="fingerprint_ic_title">Fingerprint IC:</string>
+  
     <string name="single_board_test">single board test</string>
     <string name="worker_check_switch">open or close work check</string>
     <string name="worker_check_switch_on">worker check on</string>
@@ -347,4 +363,13 @@
     <string name="back_camera2">back camera2</string>
     <string name="front_camera">front camera</string>
     <string name="Test_LCD">LCD/Backlight</string>
+    <string name="list_style">列表模式</string>
+    <string name="grid_style">宫格模式</string>
+    <string name="other">其他</string>
+    <string name="show">显示</string>
+    <string name="title_grid_fragment">宫格视图</string>
+    <string name="title_list_fragment">列表视图</string>
+    <string name="sure_exit">Sure exit?</string>
+    <string name="test_exit">exit</string>
+
 </resources>

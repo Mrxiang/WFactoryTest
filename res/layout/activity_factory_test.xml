@@ -394,7 +394,7 @@
 	        android:layout_height="62dip"
 			android:layout_weight="1"
 			android:layout_gravity="center"
-	        android:text="@string/values_main1"
+	        android:text="@string/test_report"
 	        android:textSize="18dip" />
 	
 	    <Button

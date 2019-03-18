@@ -17,11 +17,12 @@
 
             <TextView
                 android:id="@+id/tv_banben"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Button_Test_banben"
                 android:textColor="#0000ff"
-                android:textSize="25dip" />
+                android:textSize="25dip"
+                android:background="@color/dimgray"/>
 
             <TextView
                 android:id="@+id/tv_banben_value"
@@ -34,15 +35,16 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/tv_jiaozhun"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Button_Test_jiaozhun"
                 android:textColor="#00ffff"
-                android:textSize="25dip" />
+                android:textSize="25dip"
+                android:background="@color/dimgray"/>
 
             <TextView
                 android:id="@+id/tv_jiaozhun_choose"
@@ -53,7 +55,7 @@
         </LinearLayout>
 
         <LinearLayout
-        	android:id="@+id/finger_status"
+            android:id="@+id/finger_status"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -76,7 +78,7 @@
         </LinearLayout>
 
         <LinearLayout
-        	android:id="@+id/google_key_status"
+            android:id="@+id/google_key_status"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -97,7 +99,7 @@
                 android:textColor="#0000ff"
                 android:textSize="25dip"/>
         </LinearLayout>
-        
+
         <!--  yangkun add for coupling test results 2018/02/03   -->
         <LinearLayout
             android:layout_width="fill_parent"
@@ -146,28 +148,29 @@
                 android:visibility = "gone" />
         </LinearLayout>
         <!-- add end  -->
-	<LinearLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/tv_testall_result"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#0000ff"
-                android:textSize="20dip" 
-		android:text="@string/testall_res"
-		/>
+                android:textSize="20dip"
+                android:text="@string/testall_res"
+                android:background="@color/dimgray"
+                />
 
             <TextView
                 android:id="@+id/tv_testall_choose"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#0000ff"
-                android:textSize="25dip" 
-		android:text="@string/msg_fou"
-		/>
+                android:textSize="25dip"
+                android:text="@string/msg_fou"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -182,9 +185,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/values_success"
                 android:textColor="@color/green"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:background="@color/dimgray"/>
 
-            <ListView
+            <com.waterworld.factorytest.ext.ScrollListView
                 android:id="@+id/tv_true"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -194,8 +198,9 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" 
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="2dp">
 
             <TextView
                 android:id="@+id/tv_tv"
@@ -203,9 +208,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/values_fail"
                 android:textColor="@color/red"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:background="@color/dimgray"/>
 
-            <ListView
+            <com.waterworld.factorytest.ext.ScrollListView
                 android:id="@+id/tv_false"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
