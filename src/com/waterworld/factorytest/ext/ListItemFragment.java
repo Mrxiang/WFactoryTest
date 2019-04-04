@@ -91,6 +91,7 @@ public class ListItemFragment extends Fragment {
                                     break;
                                 }
                             }
+                            FactoryDatas.storeDatasToNvram(mDatas);
                         }
                         break;
                     case Utils.PAUSE:

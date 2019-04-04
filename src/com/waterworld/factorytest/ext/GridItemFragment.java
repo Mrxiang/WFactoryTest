@@ -73,7 +73,7 @@ public class GridItemFragment  extends Fragment{
                         Log.d(TAG, "handleMessage: "+what);
                         try {
                             Log.d(TAG, "sleep: ");
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         }catch (Exception e){
                             e.printStackTrace();
                         }
@@ -91,6 +91,7 @@ public class GridItemFragment  extends Fragment{
                                     break;
                                 }
                             }
+                            FactoryDatas.storeDatasToNvram(mDatas);
                         }
                         break;
                     case Utils.PAUSE:

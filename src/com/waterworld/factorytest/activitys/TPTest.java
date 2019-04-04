@@ -125,7 +125,8 @@ public class TPTest extends FactoryActivity {
 			finish();
 		}
 
-		generalBlockData();
+//		generalBlockData();
+		generalBlockData2();
 		//by yds end
 
 	} 
@@ -462,6 +463,41 @@ class RingView extends View {
 		//if(false==same)
 		mUntouchArea.add(new RecArea(x1, y1, x2, y2));
 	}
+
+	private void generalBlockData2( ){
+		Log.d(TAG, "generalBlockData2: ");
+		int columns = 9; int rows = 11; int distance = 3;
+		xBegin = ((screenWidth - columns*distance)/columns)%2;
+		yBegin = ((screenHeigh - rows*distance)/rows)%2;
+
+		int xdis = screenWidth/columns -distance;
+		int ydis = screenHeigh/rows - distance;
+		int i ,j,x1, y1, x2, y2;
+		for( i=0; i< rows; ){
+			y1 = yBegin + (ydis+distance)*i ;
+			for( j=0; j<columns ; j++){
+				x1 = xBegin + (xdis+distance)*j;
+				x2 = x1+ xdis;
+				y2 = y1+ ydis;
+				addBlock(x1, y1, x2, y2);
+			}
+			i=i+2;
+		}
+
+		for( i=0; i<columns; ){
+			x1 = xBegin +( xdis +distance)*i;
+			for( j=0; j<rows; j++){
+				y1 = yBegin + (ydis+distance)*j;
+				x2=  x1+xdis;
+				y2 = y1+ydis;
+				addBlock(x1, y1, x2, y2);
+			}
+			i=i+2;
+		}
+
+
+	}
+
 	private void generalBlockData() {
 		xBegin = (screenWidth % (blockWidth + distance) + distance) / 2;
 		yBegin = (screenHeigh % (blockHeigh + distance) + distance) / 2;

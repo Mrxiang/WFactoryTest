@@ -246,7 +246,7 @@ public class PhoneMicTest extends FactoryActivity implements OnClickListener {
         audioManager.setSpeakerphoneOn(false);
         old_volume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
-                audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);//AudioManager.FLAG_SHOW_UI);
+                audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), AudioManager.FLAG_PLAY_SOUND );//AudioManager.FLAG_SHOW_UI);
         success_Button.setEnabled(false);
         tx_mic = (TextView) findViewById(R.id.tx_mic);
         reconding_Button = (Button) findViewById(R.id.Button_reconding);

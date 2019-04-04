@@ -228,6 +228,140 @@ public class FactoryDatas {
         return fragmentIndex;
     }
 
+    public static boolean parseFlashLightValue(Context context){
+        Log.d(TAG, "parseFactory: ");
+        boolean    flashlight_bool=false;
+        try {
+            XmlResourceParser parser = context.getResources().getXml(R.xml.factory);
+
+            int event = parser.getEventType();
+            while (event != XmlResourceParser.END_DOCUMENT) {
+                Log.d(TAG, "Parser: " + event);
+                switch (event) {
+                    case XmlResourceParser.START_DOCUMENT:
+                        Log.d(TAG, "start: ");
+                        break;
+                    case XmlResourceParser.START_TAG:
+                        String name = parser.getName();
+                        Log.d(TAG, "start tag: " + name);
+                        if( name.equals( Utils.FACTORY ) ){
+                            int count = parser.getAttributeCount();
+                            String attrName="";
+                            for(int i=0; i<count; i++){
+                                attrName = parser.getAttributeName(i);
+                                Log.d(TAG, i+" Parser: "+ attrName );
+                                if( attrName.equals( Utils.FLASHLIGHT_BOOL ) ){
+                                    flashlight_bool = parser.getAttributeBooleanValue(i, false);
+                                    Log.d(TAG, "parse value : "+attrName +" "+flashlight_bool);
+                                }
+                            }
+                        }
+                        break;
+                    case XmlResourceParser.END_TAG:
+                        Log.d(TAG, "end tag: ");
+                        break;
+                    default:
+                        Log.d(TAG, "default: ");
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "getAttr: "+e.toString());
+            e.printStackTrace();
+        }
+        return flashlight_bool;
+    }
+
+    public static boolean parseSystemBackCameraValue(Context context){
+        Log.d(TAG, "parseFactory: ");
+        boolean    boolValue =false;
+        try {
+            XmlResourceParser parser = context.getResources().getXml(R.xml.factory);
+
+            int event = parser.getEventType();
+            while (event != XmlResourceParser.END_DOCUMENT) {
+                Log.d(TAG, "Parser: " + event);
+                switch (event) {
+                    case XmlResourceParser.START_DOCUMENT:
+                        Log.d(TAG, "start: ");
+                        break;
+                    case XmlResourceParser.START_TAG:
+                        String name = parser.getName();
+                        Log.d(TAG, "start tag: " + name);
+                        if( name.equals( Utils.FACTORY ) ){
+                            int count = parser.getAttributeCount();
+                            String attrName="";
+                            for(int i=0; i<count; i++){
+                                attrName = parser.getAttributeName(i);
+                                Log.d(TAG, i+" Parser: "+ attrName );
+                                if( attrName.equals( Utils.SYSTEMBACKCAMERA ) ){
+                                    boolValue = parser.getAttributeBooleanValue(i, false);
+                                    Log.d(TAG, "parse value : "+attrName +" "+boolValue);
+                                }
+                            }
+                        }
+                        break;
+                    case XmlResourceParser.END_TAG:
+                        Log.d(TAG, "end tag: ");
+                        break;
+                    default:
+                        Log.d(TAG, "default: ");
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "getAttr: "+e.toString());
+            e.printStackTrace();
+        }
+        return boolValue;
+    }
+
+    public static boolean parseSystemFrontCameraValue(Context context){
+        Log.d(TAG, "parseFactory: ");
+        boolean    boolValue =false;
+        try {
+            XmlResourceParser parser = context.getResources().getXml(R.xml.factory);
+
+            int event = parser.getEventType();
+            while (event != XmlResourceParser.END_DOCUMENT) {
+                Log.d(TAG, "Parser: " + event);
+                switch (event) {
+                    case XmlResourceParser.START_DOCUMENT:
+                        Log.d(TAG, "start: ");
+                        break;
+                    case XmlResourceParser.START_TAG:
+                        String name = parser.getName();
+                        Log.d(TAG, "start tag: " + name);
+                        if( name.equals( Utils.FACTORY ) ){
+                            int count = parser.getAttributeCount();
+                            String attrName="";
+                            for(int i=0; i<count; i++){
+                                attrName = parser.getAttributeName(i);
+                                Log.d(TAG, i+" Parser: "+ attrName );
+                                if( attrName.equals( Utils.SYSTEMFRONTCAMERA ) ){
+                                    boolValue = parser.getAttributeBooleanValue(i, false);
+                                    Log.d(TAG, "parse value : "+attrName +" "+boolValue);
+                                }
+                            }
+                        }
+                        break;
+                    case XmlResourceParser.END_TAG:
+                        Log.d(TAG, "end tag: ");
+                        break;
+                    default:
+                        Log.d(TAG, "default: ");
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "getAttr: "+e.toString());
+            e.printStackTrace();
+        }
+        return boolValue;
+    }
 
     public static boolean updateBeanStatus( String key, int status  ){
         Log.d(TAG, "updateBeanStatus: "+key+" "+status);
@@ -299,5 +433,21 @@ public class FactoryDatas {
             }
         }
         return false;
+    }
+
+    public static int getDataItemStatus( String name ){
+        Log.d(TAG, "getDataItemStatus: "+name);
+        int status=0;
+        if( mDatas != null ) {
+            Iterator<FactoryBean> it = mDatas.iterator();
+            while(it.hasNext()) {
+                FactoryBean bean = it.next();
+                if( bean.getName().equals( name )){
+                    status = bean.getStatus(  );
+                    return status;
+                }
+            }
+        }
+        return status;
     }
 }

@@ -20,7 +20,12 @@ import java.util.Timer;
 
 import com.waterworld.factorytest.R;
 import com.waterworld.factorytest.Utils;
-
+//zzk add start
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+//zzk add end
 
 public class PhoneTest extends FactoryActivity implements View.OnClickListener {
 
@@ -98,11 +103,16 @@ public class PhoneTest extends FactoryActivity implements View.OnClickListener {
 //				// TODO: handle exception
 //				e.printStackTrace();
 //			}
-        Intent mIntent = new Intent(Intent.ACTION_CALL_EMERGENCY, Uri.parse("tel:" + 112));
-        if (isEmergencyNumber911) {
-            mIntent = new Intent(Intent.ACTION_CALL_EMERGENCY, Uri.parse("tel:" + 911));
-        }
-        startActivity(mIntent);
+			if(android.os.SystemProperties.getBoolean("ro.hx_factorytest_phone", false)){
+				showDialog();
+			}else{
+				Intent mIntent = new Intent(Intent.ACTION_CALL_EMERGENCY,Uri.parse("tel:"+112));
+				if(isEmergencyNumber911) {
+					mIntent = new Intent(Intent.ACTION_CALL_EMERGENCY,Uri.parse("tel:"+911));
+				}
+	       		startActivity(mIntent);
+			}
+	       
 
 //			Intent intent = new Intent(Intent.ACTION_CALL_EMERGENCY);
         //           intent.setData(Uri.fromParts("tel", "112", null));
@@ -116,7 +126,29 @@ public class PhoneTest extends FactoryActivity implements View.OnClickListener {
 //		this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
         super.onAttachedToWindow();
     }
-
+	//zzk add start
+		private void showDialog() {  
+			 AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
+		        final String[] arrayOfString = { "Dialer:112", "Dialer:411" };
+		        localBuilder.setTitle("Factory Phone").setItems(arrayOfString, new DialogInterface.OnClickListener()
+		        {
+		            public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+		            {
+		            	String regEx="[^0-9]";  
+		    	        Pattern p = Pattern.compile(regEx);  
+		    	        Matcher m = p.matcher(arrayOfString[paramAnonymousInt]);  
+						if((m.replaceAll("").trim()).equals("411")){
+							Intent mIntent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+m.replaceAll("").trim()));
+							startActivity(mIntent);
+						}else{
+		            		Intent mIntent = new Intent(Intent.ACTION_CALL_EMERGENCY,Uri.parse("tel:"+m.replaceAll("").trim()));
+							startActivity(mIntent);
+						}
+		                paramAnonymousDialogInterface.dismiss();
+		            }
+		        }).create().show();
+		}
+		//zzk add end
     public void onBackPressed() {
         // TODO Auto-generated method stub
         //	super.onBackPressed();

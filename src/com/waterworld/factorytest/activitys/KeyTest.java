@@ -31,7 +31,7 @@ import java.util.Timer;
 public class KeyTest extends FactoryActivity implements View.OnClickListener {
 
     public static final String TAG = Utils.TAG + "KeyTest";
-    static int CameraTestStatus = 0;
+    static int KeyTestStatus = 0;
     MediaPlayer mediaPlayer;
     Button menu;
     Button main;
@@ -194,7 +194,7 @@ public class KeyTest extends FactoryActivity implements View.OnClickListener {
                     miIntent.putExtra("textall", true);
                     startActivityForResult(miIntent, RESULT_OK);
                 }
-                CameraTestStatus = 1;
+                KeyTestStatus = 1;
                 finish();
             }
 
@@ -389,7 +389,7 @@ public class KeyTest extends FactoryActivity implements View.OnClickListener {
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        CameraTestStatus = 0;
+        KeyTestStatus = 0;
         if (android.os.SystemProperties.getBoolean("ro.hx_factorytest_noti_light", false)) {
             Intent it = new Intent("com.mediatek.factorytest.batteryLightOff");
             sendBroadcast(it);
@@ -400,14 +400,14 @@ public class KeyTest extends FactoryActivity implements View.OnClickListener {
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.Button_Success:
-                CameraTestStatus = 1;
+                KeyTestStatus = 1;
 //			mVibrator.vibrate(mVibratePattern, -1);
                 if (mTimer != null) {
                     mTimer.cancel();
                 }
                 break;
             case R.id.Button_Fail:
-                CameraTestStatus = -1;
+                KeyTestStatus = -1;
 //			mVibrator.vibrate(mVibratePattern, -1);
                 if (mTimer != null) {
                     mTimer.cancel();
@@ -456,7 +456,7 @@ public class KeyTest extends FactoryActivity implements View.OnClickListener {
                 break;
         }
         if (v.getId() == R.id.Button_Success || v.getId() == R.id.Button_Fail) {
-            setResultBeforeFinish(CameraTestStatus);
+            setResultBeforeFinish(KeyTestStatus);
             finish();
         }
     }

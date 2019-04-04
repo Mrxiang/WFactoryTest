@@ -10,6 +10,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="toolbar">
+        <item name="android:colorControlNormal">#ffffff</item>
+        <!--         <item name="android:textAppearance">@style/TextAppearance.info_value</item> -->
+    </style>
 
     <style name="info_layout">
         <item name="android:orientation">vertical</item>

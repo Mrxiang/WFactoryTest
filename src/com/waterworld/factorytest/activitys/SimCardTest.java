@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -132,7 +133,7 @@ public class SimCardTest extends FactoryActivity implements OnClickListener {
             Log.w("FactoryTest", "simcardTest:execute getSimState failed");
             e.printStackTrace();
         }
-        if (simState0 == 10) {
+        if (simState0 == 10 || simState0 == TelephonyManager.SIM_STATE_READY )  {
 
 //	    	   if(FeatureOption.MTK_GEMINI_ENHANCEMENT){
             item.add(getString(R.string.msg_sim1));
@@ -159,7 +160,7 @@ public class SimCardTest extends FactoryActivity implements OnClickListener {
 
 //	      if(FeatureOption.MTK_GEMINI_ENHANCEMENT){
         if (FeatureOption.MTK_GEMINI_SUPPORT) {
-            if (simState1 == 10) {
+            if (simState1 == 10 || simState0 == TelephonyManager.SIM_STATE_READY) {
 
                 item.add(getString(R.string.msg_sim2));
                 value.add("");
@@ -215,11 +216,11 @@ public class SimCardTest extends FactoryActivity implements OnClickListener {
             }
         };
         if (flags1 == true && flags2 == true) {
-            Intent mIntent1 = getIntent();
-            boolean fl = mIntent1.getBooleanExtra("textall", false);
-            if (fl == true) {
-                mTimer.schedule(mTask, 1000);
-            }
+//            Intent mIntent1 = getIntent();
+//            boolean fl = mIntent1.getBooleanExtra("textall", false);
+//            if (fl == true) {
+//                mTimer.schedule(mTask, 1000);
+//            }
         } else {
         }
     }

@@ -35,26 +35,26 @@
  -->
 	 <Button
 		android:id="@+id/Button_Replay"
-		android:layout_width="150dip"
+		android:layout_width="200dp"
 		android:layout_height="60dip"
-		android:textSize="25dip"
+		android:textSize="22sp"
 		android:text="@string/Button_replay" 
 		android:layout_centerInParent="true"
 		/>
 	<Button
 		android:id="@+id/Button_reconding"
-		android:layout_width="150dip"
+		android:layout_width="200dp"
 		android:layout_height="60dip"
-		android:textSize="25dip"
+		android:textSize="22sp"
 		android:text="@string/Button_reconding" 
 		android:layout_above="@id/Button_Replay"
 		android:layout_alignLeft="@id/Button_Replay"
 		/>
 	<Button
 		android:id="@+id/Button_key"
-		android:layout_width="150dip"
+		android:layout_width="200dp"
 		android:layout_height="60dip"
-		android:textSize="25dip"
+		android:textSize="22sp"
 		android:text="@string/Button_key"
 		android:layout_below="@id/Button_Replay"
 		android:layout_alignLeft="@id/Button_Replay" 

@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-
-    <Factory fragmentIndex="0">
+    <!--     fragment 起始页     是否测试闪光灯     是否用系统后CAMERA      是否用系统前CAMERA-->
+    <Factory fragmentIndex="1"  flashlight="true" systemBackCamera="true" systemFrontCamera="false">
         <Item
             name="lcd"
             action="com.waterworld.intent.action.LCD_TEST"
             title="@string/Test_LCD"></Item>
 
-        <Item
-            name="back_camera"
-            action ="com.waterworld.intent.action.CAMERA_TEST"
-            title="@string/back_camera1"></Item>
+        <!--<Item-->
+            <!--name="back_camera"-->
+            <!--action ="com.waterworld.intent.action.CAMERA_TEST"-->
+            <!--title="@string/back_camera1"></Item>-->
 
+        <!--<Item-->
+            <!--name="front_camera"-->
+            <!--action="com.waterworld.intent.action.FRONTCAMERA_TEST"-->
+            <!--title="@string/front_camera"></Item>-->
         <Item
-            name="front_camera"
-            action="com.waterworld.intent.action.FRONTCAMERA_TEST"
+            name="masterCamera"
+            action="com.waterworld.intent.action.MASTER_CAMERA_TEST"
+            title="@string/master_camera"></Item>
+        <Item
+            name="front2Camera"
+            action="com.waterworld.intent.action.FRONT2_CAMERA_TEST"
             title="@string/front_camera"></Item>
+
+
         <Item
             name="sensor"
             action="com.waterworld.intent.action.SENSOR_TEST"
@@ -87,10 +97,29 @@
             name="finger"
             action="com.waterworld.intent.action.HX_FINGERPRINT_TEST"
             title="@string/Button_Test_Fingerprint"></Item>
+        <!--<Item-->
+            <!--name="secondCamera"-->
+            <!--action="com.waterworld.intent.action.SECOND_CAMERA_TEST"-->
+            <!--title="@string/second_camera_test"></Item>-->
         <Item
-            name="secondCamera"
-            action="com.waterworld.intent.action.SECOND_CAMERA_TEST"
-            title="@string/second_camera_test"></Item>
-
+            name="led"
+            action="com.waterworld.intent.action.LED_TEST"
+            title="@string/led_test"></Item>
+        <Item
+            name="msensor"
+            action="com.waterworld.intent.action.MSENSOR_TEST"
+            title="@string/msensor_test"></Item>
+        <Item
+            name="otg"
+            action="com.waterworld.intent.action.OTG_TEST"
+            title="@string/otg_test"></Item>
+        <Item
+            name="masterFlash"
+            action="com.waterworld.intent.action.MASTERFLASH_TEST"
+            title="@string/masterflash_test"></Item>
+        <Item
+            name="secondFlash"
+            action="com.waterworld.intent.action.SECONDFLASH_TEST"
+            title="@string/secondflash_test"></Item>
     </Factory>
 </resources>

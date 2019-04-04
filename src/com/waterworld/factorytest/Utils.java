@@ -7,6 +7,9 @@ public class Utils {
     public static final String  TAG = "FactoryTest.";
     public static final String  FACTORY = "Factory";
     public static final String  FRAGMENT_INDEX = "fragmentIndex";
+    public static final String  FLASHLIGHT_BOOL = "flashlight";
+    public static final String  SYSTEMBACKCAMERA = "systemBackCamera";
+    public static final String  SYSTEMFRONTCAMERA = "systemFrontCamera";
     public static final String  ITEM = "Item";
     public static final String  NAME = "name";
     public static final String  TITLE = "title";

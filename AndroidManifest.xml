@@ -360,6 +360,87 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+  	    <activity
+            android:name=".activitys.LedTest"
+            android:exported="false"
+            android:label="@string/led_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.LED_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.MSensorTest"
+            android:exported="false"
+            android:label="@string/msensor_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.MSENSOR_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.OTGTest"
+            android:exported="false"
+            android:label="@string/otg_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.OTG_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.MasterFlashTest"
+            android:exported="false"
+            android:label="@string/masterflash_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.MASTERFLASH_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".activitys.SecondFlashTest"
+            android:exported="false"
+            android:label="@string/secondflash_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.SECONDFLASH_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.MasterCameraTest"
+            android:exported="false"
+            android:label="@string/master_camera"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.MASTER_CAMERA_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.Front2CameraTest"
+            android:exported="false"
+            android:label="@string/front_camera"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.FRONT2_CAMERA_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".TestReport"
@@ -392,9 +473,6 @@
                 <action android:name="android.provider.Telephony.SECRET_CODE" />
                 <data
                     android:host="7799"
-                    android:scheme="android_secret_code" />
-                <data
-                    android:host="6688"
                     android:scheme="android_secret_code" />
             </intent-filter>
         </receiver>

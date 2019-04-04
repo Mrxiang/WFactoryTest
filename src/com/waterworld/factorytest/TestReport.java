@@ -56,11 +56,37 @@ public class TestReport extends Activity {
 
 	private 	ITelephony iTelephony;
 
+	//qyl add tee active
+	private boolean isMicrotrustTee = SystemProperties.get("ro.mtk_microtrust_tee_support", "0").equals("1");
+	private boolean isPingboTee = SystemProperties.get("ro.trustkernel_tee_support", "0").equals("1");
+	LinearLayout mFingerLayout;
+	LinearLayout mGoogkeKeyLayout;
+	TextView mFingerResult;
+	TextView mGoogleKeyResult;
+	Button mBack;
+	//qyl end
+
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		setContentView(R.layout.test_result_all);
+
+		//qyl add tee active
+		mFingerLayout = (LinearLayout)findViewById(R.id.finger_status);
+		mGoogkeKeyLayout = (LinearLayout)findViewById(R.id.google_key_status);
+		mFingerResult = (TextView)findViewById(R.id.finger_active_result);
+		mGoogleKeyResult = (TextView)findViewById(R.id.google_key_active_result);
+//		mBack = (Button)findViewById(R.id.Back_top);
+		if(isMicrotrustTee || isPingboTee) {
+			boolean isSuppurtFinger = isFingerprintEnabled();
+			if(isSuppurtFinger) {
+				mFingerLayout.setVisibility(View.VISIBLE);
+			}
+			mGoogkeKeyLayout.setVisibility(View.VISIBLE);
+		}
+		//qyl end
+
 
 		tv_banben_value = (TextView)findViewById(R.id.tv_banben_value);
 		tv_banben_value.setText(SystemProperties.get("ro.build.display.id", "unKnow"));
@@ -120,6 +146,37 @@ public class TestReport extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		//qyl add tee active
+		if(isMicrotrustTee || isPingboTee) {
+			boolean isSuppurtFinger = isFingerprintEnabled();
+			if(isSuppurtFinger) {
+				boolean fingerActive = false;
+				if(isPingboTee) {
+					fingerActive = (PingTeeUtil.pingboTeeKeyCheck() == 0);
+				} else {
+					//zwb add 20180808 for new TEE
+					//fingerActive = SystemProperties.get("soter.teei.thh.init", "UNACTIVE").equals("ACTIVE") ||
+					//                  SystemProperties.get("vendor.soter.teei.thh.init", "UNACTIVE").equals("ACTIVE") ;
+					//zwb add end
+					fingerActive = SystemProperties.get("soter.teei.active.fp", "UNACTIVE").equals("ACTIVE") ||
+							SystemProperties.get("vendor.soter.teei.active.fp", "UNACTIVE").equals("ACTIVE") ;
+				}
+				mFingerResult.setText(fingerActive ? R.string.active_status : R.string.unactive_status);
+			}
+
+			boolean googleKeyActive = false;
+			if(isPingboTee) {
+				googleKeyActive = (PingTeeUtil.teeGoogleKeyCheck() == 0);
+			} else {
+				//zwb add 20180808 for new TEE
+				googleKeyActive = SystemProperties.get("soter.teei.googlekey.status", "NONE").equals("OK")||
+						SystemProperties.get("vendor.soter.teei.googlekey.status", "NONE").equals("OK") ;
+				//end
+			}
+			mGoogleKeyResult.setText(googleKeyActive ? R.string.active_status : R.string.unactive_status);
+		}
+		//qyl end
+
 	}
 
 
@@ -178,5 +235,21 @@ public class TestReport extends Activity {
 			return convertView;
 		}
 	}
+
+	//qyl add tee active
+	private boolean isFingerprintEnabled() {
+		final FingerprintManager fpm = getFingerprintManagerOrNull(this);
+		return fpm != null && fpm.isHardwareDetected();
+	}
+
+	public FingerprintManager getFingerprintManagerOrNull(Context context) {
+		if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
+			return getSystemService(FingerprintManager.class);
+		} else {
+			return null;
+		}
+	}
+	//qyl end
+
 
 }

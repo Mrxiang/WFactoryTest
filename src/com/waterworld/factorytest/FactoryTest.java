@@ -51,6 +51,8 @@ public class FactoryTest extends Activity implements NavigationView.OnNavigation
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.content_frame,  listItemFragment).commit();
+
+//            drawerLayout.setDrawerLockMode( DrawerLayout.LOCK_MODE_LOCKED_CLOSED );
         }
 
     }

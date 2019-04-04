@@ -19,6 +19,7 @@
             app:contentInsetLeft="0dp"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
+            android:theme="@style/toolbar"
             android:background="@color/actionbarBackground">
 
             <TextView

@@ -58,6 +58,7 @@ import java.util.List;
 
 import android.util.DisplayMetrics;
 
+import com.waterworld.factorytest.FactoryDatas;
 import com.waterworld.factorytest.R;
 import com.waterworld.factorytest.FactoryActivity;
 import com.waterworld.factorytest.FactoryTestFeatureoption.FeatureOption;
@@ -148,7 +149,8 @@ public class CameraTest extends FactoryActivity implements View.OnClickListener,
                 flag_is_shanguang = false;
                 try {
                     Intent PhoneTestIntent = new Intent();
-                    PhoneTestIntent.setClassName("com.mediatek.camera", "com.mediatek.camera.CameraLauncher");
+//                    PhoneTestIntent.setClassName("com.mediatek.camera", "com.mediatek.camera.CameraLauncher");
+                    PhoneTestIntent.setAction( "android.media.action.STILL_IMAGE_CAMERA");
                     startActivity(PhoneTestIntent);
                 } catch (Exception eeee) {
                     try {
@@ -195,10 +197,11 @@ public class CameraTest extends FactoryActivity implements View.OnClickListener,
                 // TODO Auto-generated method stub
                 Message message = new Message();
                 mHandler.sendMessage(message);
-                Log.e("lyaotao", "12345");
+                Log.e(TAG, "12345");
             }
         };
-        if (android.os.SystemProperties.getBoolean("ro.hx_flashlight_camera", false)) {
+//        if (android.os.SystemProperties.getBoolean("ro.hx_flashlight_camera", false)) {
+        if(FactoryDatas.parseFlashLightValue( this ) == true ){
             //mTimer.schedule(mTask, 0, 1000);
             //zzk
             mSwitchCameraBtn.setVisibility(View.GONE);
@@ -216,7 +219,8 @@ public class CameraTest extends FactoryActivity implements View.OnClickListener,
                     SystemClock.sleep(2000);
                     FlashLightStatus = true;
                     tv_shexiang.setVisibility(View.GONE);
-                    if (android.os.SystemProperties.getBoolean("ro.hx_open_system_back_camera", false)) {
+//                    if (android.os.SystemProperties.getBoolean("ro.hx_open_system_back_camera", false)) {
+                    if(FactoryDatas.parseSystemBackCameraValue(CameraTest.this )){
                         mTimer.schedule(mTask, 0, 1000);
                     } else {
                         openCustomCamera();
@@ -227,8 +231,10 @@ public class CameraTest extends FactoryActivity implements View.OnClickListener,
 
             //zzk
         } else {
-            if (android.os.SystemProperties.getBoolean("ro.hx_open_system_back_camera", false)) {
-                mTimer.schedule(mTask, 0, 1000);
+//            if (android.os.SystemProperties.getBoolean("ro.hx_open_system_back_camera", false)) {
+            if(FactoryDatas.parseSystemBackCameraValue(CameraTest.this )){
+
+                    mTimer.schedule(mTask, 0, 1000);
             } else {
                 openCustomCamera();
             }

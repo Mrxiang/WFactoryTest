@@ -2,4 +2,5 @@
 <resources>
     <dimen name="shadow_width">10dp</dimen>
     <dimen name="slidingmenu_offset">200dp</dimen>
+    <dimen name="led_text_size">16sp</dimen>
 </resources>

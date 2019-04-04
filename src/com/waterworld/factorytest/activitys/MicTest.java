@@ -525,7 +525,7 @@ public class MicTest extends FactoryActivity implements OnClickListener {
                     //Log.d("YDS","BB");
                     old_volume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
                     audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
-                            audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
+                            audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), AudioManager.FLAG_PLAY_SOUND );//| AudioManager.FLAG_SHOW_UI);
                     reconding_Button.setEnabled(true);
                     tx_mic_e.setVisibility(View.INVISIBLE);
                     //unregisterReceiver(mMicTestReceiver);

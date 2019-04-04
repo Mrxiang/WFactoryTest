@@ -14,10 +14,14 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+
+import com.waterworld.factorytest.FactoryActivity;
 import com.waterworld.factorytest.R;
+import com.waterworld.factorytest.Utils;
 
-public class OTGTest extends Activity implements OnClickListener{
+public class OTGTest extends FactoryActivity  implements OnClickListener{
 
+	private static final String TAG = Utils.TAG+"OTGTest";
 	private File file;
 	private boolean isContinue = true;
 	protected static boolean mCreateFirstTime;
@@ -30,12 +34,12 @@ public class OTGTest extends Activity implements OnClickListener{
 	private Handler mHandler = new Handler(){
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case READ_FILE:
-				readFile();
-				if(isContinue){
-					mHandler.sendEmptyMessageDelayed(READ_FILE, 1000);
-				}
-				break;
+				case READ_FILE:
+					readFile();
+					if(isContinue){
+						mHandler.sendEmptyMessageDelayed(READ_FILE, 1000);
+					}
+					break;
 			}
 		};
 	};
@@ -50,32 +54,32 @@ public class OTGTest extends Activity implements OnClickListener{
 		this.mBtFailed = (Button)findViewById(R.id.Button_Fail);
 		this.mBtFailed.setOnClickListener(this);
 	}
-	
+
 	private void readFile(){
 		try {
 			if(!file.exists()){
-				Log.d("fff", "文件不存在");
+				Log.d(TAG, "文件不存在");
 				return;
 			}
 			FileInputStream fileInputStream = new FileInputStream(file);
-			byte[] bytes = new byte[1024];  
-            ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();  
-            while (fileInputStream.read(bytes) != -1) {  
-                arrayOutputStream.write(bytes, 0, bytes.length);  
-            }  
-            fileInputStream.close();  
-            arrayOutputStream.close();  
-            int intValue = new Integer(new String(arrayOutputStream.toByteArray()).trim()).intValue();
-            Log.d("fff", ""+intValue);
-            if(intValue==0){
-            	otgTv.setText(getString(R.string.no_link_equipment));
-            }else{
-            	otgTv.setText(getString(R.string.link_equipment));
-            }
+			byte[] bytes = new byte[1024];
+			ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
+			while (fileInputStream.read(bytes) != -1) {
+				arrayOutputStream.write(bytes, 0, bytes.length);
+			}
+			fileInputStream.close();
+			arrayOutputStream.close();
+			int intValue = new Integer(new String(arrayOutputStream.toByteArray()).trim()).intValue();
+			Log.d(TAG, ""+intValue);
+			if(intValue==0){
+				otgTv.setText(getString(R.string.no_link_equipment));
+			}else{
+				otgTv.setText(getString(R.string.link_equipment));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			 Log.d("fff", "Exception==="+e.toString());
-		} 
+			Log.d("fff", "Exception==="+e.toString());
+		}
 	}
 
 	public void onClick(View paramView)
@@ -83,39 +87,36 @@ public class OTGTest extends Activity implements OnClickListener{
 		isContinue = false;
 		mHandler.removeMessages(READ_FILE);
 		if (paramView.getId() == this.mBtOk.getId())
-	    	{
-		OTGTestStatus = 1;
-		Intent mIntent = getIntent();
-		boolean fl = mIntent.getBooleanExtra("textall", false);
-		if(fl == true){
-			Intent miIntent = new Intent();
-			miIntent.setAction("com.ykq.intent.action.FMRADIO_TEST");
-			miIntent.putExtra("textall", true);
-			startActivityForResult(miIntent, RESULT_OK);
-		}
+		{
+			OTGTestStatus = 1;
+
 		}else if(paramView.getId() == this.mBtFailed.getId()){
-		OTGTestStatus = -1;
-		Intent mIntent1 = getIntent();
-		boolean fl1 = mIntent1.getBooleanExtra("textall", false);
-		if(fl1 == true){
-			Intent miIntent = new Intent();
-			miIntent.setAction("com.ykq.intent.action.FMRADIO_TEST");
-			miIntent.putExtra("textall", true);
-			startActivityForResult(miIntent, RESULT_OK);
+			OTGTestStatus = -1;
+
 		}
-		}
+		setResultBeforeFinish( OTGTestStatus );
 		finish();
 		return;
 	}
-	
+
 	protected void onResume() {
 		super.onResume();
 		isContinue = true;
 		mHandler.sendEmptyMessage(READ_FILE);
 	}
-	
+
 	protected void onPause() {
 		super.onPause();
 		isContinue = false;
+	}
+
+	@Override
+	public void setResultBeforeFinish(int status) {
+		Log.d(TAG, "setResultBeforeFinish: " + status);
+		Intent intent = new Intent();
+		intent.putExtra(Utils.NAME, "otg");
+		intent.putExtra(Utils.TEST_RESULT, status);
+		setResult(status, intent);
+
 	}
 }

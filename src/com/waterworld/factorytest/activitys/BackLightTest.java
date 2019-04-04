@@ -19,10 +19,14 @@ import android.widget.Button;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.waterworld.factorytest.FactoryActivity;
 import com.waterworld.factorytest.R;
+import com.waterworld.factorytest.Utils;
 
-public class BackLightTest extends Activity implements OnClickListener{
+public class BackLightTest extends FactoryActivity implements OnClickListener{
 
+	private static final String TAG = Utils.TAG +"BackLightTest";
 	static int CameraTestStatus = 0;
 	MediaPlayer mediaPlayer;
 	AudioManager audioManager;
@@ -228,7 +232,16 @@ public class BackLightTest extends Activity implements OnClickListener{
                 brightness);
         resolver.notifyChange(uri, null);
     }
-	
-	
 
+
+	@Override
+	public void setResultBeforeFinish(int status) {
+		Log.d(TAG, "setResultBeforeFinish: "+status );
+		Intent intent = new Intent();
+		intent.putExtra(Utils.NAME, "backlight");
+		intent.putExtra(Utils.TEST_RESULT, status);
+		setResult(status, intent);
+
+
+	}
 }

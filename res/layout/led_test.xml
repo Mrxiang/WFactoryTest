@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:layout_gravity="bottom">
+        <Button
+            android:id="@+id/led_success"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Button_Status_Success"
+            android:textSize="@dimen/led_text_size"
+            android:background="@color/green"/>
+        <Button
+            android:id="@+id/led_failed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Button_Status_Fail"
+            android:textSize="@dimen/led_text_size"
+            android:background="@color/red"/>
+
+    </LinearLayout>
+</RelativeLayout>

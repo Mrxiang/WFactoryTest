@@ -13,7 +13,7 @@
     <string name="title_activity_key_test"> Key(light)</string>
     <string name="title_activity_Speaker_test"> Receiver </string>
     <string name="title_activity_BackLight_test"> BackLight </string>
-    <string name="title_activity_Mic_test"> Headset microphone </string>
+    <string name="title_activity_Mic_test"> Headset  </string>
     <string name="title_activity_SimCard_test"> SIM </string>
     <string name="title_activity_BT_test"> Bluetooth </string>
     <string name="title_activity_WIFI_test"> WIFI </string>
@@ -331,7 +331,7 @@
 	<string name="active_status">ACTIVE</string>
 	<string name="unactive_status">UNACTIVE</string>
 	<!-- wbin add for sw hw version-->
-	<string name="second_camera_test"> "Second Camera Test"</string>
+	<string name="second_camera_test"> "Second Camera "</string>
 	<string name="remind"> "Remind"</string>
 	<string name="remind_content"> "请用手指遮挡辅摄像头进行测试并作出判断"</string>
 	<string name="Back_top_values">Back</string>
@@ -371,5 +371,18 @@
     <string name="title_list_fragment">列表视图</string>
     <string name="sure_exit">Sure exit?</string>
     <string name="test_exit">exit</string>
+
+    <string name="led_test"> led  </string>
+    <string name="msensor_test"> mseonsor </string>
+    <string name="otg_test"> OTG </string>
+    <string name="male_sound"> male </string>
+    <string name="female_sound"> female </string>
+    <string name="pure_music"> pure music </string>
+    <string name="speaking_text">speaking...</string>
+    <string name="masterflash_test">master flash</string>
+    <string name="secondflash_test">secondary flash</string>
+    <string name="sure_masterflash">Has master flash opened?</string>
+    <string name="sure_secondflash">Has secondary flash opened?</string>
+    <string name="master_camera">master camera</string>
 
 </resources>

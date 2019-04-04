@@ -210,36 +210,6 @@ public class SDcardTest extends FactoryActivity {
 
         } else {
         }
-        final Handler handler1 = new Handler() {
-            public void handleMessage(Message msg) {
-                SDcardTestStatus = 1;
-                Intent miIntent = new Intent();
-                miIntent.setAction("com.ykq.intent.action.SENSOR_TEST");
-                miIntent.putExtra("textall", true);
-                startActivityForResult(miIntent, RESULT_OK);
-                finish();
-            }
-        };
-        Timer mTimer = new Timer();
-        TimerTask mTask = new TimerTask() {
-
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-
-                Message msg = new Message();
-                handler1.sendMessage(msg);
-
-            }
-        };
-        if (flags1 == true) {
-            Intent mIntent1 = getIntent();
-            boolean fl = mIntent1.getBooleanExtra("textall", false);
-            if (fl == true) {
-                mTimer.schedule(mTask, 1000);
-            }
-        } else {
-        }
 
     }
 

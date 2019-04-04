@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.waterworld.factorytest.FactoryActivity;
+import com.waterworld.factorytest.FactoryDatas;
 import com.waterworld.factorytest.FactoryTestFeatureoption.FeatureOption;
 
 import java.io.File;
@@ -115,8 +116,8 @@ public class FrontCameraTest extends FactoryActivity implements OnClickListener 
                     SystemClock.sleep(2000);
                     flash_btn.setVisibility(View.GONE);
                     flashmsg.setVisibility(View.GONE);
-                    if (android.os.SystemProperties.getBoolean(
-                            "ro.hx_system_front_camera", false)) {
+//                    if (android.os.SystemProperties.getBoolean("ro.hx_system_front_camera", false)) {
+                    if (FactoryDatas.parseSystemFrontCameraValue( FrontCameraTest.this )) {
                         openSystemFrontCamera();
                     } else {
                         openCustomFrontCamera();
@@ -125,8 +126,9 @@ public class FrontCameraTest extends FactoryActivity implements OnClickListener 
                 }
             });
         } else {
-            if (android.os.SystemProperties.getBoolean(
-                    "ro.hx_system_front_camera", false)) {
+//            if (android.os.SystemProperties.getBoolean("ro.hx_system_front_camera", false)) {
+            if (FactoryDatas.parseSystemFrontCameraValue( FrontCameraTest.this )) {
+
                 openSystemFrontCamera();
             } else {
                 openCustomFrontCamera();
@@ -308,6 +310,7 @@ public class FrontCameraTest extends FactoryActivity implements OnClickListener 
         public void surfaceCreated(SurfaceHolder holder) {
             // TODO Auto-generated method stub
             // 打开摄像头
+            Log.d(TAG, "surfaceCreated: ");
             int CammeraIndex = FindFrontCamera();
             if (CammeraIndex == -1) {
                 CammeraIndex = FindBackCamera();
@@ -446,6 +449,7 @@ public class FrontCameraTest extends FactoryActivity implements OnClickListener 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
             // TODO Auto-generated method stub
+            Log.d(TAG, "surfaceDestroyed: ");
             if (mCamera != null) {
 
                 mHandler.removeCallbacks(mWaitingEvent);

@@ -359,4 +359,17 @@
     <string name="sure_exit">再按一次退出程序</string>
     <string name="test_exit">退出</string>
 
+    <string name="led_test">LED 测试 </string>
+    <string name="msensor_test"> 磁力计传感器 </string>
+    <string name="otg_test"> OTG </string>
+    <string name="male_sound"> 男声 </string>
+    <string name="female_sound"> 女声 </string>
+    <string name="pure_music">纯音乐</string>
+    <string name="speaking_text">播放中...</string>
+    <string name="masterflash_test">主闪光灯</string>
+    <string name="secondflash_test">副闪光灯</string>
+    <string name="sure_masterflash">主闪光灯是否打开?</string>
+    <string name="sure_secondflash">副闪光灯是否打开?</string>
+    <string name="master_camera">后置相机</string>
+
 </resources>

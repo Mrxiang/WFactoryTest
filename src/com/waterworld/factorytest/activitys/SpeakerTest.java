@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.AudioManager;
 import android.media.AudioSystem;
 import android.media.MediaPlayer;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.Random;
 
 import com.waterworld.factorytest.FactoryActivity;
 import com.waterworld.factorytest.R;
@@ -30,25 +33,32 @@ import com.waterworld.factorytest.Utils;
 public class SpeakerTest extends FactoryActivity implements View.OnClickListener {
 
     private BroadcastReceiver mSpeakerTestReceiver = null;
-    static int CameraTestStatus = 0;
+    static int SpeakerTestStatus = 0;
     private static String TAG = Utils.TAG +"SpeakerTest";
     MediaPlayer mediaPlayer;
     AudioManager audioManager;
+
+    private int  MusicArray[]={R.raw.male, R.raw.female, R.raw.qualsound};
+    private int musicIndex;
+    private int musicSeed=3;
+
+    private Button     maleBtn;
+    private Button     femaleBtn;
+    private Button     pureBtn;
+    private TextView     speakingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.test_result);
+        setContentView(R.layout.speaker_test);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         audioManager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
 //		     audioManager.setSpeakerphoneOn(false);
 //		     audioManager.setWiredHeadsetOn(false);
 
         if (audioManager.isWiredHeadsetOn()) {
-            Intent mIntent = getIntent();
-            boolean fl = mIntent.getBooleanExtra("textall", false);
 
             String text = getString(R.string.msg_masse_no);
 
@@ -60,38 +70,19 @@ public class SpeakerTest extends FactoryActivity implements View.OnClickListener
 
             Toast toastStart = new Toast(this);
             toastStart.setGravity(Gravity.BOTTOM, 0, 110);
-            if (fl) {
                 toastStart.setDuration(Toast.LENGTH_LONG);
-            } else {
-                toastStart.setDuration(Toast.LENGTH_SHORT);
-            }
             toastStart.setView(toastRoot);
             toastStart.show();
 
 //		    	 Toast.makeText(SpeakerTest.this, text, Toast.LENGTH_SHORT).show();
-            CameraTestStatus = -1;
+            SpeakerTestStatus = -1;
 
-					/*if(fl == true){
-						Intent miIntent = new Intent();
-						miIntent.setAction("com.ykq.intent.action.HALL_TEST");
-						miIntent.putExtra("textall", true);
-						startActivityForResult(miIntent, RESULT_OK);
-					}*/
-
-            if (!fl) {
-                finish();
-                return;
-            }
             registerHeadsetPlugReceiver();
 
         } else {
             speakerStart();
         }
 
-        Button success_Button = (Button) findViewById(R.id.Button_Success);
-        Button fail_Button = (Button) findViewById(R.id.Button_Fail);
-        success_Button.setOnClickListener(this);
-        fail_Button.setOnClickListener(this);
     }
 
     //wlf copy from MediaPlayer:create() 201040618.
@@ -124,6 +115,9 @@ public class SpeakerTest extends FactoryActivity implements View.OnClickListener
 
 
     private void speakerStart() {
+        musicIndex = new Random().nextInt(musicSeed);
+        Log.d(TAG, "loudSpeakerStart: "+musicIndex);
+
         setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
         audioManager.setMode(AudioManager.MODE_IN_CALL);
         audioManager.setSpeakerphoneOn(false);
@@ -132,25 +126,11 @@ public class SpeakerTest extends FactoryActivity implements View.OnClickListener
         //audioManager.adjustStreamVolume (AudioManager.STREAM_VOICE_CALL, AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
 
         AudioSystem.setMasterVolume(1.0f);
-        mediaPlayer = createMediaPlayer(R.raw.testaudio_music);
-
+        mediaPlayer = createMediaPlayer( MusicArray[musicIndex] );
         mediaPlayer.setLooping(true);
-	   /*   Uri myUri1 = Uri.parse("file:///data/data/test.mp3");
-        if (mediaPlayer == null) {
-            mediaPlayer = new MediaPlayer();
-        }
-        try {
-            mediaPlayer.setDataSource(getApplicationContext(), myUri1);
-        } catch (Exception e) {}
-	
-	mediaPlayer.setAudioStreamType(AudioManager.STREAM_VOICE_CALL);
-	    try{
-	    	 mediaPlayer.prepare();
-	     }catch (Exception e) {
-			// TODO: handle exception
-		 }*/
         mediaPlayer.start();
 
+        updateBackground();
     }
 
     private void registerHeadsetPlugReceiver() {
@@ -205,24 +185,55 @@ public class SpeakerTest extends FactoryActivity implements View.OnClickListener
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        CameraTestStatus = 0;
+        SpeakerTestStatus = 0;
     }
 
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
         switch (v.getId()) {
-            case R.id.Button_Success:
-                CameraTestStatus = 1;
+            case R.id.male_btn:
+                if( musicIndex == 0) {
+                    SpeakerTestStatus = 1;
+                }else{
+                    SpeakerTestStatus = -1;
+                }
+                break;
+            case R.id.female_btn:
+                if( musicIndex == 1) {
+                    SpeakerTestStatus = 1;
+                }else{
+                    SpeakerTestStatus = -1;
+                }
+                break;
+            case R.id.pure_btn:
+                if( musicIndex == 2) {
+                    SpeakerTestStatus = 1;
+                }else{
+                    SpeakerTestStatus = -1;
+                }
                 break;
             case R.id.Button_Fail:
-                CameraTestStatus = -1;
+                SpeakerTestStatus = -1;
                 break;
             default:
                 break;
         }
-        setResultBeforeFinish( CameraTestStatus );
+        setResultBeforeFinish( SpeakerTestStatus );
         finish();
     }
-	
+
+    public void updateBackground( ){
+        maleBtn = findViewById( R.id.male_btn);
+        femaleBtn= findViewById( R.id.female_btn);
+        pureBtn= findViewById( R.id.pure_btn);
+        speakingText = findViewById( R.id.speaking_text);
+
+        maleBtn.setBackground(new ColorDrawable(Color.GREEN));
+        femaleBtn.setBackground(new ColorDrawable(Color.GREEN));
+        pureBtn.setBackground(new ColorDrawable(Color.GREEN));
+        speakingText.setText( R.string.speaking_text);
+    }
+
+
 }

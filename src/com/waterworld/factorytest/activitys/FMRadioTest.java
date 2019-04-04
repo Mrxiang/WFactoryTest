@@ -54,7 +54,7 @@ public class FMRadioTest extends FactoryActivity implements View.OnClickListener
 					CameraTestStatus = -1;
 					handler.post(new Runnable() {
 						public void run () {
-							gotoNextItemIfTextAll();
+//							gotoNextItemIfTextAll();
 							Toast.makeText(FMRadioTest.this, getString(R.string.cant_find_fm_app), Toast.LENGTH_SHORT).show();
 						}
 					});
@@ -75,17 +75,17 @@ public class FMRadioTest extends FactoryActivity implements View.OnClickListener
 		super.onAttachedToWindow();
 	}
 	
-	public void gotoNextItemIfTextAll() {
-	
-		Intent mIntent = getIntent();
-		boolean fl = mIntent.getBooleanExtra("textall", false);
-		if(fl == true){
-			Intent miIntent = new Intent();
-			miIntent.setAction("com.ykq.intent.action.MIC_TEST");
-			miIntent.putExtra("textall", true);
-			startActivityForResult(miIntent, RESULT_OK);
-		}
-	}
+//	public void gotoNextItemIfTextAll() {
+//
+//		Intent mIntent = getIntent();
+//		boolean fl = mIntent.getBooleanExtra("textall", false);
+//		if(fl == true){
+//			Intent miIntent = new Intent();
+//			miIntent.setAction("com.ykq.intent.action.MIC_TEST");
+//			miIntent.putExtra("textall", true);
+//			startActivityForResult(miIntent, RESULT_OK);
+//		}
+//	}
 	
 	@Override
 	public void onBackPressed() {
@@ -108,31 +108,31 @@ public class FMRadioTest extends FactoryActivity implements View.OnClickListener
 		switch (v.getId()) {
 		case R.id.Button_Success:
 			CameraTestStatus  = 1;
-			Intent mIntent = getIntent();
-			boolean fl = mIntent.getBooleanExtra("textall", false);
-			if(fl == true){
-				Intent miIntent = new Intent();
-				miIntent.setAction("com.ykq.intent.action.MIC_TEST");
-				miIntent.putExtra("textall", true);
-				startActivityForResult(miIntent, RESULT_OK);
-			}
-			if(mTimer != null){
-			mTimer.cancel();
-			}
+//			Intent mIntent = getIntent();
+//			boolean fl = mIntent.getBooleanExtra("textall", false);
+//			if(fl == true){
+//				Intent miIntent = new Intent();
+//				miIntent.setAction("com.ykq.intent.action.MIC_TEST");
+//				miIntent.putExtra("textall", true);
+//				startActivityForResult(miIntent, RESULT_OK);
+//			}
+//			if(mTimer != null){
+//				mTimer.cancel();
+//			}
 			break;
 		case R.id.Button_Fail:
 			CameraTestStatus = -1;
-			Intent mIntent1 = getIntent();
-			boolean fl1 = mIntent1.getBooleanExtra("textall", false);
-			if(fl1 == true){
-				Intent miIntent = new Intent();
-				miIntent.setAction("com.ykq.intent.action.MIC_TEST");
-				miIntent.putExtra("textall", true);
-				startActivityForResult(miIntent, RESULT_OK);
-			}
-			if(mTimer != null){
-				mTimer.cancel();
-				}
+//			Intent mIntent1 = getIntent();
+//			boolean fl1 = mIntent1.getBooleanExtra("textall", false);
+//			if(fl1 == true){
+//				Intent miIntent = new Intent();
+//				miIntent.setAction("com.ykq.intent.action.MIC_TEST");
+//				miIntent.putExtra("textall", true);
+//				startActivityForResult(miIntent, RESULT_OK);
+//			}
+//			if(mTimer != null){
+//				mTimer.cancel();
+//			}
 			break;
 		default:
 			break;
@@ -148,7 +148,8 @@ public class FMRadioTest extends FactoryActivity implements View.OnClickListener
 		// TODO Auto-generated method stub
 		super.onDestroy();
 //		mTimer.cancel();
-		Intent service = new Intent().setClassName("com.mediatek.FMRadio","com.mediatek.FMRadio.FMRadioService");
+//		Intent service = new Intent().setClassName("com.mediatek.FMRadio","com.mediatek.FMRadio.FMRadioService");
+		Intent service = new Intent().setClassName("com.android.fmradio","com.android.fmradio.FmService");
 		stopService(service);
 		Intent service1 = new Intent("com.yunos.FMRadio.FMRadioService.stopAction");
 		sendBroadcast(service1);
