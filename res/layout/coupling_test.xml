@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/g_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/g_coupling_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/g_coupling_desc"
+            android:textSize="@dimen/coupling_text_size"/>
+        <TextView
+            android:id="@+id/g_coupling_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/coupling_text_size"
+            android:text="@string/failed"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/g_layout"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/wbg_coupling_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wbg_coupling_desc"
+            android:textSize="@dimen/coupling_text_size"/>
+        <TextView
+            android:id="@+id/wbg_coupling_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/coupling_text_size"
+            android:text="@string/failed"/>
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+            <!--android:id="@+id/wifi_coupling_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/coupling_text_size"-->
+            <!--android:text="@string/wifi_coupling_desc"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/wifi_coupling_result"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/coupling_text_size"-->
+            <!--android:text="@string/failed"/>-->
+
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+            <!--android:id="@+id/bluetooth_coupling_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/coupling_text_size"-->
+            <!--android:text="@string/bluetooth_coupling_desc"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/bluetooth_coupling_result"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/failed"/>-->
+
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+            <!--android:id="@+id/gps_coupling_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/coupling_text_size"-->
+            <!--android:text="@string/gps_coupling_desc"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/gps_coupling_result"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/coupling_text_size"-->
+            <!--android:text="@string/failed"/>-->
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <Button
+            android:id="@+id/coupling_success"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Button_Status_Success"
+            android:textSize="@dimen/coupling_text_size"
+            android:background="@color/green"/>
+        <Button
+            android:id="@+id/coupling_failed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Button_Status_Fail"
+            android:textSize="@dimen/coupling_text_size"
+            android:background="@color/red"/>
+
+    </LinearLayout>
+</RelativeLayout>

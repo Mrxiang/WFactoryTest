@@ -53,7 +53,7 @@ public class BTTest extends FactoryActivity implements OnClickListener {
     static boolean flags1 = false;
     static boolean flags2 = false;
     private List<Map<String, Object>> list = null;
-
+	private static final int MAX_SCAN_BT_NUM=30;//wbin add
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -195,7 +195,7 @@ public class BTTest extends FactoryActivity implements OnClickListener {
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+            if (BluetoothDevice.ACTION_FOUND.equals(action)&& list.size()<MAX_SCAN_BT_NUM) {//wbin add
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 //		             if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                 name = device.getName();

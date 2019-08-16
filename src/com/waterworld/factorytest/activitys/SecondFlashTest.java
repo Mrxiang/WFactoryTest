@@ -105,8 +105,8 @@ public class SecondFlashTest extends FactoryActivity{
         mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             mCameraManager.setTorchMode(mCameraId, false);
-        } catch (CameraAccessException e) {
-            Log.e(TAG, "Couldn't set torch mode", e);
+        } catch (Exception e) {
+            Log.e(TAG, "Couldn't set torch mode" + e.toString());
         }
 
     }

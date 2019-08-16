@@ -237,8 +237,8 @@ public class SensorTest extends FactoryActivity implements OnClickListener, Sens
         mLeftIcon = (ImageView) findViewById(R.id.gsensor_orientation_left);
         mRightIcon = (ImageView) findViewById(R.id.gsensor_orientation_right);
         mDownIcon = (ImageView) findViewById(R.id.gsensor_orientation_down);
-        if (android.os.SystemProperties.getBoolean("ro.hx_gsensor_graphic", false)) {
-            xyzResult.setVisibility(View.INVISIBLE);
+        if (android.os.SystemProperties.getBoolean("ro.hx_gsensor_graphic", true)) {
+            xyzResult.setVisibility(View.GONE);
         }
     }
 
@@ -261,14 +261,14 @@ public class SensorTest extends FactoryActivity implements OnClickListener, Sens
         //by yds end
 
         //Gsensor
-        if (event.sensor.getType() == 1) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             Gsensor_X.setText("X values is   " + event.values[0] + "");
             Gsensor_Y.setText("Y values is   " + event.values[1] + "");
             Gsensor_Z.setText("Z values is   " + event.values[2] + "");
 
             //add by leiyaotao for XYZ change
             //X
-            if (android.os.SystemProperties.getBoolean("ro.hx_gsensor_graphic", false)) {
+            if (android.os.SystemProperties.getBoolean("ro.hx_gsensor_graphic", true)) {
                 if ((int) event.values[2] >= 9) {
                     mZOrientationOk = true;
                 }
@@ -302,7 +302,6 @@ public class SensorTest extends FactoryActivity implements OnClickListener, Sens
                                 Intent miIntent = new Intent();
                                 if (FeatureOption.MTK_GPS_SUPPORT) { //FeatureOption.MTK_GPS_SUPPORT
                                     miIntent.setAction("com.ykq.intent.action.GPS_TEST");
-                                    GpsTestResult.mCreateFirstTime = true;
                                 } else {
                                     miIntent.setAction("com.ykq.intent.action.WIFI_TEST");
                                 }

@@ -29,13 +29,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.internal.telephony.ITelephony;
+import com.android.internal.util.HexDump;
 import com.mediatek.pingbo.PingTeeUtil;
 import com.waterworld.factorytest.ext.ScrollListView;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.android.internal.telephony.ITelephony;
+
+import vendor.mediatek.hardware.nvram.V1_0.INvram;
 
 //add by yds start
 //add by yds end
@@ -61,8 +65,11 @@ public class TestReport extends Activity {
 	private boolean isPingboTee = SystemProperties.get("ro.trustkernel_tee_support", "0").equals("1");
 	LinearLayout mFingerLayout;
 	LinearLayout mGoogkeKeyLayout;
-	TextView mFingerResult;
-	TextView mGoogleKeyResult;
+	private TextView mFingerResult;
+	private TextView mGoogleKeyResult;
+	private TextView mCouplingTitle;
+	private TextView mWirelessResult;
+	private TextView mWBGResult;
 	Button mBack;
 	//qyl end
 
@@ -99,10 +106,10 @@ public class TestReport extends Activity {
 			iTelephony = (ITelephony) getITelephonyMethod.invoke(tm, (Object[]) null);
 
 			//it works? not sure.
-			if("10".equals(SystemProperties.get("gsm.serial").substring(SystemProperties.get("gsm.serial").length() -2, SystemProperties.get("gsm.serial").length())) ||
-					"10P".equals(SystemProperties.get("gsm.serial").substring(SystemProperties.get("gsm.serial").length() -3, SystemProperties.get("gsm.serial").length())) ||
-					"10".equals(SystemProperties.get("gsm.serial").substring(SystemProperties.get("gsm.serial").length() -3, SystemProperties.get("gsm.serial").length()-1)) ||
-					"10P".equals(SystemProperties.get("gsm.serial").substring(SystemProperties.get("gsm.serial").length() -4, SystemProperties.get("gsm.serial").length()-1))){
+			if("10".equals(SystemProperties.get("vendor.gsm.serial").substring(SystemProperties.get("vendor.gsm.serial").length() -2, SystemProperties.get("vendor.gsm.serial").length())) || 
+					"10P".equals(SystemProperties.get("vendor.gsm.serial").substring(SystemProperties.get("vendor.gsm.serial").length() -3, SystemProperties.get("vendor.gsm.serial").length())) ||
+					"10".equals(SystemProperties.get("vendor.gsm.serial").substring(SystemProperties.get("vendor.gsm.serial").length() -3, SystemProperties.get("vendor.gsm.serial").length()-1)) || 
+					"10P".equals(SystemProperties.get("vendor.gsm.serial").substring(SystemProperties.get("vendor.gsm.serial").length() -4, SystemProperties.get("vendor.gsm.serial").length()-1))){
 				tv_jiaozhun_choose.setText(R.string.msg_shi);
 				tv_jiaozhun_choose.setTextColor(Color.GREEN);
 			}else{
@@ -116,7 +123,75 @@ public class TestReport extends Activity {
 			tv_jiaozhun_choose.setTextColor(Color.RED);
 			e.printStackTrace();
 		}
+		//add for
+		TextView zongce_result = (TextView)findViewById(R.id.zongce_result);
+		try {
+			String barCodeValue = SystemProperties.get("vendor.gsm.serial");
+			Log.d(TAG, "vendor.gsm.serial: "+barCodeValue.charAt(62));
+			if( barCodeValue != null && barCodeValue.length() != 0 && barCodeValue.length() >= 63
+					&& barCodeValue.substring(62, 63).equals("P")) {
 
+				zongce_result.setText( R.string.pass);
+				zongce_result.setTextColor( Color.GREEN );
+
+			}else if(barCodeValue != null && barCodeValue.length() != 0 && barCodeValue.length() >= 63
+					&& barCodeValue.substring(62, 63).equals("F")){
+				zongce_result.setText( R.string.failed);
+				zongce_result.setTextColor( Color.RED );
+			}else{
+				zongce_result.setText( R.string.failed);
+				zongce_result.setTextColor( Color.RED );
+
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			zongce_result.setText( R.string.failed );
+			zongce_result.setTextColor( Color.RED );
+
+		}
+
+		mCouplingTitle = findViewById( R.id.coupling_test_title);
+		mWirelessResult  = findViewById( R.id.wireless_test_result);
+		mWBGResult  = findViewById( R.id.wbg_test_result);
+		if( readWirelessResult() == Utils.SUCCESS && readWBGResult() == Utils.SUCCESS ){
+			mCouplingTitle.append( getResources().getString(R.string.pass));
+			mCouplingTitle.setTextColor( Color.GREEN );
+			mWirelessResult.append( getResources().getString(R.string.pass) );
+			mWBGResult.append( getResources().getString(R.string.pass));
+
+		}else if(readWirelessResult() == Utils.NONE && readWBGResult() == Utils.NONE){
+			mCouplingTitle.append( getResources().getString(R.string.no_test));
+			mWirelessResult.append( getResources().getString(R.string.no_test) );
+			mWBGResult.append( getResources().getString(R.string.no_test));
+		}else{
+			mCouplingTitle.append( getResources().getString(R.string.failed));
+			mCouplingTitle.setTextColor( Color.RED );
+			if( readWirelessResult() == Utils.SUCCESS ) {
+				mWirelessResult.append(getResources().getString(R.string.pass));
+				mWirelessResult.setTextColor( Color.GREEN );
+			}else if( readWirelessResult() == Utils.FAILED ){
+				mWirelessResult.append(getResources().getString(R.string.failed));
+				mWirelessResult.setTextColor( Color.RED );
+
+			}else{
+				mWirelessResult.append(getResources().getString(R.string.no_test));
+
+			}
+			if( readWBGResult() == Utils.SUCCESS ) {
+				mWBGResult.append(getResources().getString(R.string.pass));
+				mWBGResult.setTextColor( Color.GREEN );
+
+			}else if( readWBGResult() == Utils.FAILED ){
+				mWBGResult.append(getResources().getString(R.string.failed));
+				mWBGResult.setTextColor( Color.RED );
+
+			}else{
+				mWBGResult.append(getResources().getString(R.string.no_test));
+
+			}
+
+		}
 
 		testall = (TextView)findViewById(R.id.tv_testall_choose);
 
@@ -250,6 +325,81 @@ public class TestReport extends Activity {
 		}
 	}
 	//qyl end
+
+
+	public int readWirelessResult(){
+		int wirelessFlag= 0;
+		try {
+			String barCodeValue = SystemProperties.get("vendor.gsm.serial");
+			Log.d(TAG, "vendor.gsm.serial: "+barCodeValue);
+			if( barCodeValue != null && barCodeValue.length() != 0 && barCodeValue.length() >= 61
+					&& barCodeValue.substring(59, 60).equals("P")) {
+				wirelessFlag = Utils.SUCCESS;
+
+			}else if(barCodeValue != null && barCodeValue.length() != 0 && barCodeValue.length() >= 61
+					&& barCodeValue.substring(59, 60).equals("F")){
+				wirelessFlag = Utils.FAILED;
+
+			}else{
+				wirelessFlag = Utils.NONE;
+
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+
+		}
+		return wirelessFlag;
+	}
+
+	public int readWBGResult( ){
+		int wbgFlag = Utils.NONE;
+		try {
+			String  wbg_result = readDatasStatusFromNvram();
+			if( wbg_result.equals("80")){
+				wbgFlag = Utils.SUCCESS;
+			}else if( wbg_result.equals("70")){
+				wbgFlag = Utils.FAILED;
+
+			}else{
+				wbgFlag = Utils.NONE;
+
+			}
+
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return wbgFlag;
+	}
+	private static final String CUSTOM_ADDRESS_FILENAME = "/vendor/nvdata/APCFG/APRDEB/PRODUCT_INFO";
+	private static int   COUPLING_VALUE = 1024;
+	private static int   SPECIAL_VALUE = 700;
+
+	public String  readDatasStatusFromNvram( ){
+		Log.d(TAG, "readDatasStatusFromNvram: Begin");
+		String value=null;
+		try {
+			INvram agent = INvram.getService();
+			if (agent == null) {
+				Log.d(TAG,"readFileByNamevec write agent == null");
+				return value;
+			}
+			String buff = agent.readFileByName(CUSTOM_ADDRESS_FILENAME, COUPLING_VALUE );
+			Log.d(TAG, "readDatasStatusFromNvram: "+buff.length()+" -> "+buff.toString());
+			byte[] buffArr = HexDump.hexStringToByteArray(buff.substring(0, buff.length() - 1));
+			Log.d(TAG,"readFileByNamevec read buffArr == "+buffArr.length+" -> "+ Arrays.toString(buffArr));
+			value = Byte.toString(buffArr[SPECIAL_VALUE]);
+			Log.d(TAG,"readFileByNamevec read value == "+ value);
+
+		} catch (Exception e) {
+			Log.d(TAG,"readFileByNamevec Exception == "+e);
+			e.printStackTrace();
+		}
+		Log.d(TAG, "readDatasStatusFromNvram: End");
+		return value;
+	}
+
 
 
 }

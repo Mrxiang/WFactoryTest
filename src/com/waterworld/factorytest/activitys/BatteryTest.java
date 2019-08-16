@@ -58,11 +58,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.waterworld.factorytest.FactoryActivity;
+import com.waterworld.factorytest.FactoryDatas;
 import com.waterworld.factorytest.FactoryTestFeatureoption.FeatureOption;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -96,16 +99,17 @@ public class BatteryTest extends FactoryActivity  implements OnClickListener {
 	private LinearLayout mElectroniclLayout;
 	private TextView current_voltage;
 	private LinearLayout mVoltageLayout;
-    private int mChargerElectronic;
-    private int mChargerVoltage;
+    private float mChargerElectronic;
+    private float mChargerVoltage;
 	private Button success_Button;
 	//pingyh add end
+	private static final float FORMART_TEN = 10.0f;
 
 	private static final int EVENT_TICK = 1;
 	private static final int EVENT_LOG_RECORD = 2;
         private static final int EVENT_CHR = 3; //zxs
 
-	private String TAG = Utils.TAG+"EM-BatteryTest";
+	private static String TAG = Utils.TAG+"EM-BatteryTest";
 	
 	static int BatteryTestStatus = 0;
 	// yangkun add start 2018/03/19
@@ -145,26 +149,27 @@ public class BatteryTest extends FactoryActivity  implements OnClickListener {
 			// TODO Auto-generated method stub
 					//if(SystemProperties.get("ro.hx_battery_charger_test").equals("1")){
 					String currentVoltage = readCurrentVoltage();
+//					String currentVoltage = readCurrentVoltage2();
 					if(!TextUtils.isEmpty(currentVoltage)) {
 						mVoltageLayout.setVisibility(View.VISIBLE);
-						if(Integer.parseInt(currentVoltage.trim())< 100){
+						if(Float.parseFloat(currentVoltage.trim())< 100){
 							current_voltage.setText("0"+" mV");
 						}else{
 							current_voltage.setText(currentVoltage.trim()+" mV");
 						}
 					}
-					
-					String currentElectronicl = readCurrentAverage();
+//					String currentElectronicl = readCurrentAverage();
+					String currentElectronicl = readCurrentAverage2();
 					if(!TextUtils.isEmpty(currentElectronicl)) {
 						mElectroniclLayout.setVisibility(View.VISIBLE);
 						current_electronicl.setText(currentElectronicl.trim()+" mA");
 					}
 					// yangkun modify start 2018/03/19
 					if (currentVoltage != null && !currentVoltage.equals("")) {
-						mChargerVoltage = Integer.parseInt(currentVoltage.trim());//arg1.getIntExtra("voltage", 0);//Integer.parseInt(arg1.getIntExtra("voltage", 0));
+						mChargerVoltage = Float.parseFloat(currentVoltage.trim());//arg1.getIntExtra("voltage", 0);//Integer.parseInt(arg1.getIntExtra("voltage", 0));
 					}
 					if (currentElectronicl != null && !currentElectronicl.equals("")) {
-						mChargerElectronic = Integer.parseInt(currentElectronicl.trim());
+						mChargerElectronic = Float.parseFloat(currentElectronicl.trim());
 					}
 					// modify end
 					Log.e(TAG,"pingyh mChargerVoltage:"+mChargerVoltage+"  mChargerElectronic:"+mChargerElectronic);
@@ -384,7 +389,7 @@ public class BatteryTest extends FactoryActivity  implements OnClickListener {
 		success_Button.setOnClickListener(this);
 		fail_Button.setOnClickListener(this);
 		
-		if(SystemProperties.get("ro.hx_battery_charger_test").equals("1")){
+		if( FactoryDatas.parseBatteryCurrentValue( this) ){
 			success_Button.setEnabled(false);
 		}
 	}
@@ -401,7 +406,7 @@ public class BatteryTest extends FactoryActivity  implements OnClickListener {
 		mTemperature = (TextView) findViewById(R.id.temperature);
 		mUptime = (TextView) findViewById(R.id.uptime);
 		//pingyh add start
-		if(SystemProperties.get("ro.hx_battery_charger_test").equals("1")){
+		if(FactoryDatas.parseBatteryCurrentValue( this )){
 			current_voltage = (TextView) findViewById(R.id.current_mv);
 			mVoltageLayout = (LinearLayout) findViewById(R.id.current_voltage);
 			current_electronicl = (TextView) findViewById(R.id.current_ma);
@@ -414,9 +419,9 @@ public class BatteryTest extends FactoryActivity  implements OnClickListener {
 		}
 
 		mHandler.sendEmptyMessageDelayed(EVENT_TICK, 1000);
-               if(SystemProperties.get("ro.hx_battery_charger_test").equals("1")){ //zxs
+		if(FactoryDatas.parseBatteryCurrentValue( this )){
                 mChrHandler.sendEmptyMessageDelayed(EVENT_CHR, 10);
-              }
+		}
 		registerReceiver(mIntentReceiver, mIntentFilter);
 		registerReceiver(mIntentReceiverSDCard, mIntentFilterSDCard);
 	}
@@ -484,6 +489,66 @@ public class BatteryTest extends FactoryActivity  implements OnClickListener {
 		}
 
 	};
+
+	public String readCurrentAverage2() {
+		String filePath = "/sys/devices/platform/battery/FG_Battery_CurrentConsumption";
+		Float mValue  = getMeanBatteryVal(filePath, 5, 0 )/FORMART_TEN;
+		return Float.toString( mValue );
+	}
+	private float getMeanBatteryVal(String filePath, int totalCount, int intervalMs) {
+		float meanVal = 0.0f;
+		if (totalCount <= 0) {
+			return 0.0f;
+		}
+		for (int i = 0; i < totalCount; i++) {
+			try {
+				float f = Float.valueOf(getFileContent(filePath));
+				meanVal += f / totalCount;
+			} catch (NumberFormatException e) {
+				Log.e(TAG, "getMeanBatteryVal invalid result from cmd:" + filePath);
+			}
+			if (intervalMs <= 0) {
+				continue;
+			}
+			try {
+				Thread.sleep(intervalMs);
+			} catch (InterruptedException e) {
+				Log.e(TAG, "Catch InterruptedException");
+			}
+		}
+		return meanVal;
+	}
+
+	private static String getFileContent(String filePath) {
+		if (filePath == null) {
+			return null;
+		}
+		StringBuilder builder = new StringBuilder();
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(filePath));
+			char[] buffer = new char[500];
+			int ret = -1;
+			while ((ret = reader.read(buffer)) != -1) {
+				builder.append(buffer, 0, ret);
+			}
+		} catch (IOException e) {
+			Log.e(TAG, "IOException:" + e.getMessage());
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					Log.e(TAG, "IOException:" + e.getMessage());
+				}
+			}
+		}
+		String result = builder.toString();
+		if (result != null) {
+			result = result.trim();
+		}
+		return result;
+	}
 
 
 	public void setResultBeforeFinish(int status) {

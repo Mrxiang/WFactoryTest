@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StatFs;
+import android.os.SystemProperties;
+import android.os.storage.StorageManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.waterworld.factorytest.FactoryActivity;
+import com.waterworld.factorytest.FactoryDatas;
 import com.waterworld.factorytest.FactoryTestFeatureoption.FeatureOption;
 
 import java.io.File;
@@ -58,6 +61,9 @@ public class SDcardTest extends FactoryActivity {
 
     byte[] mBuffer = new byte[1024];
 
+    private StorageManager mStorageManager;
+
+
     @Override
 
     public void onCreate(Bundle savedInstanceState) {
@@ -71,6 +77,7 @@ public class SDcardTest extends FactoryActivity {
         long blockSize = stat.getBlockSize();
         long totalBlocks = stat.getBlockCount();
         long availableBlocks = stat.getAvailableBlocks();
+
         long availMem = readAvailMem();
         long allMem = readAllMem();
 
@@ -86,11 +93,17 @@ public class SDcardTest extends FactoryActivity {
 
         textView0.setText(getString(R.string.values_memoryjie));
 
-        textView1.setText(getString(R.string.values_memoryzong) + formatFileSize(this, allMem));
+        if(FactoryDatas.parseSDCardFakeValue( this )){
+            textView1.setText(getString(R.string.values_memoryzong) + "4GB");
+            textView3.setText(getString(R.string.values_memorynei) + "64GB");
+
+        }else{
+            textView1.setText(getString(R.string.values_memoryzong) + formatFileSize(this, allMem));
+//            textView3.setText(getString(R.string.values_memorynei) + formatFileSize(this, totalBlocks * blockSize));
+            textView3.setText(getString(R.string.values_memorynei) + formatFileSize(this, getAllStorageSize(getBaseContext())));
+
+        }
         textView2.setText(getString(R.string.values_memorysheng) + formatFileSize(this, availMem));
-
-
-        textView3.setText(getString(R.string.values_memorynei) + formatFileSize(this, totalBlocks * blockSize));
         textView4.setText(getString(R.string.values_memorymeisheng) + formatFileSize(this, availableBlocks * blockSize));
 //	    RunningState mState;
 
@@ -211,8 +224,18 @@ public class SDcardTest extends FactoryActivity {
         } else {
         }
 
+        if ("1".equals(SystemProperties.get("ro.yk676_cf2_bsh18_hdp_tplink"))) {
+           if( helper.hasSD() ){
+                SDcardTestStatus = Utils.SUCCESS;
+                setResultBeforeFinish( SDcardTestStatus );
+                finish();
+           }else{
+               SDcardTestStatus = Utils.FAILED;
+               setResultBeforeFinish( SDcardTestStatus );
+               finish();
+           }
+        }
     }
-
     public void onAttachedToWindow() {
         // TODO Auto-generated method stub
 //		this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
@@ -378,6 +401,12 @@ public class SDcardTest extends FactoryActivity {
         intent.putExtra(Utils.NAME, "sdcard");
         intent.putExtra(Utils.TEST_RESULT, status);
         setResult(status, intent);
+    }
+    public long getAllStorageSize( Context context ){
+        mStorageManager = context.getSystemService(StorageManager.class);
+
+        return mStorageManager.getPrimaryStorageSize();
+
     }
 }
 

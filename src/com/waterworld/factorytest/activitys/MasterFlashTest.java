@@ -103,7 +103,7 @@ public class MasterFlashTest extends FactoryActivity{
         mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             mCameraManager.setTorchMode(mCameraId, false);
-        } catch (CameraAccessException e) {
+        } catch (Exception e) {
             Log.e(TAG, "Couldn't set torch mode", e);
         }
     }

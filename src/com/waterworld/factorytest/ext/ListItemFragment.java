@@ -45,6 +45,7 @@ public class ListItemFragment extends Fragment {
     private List<FactoryBean>   mDatas;
     private View                mContentView;
     private Toolbar             mToolbar;
+    private int                 handlerStatus=0;
 
     public void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
@@ -56,7 +57,7 @@ public class ListItemFragment extends Fragment {
         Log.d(TAG, "onCreateView: ");
         mContentView = inflater.inflate(R.layout.list_item_fragment,container, false);
 
-        mDatas = FactoryDatas.getInstance( getContext());
+        mDatas = FactoryDatas.getInstance( getContext()).getListFactoryBean();
 
         initListView();
         initOtherViews();
@@ -64,7 +65,6 @@ public class ListItemFragment extends Fragment {
         //开启一个线程
         mHandlerThread.start();
         handler =  new Handler(mHandlerThread.getLooper()){
-            int  handlerStatus=0;
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
@@ -74,7 +74,8 @@ public class ListItemFragment extends Fragment {
                         Log.d(TAG, "handleMessage: "+what);
                         try {
                             Log.d(TAG, "sleep: ");
-                            Thread.sleep(1000);
+//                            Thread.sleep(500);
+                            Thread.sleep(0);
                         }catch (Exception e){
                             e.printStackTrace();
                         }
@@ -91,7 +92,6 @@ public class ListItemFragment extends Fragment {
                                     break;
                                 }
                             }
-                            FactoryDatas.storeDatasToNvram(mDatas);
                         }
                         break;
                     case Utils.PAUSE:
@@ -152,6 +152,7 @@ public class ListItemFragment extends Fragment {
                     String factory = data.getStringExtra(Utils.NAME);
                     int status = data.getIntExtra(Utils.TEST_RESULT, Utils.NONE);
                     FactoryDatas.updateBeanStatus(factory, status);
+                    FactoryDatas.getInstance(getContext()).storeDatas(mDatas);
                     //                Sleep();
                     Message message = Message.obtain();
                     message.what = Utils.START;
@@ -160,6 +161,7 @@ public class ListItemFragment extends Fragment {
                     String factory = data.getStringExtra(Utils.NAME);
                     int status = data.getIntExtra(Utils.TEST_RESULT, Utils.NONE);
                     FactoryDatas.updateBeanStatus(factory, status);
+                    FactoryDatas.getInstance(getContext()).storeDatas(mDatas);
                 }
             }catch(Exception e){
                 Log.d(TAG, "onActivityResult: ", e.fillInStackTrace());
@@ -176,7 +178,7 @@ public class ListItemFragment extends Fragment {
 
         super.onDestroy();
 
-        FactoryDatas.storeDatasToNvram( mDatas );
+        FactoryDatas.getInstance(getContext()).storeDatas( mDatas );
     }
 
     private void initOtherViews( ) {
@@ -190,6 +192,7 @@ public class ListItemFragment extends Fragment {
             play.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    handlerStatus=0;
                     Message message = Message.obtain();
                     message.what = Utils.START;
                     handler.sendMessage( message );
@@ -221,7 +224,7 @@ public class ListItemFragment extends Fragment {
                             break;
 
                         case R.id.clear_status:
-                            FactoryDatas.cleanDatasStatus();
+                            FactoryDatas.getInstance(getContext()).cleanDatasStatus();
                             updateOtherView();
                             mAdapter.notifyDataSetChanged();
 
@@ -236,7 +239,7 @@ public class ListItemFragment extends Fragment {
 
     public void updateOtherView() {
             TextView  textDesc = mToolbar.findViewById(R.id.action_bar_desc);
-            textDesc.setText( "("+ FactoryDatas.getPassedBeanSize()+"/"+FactoryDatas.getInstance(getContext()).size()+")");
+            textDesc.setText( "("+ FactoryDatas.getPassedBeanSize()+"/"+FactoryDatas.getInstance(getContext()).getListFactoryBean().size()+")");
     }
 
 

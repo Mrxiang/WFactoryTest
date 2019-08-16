@@ -226,8 +226,12 @@ public class HardwareInformationActivity extends Activity implements View.OnClic
 	}
 
 	public void ReadTPIC() {
-		String file_tp_info = "/proc/driver/tp_info";
+//		String file_tp_info = "/proc/driver/tp_info";
+		String file_tp_info = "/sys/bus/platform/drivers/mtk-kpd/tp_info";
+		String file_tp_version = "/sys/bus/platform/drivers/mtk-kpd/tp_version";
+
 		byte[] buffer_info = new byte[128];
+		byte[] buffer_version = new byte[128];
 
 		try {
 			InputStream inStream = new FileInputStream(file_tp_info);
@@ -243,6 +247,20 @@ public class HardwareInformationActivity extends Activity implements View.OnClic
 				mTPInformation.append("\n");
 			}
 
+			InputStream inStream_version = new FileInputStream(file_tp_version);
+			inStream_version.read(buffer_version);
+
+			if (buffer_version != null) {
+				ByteArrayOutputStream baos_version = new ByteArrayOutputStream();
+				baos_version.write(buffer_version);
+				String fullString_version = baos_version.toString();
+
+				Log.i(TAG, "debug, read file_tp_version = " + fullString_version);
+				mTPInformation.append("Version:  ");
+				mTPInformation.append(fullString_version);
+				mTPInformation.append("\n");
+
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -301,7 +319,8 @@ public class HardwareInformationActivity extends Activity implements View.OnClic
 	{
 		byte[] buffer = new byte[600]; //[255];  // changed by wanghe 2013-08-08 from 230 to 255
 
-		String file_lcm_info = "/proc/driver/lcm_info";
+//		String file_lcm_info = "/proc/driver/lcm_info";
+		String file_lcm_info = "/system/auto_lcm_info";
 		try {
 			InputStream inStream = new FileInputStream(file_lcm_info);
 			inStream.read(buffer);
@@ -324,9 +343,11 @@ public class HardwareInformationActivity extends Activity implements View.OnClic
 
 	public void ReadCamIC() {
 
-		String file_cam_main = "/proc/driver/camera_info_main";
-		String file_cam_sub = "/proc/driver/camera_info_sub";
+//		String file_cam_main = "/proc/driver/camera_info_main";
+//		String file_cam_sub = "/proc/driver/camera_info_sub";
 
+		String file_cam_main = "/sys/bus/platform/drivers/mtk-kpd/cam_main_info";
+		String file_cam_sub = "/sys/bus/platform/drivers/mtk-kpd/cam_sub_info";
 		byte[] buffer_main = new byte[50];
 		byte[] buffer_sub = new byte[50];
 		try {

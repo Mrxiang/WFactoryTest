@@ -32,7 +32,7 @@ public class FactoryBaseAdapter extends BaseAdapter {
 
         mInflater = LayoutInflater.from(context);
 
-        mFactoryDatas = FactoryDatas.getInstance(context);
+        mFactoryDatas = FactoryDatas.getInstance(context).getListFactoryBean();
         Log.d(TAG, "Data Size: "+mFactoryDatas.size());
     }
 

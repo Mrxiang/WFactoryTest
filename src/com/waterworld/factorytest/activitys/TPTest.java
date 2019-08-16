@@ -660,10 +660,7 @@ class RingView extends View {
 			int i;
 			int[] mLineColor = { Color.RED, Color.CYAN, Color.BLUE,
 					Color.YELLOW, Color.BLACK };
-			for (i = 0; i < 5; i++) {
-				mGesturePaint.setColor(mLineColor[i]);
-				canvas.drawPath(mPath[i], mGesturePaint);
-			}
+
 
 			boolean isAllTouch = true;
 			for (RecArea mRecArea : mUntouchArea) {
@@ -677,6 +674,11 @@ class RingView extends View {
 				canvas.drawRect(mRecArea.getx1(), mRecArea.gety1(),
 						mRecArea.getx2(), mRecArea.gety2(), mBlockPaint);
 
+			}
+			// line on first layer
+			for (i = 0; i < 5; i++) {
+				mGesturePaint.setColor(mLineColor[i]);
+				canvas.drawPath(mPath[i], mGesturePaint);
 			}
 			if (isAllTouch)
 			{

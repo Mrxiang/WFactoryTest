@@ -56,7 +56,7 @@ public class GridItemFragment  extends Fragment{
         Log.d(TAG, "onCreateView: ");
         mContentView = inflater.inflate(R.layout.grid_item_fragment,container, false);
 
-        mDatas = FactoryDatas.getInstance( getContext());
+        mDatas = FactoryDatas.getInstance(getContext()).getListFactoryBean();
         initGridView();
         initOtherViews();
         mHandlerThread = new HandlerThread( "handler-thread") ;
@@ -73,7 +73,8 @@ public class GridItemFragment  extends Fragment{
                         Log.d(TAG, "handleMessage: "+what);
                         try {
                             Log.d(TAG, "sleep: ");
-                            Thread.sleep(500);
+//                            Thread.sleep(500);
+                            Thread.sleep(0);
                         }catch (Exception e){
                             e.printStackTrace();
                         }
@@ -91,7 +92,7 @@ public class GridItemFragment  extends Fragment{
                                     break;
                                 }
                             }
-                            FactoryDatas.storeDatasToNvram(mDatas);
+                            FactoryDatas.getInstance(getContext()).storeDatas(mDatas);
                         }
                         break;
                     case Utils.PAUSE:
@@ -151,7 +152,8 @@ public class GridItemFragment  extends Fragment{
                     String factory = data.getStringExtra(Utils.NAME);
                     int status = data.getIntExtra(Utils.TEST_RESULT, Utils.NONE);
                     FactoryDatas.updateBeanStatus(factory, status);
-                    //                Sleep();
+                    FactoryDatas.getInstance(getContext()).storeDatas(mDatas);
+					//                Sleep();
                     Message message = Message.obtain();
                     message.what = Utils.START;
                     handler.sendMessage(message);
@@ -159,7 +161,8 @@ public class GridItemFragment  extends Fragment{
                     String factory = data.getStringExtra(Utils.NAME);
                     int status = data.getIntExtra(Utils.TEST_RESULT, Utils.NONE);
                     FactoryDatas.updateBeanStatus(factory, status);
-                }
+                	FactoryDatas.getInstance(getContext()).storeDatas(mDatas);
+				}
             }catch(Exception e){
                 Log.d(TAG, "onActivityResult: ", e.fillInStackTrace());
                 e.printStackTrace();
@@ -175,7 +178,7 @@ public class GridItemFragment  extends Fragment{
 
         super.onDestroy();
 
-        FactoryDatas.storeDatasToNvram( mDatas );
+        FactoryDatas.getInstance(getContext()).storeDatas( mDatas );
     }
     private void initOtherViews( ) {
 
@@ -195,7 +198,7 @@ public class GridItemFragment  extends Fragment{
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FactoryDatas.cleanDatasStatus();
+                FactoryDatas.getInstance(getContext()).cleanDatasStatus();
                 mAdapter.notifyDataSetChanged();
 
             }

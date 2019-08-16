@@ -34,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/fail_layout">
+
         <Button
             android:id="@+id/male_btn"
             android:layout_width="0dp"
@@ -41,7 +42,8 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:text="@string/male_sound"
-            android:onClick="onClick"/>
+            android:onClick="onClick"
+            android:visibility="gone"/>
         <Button
             android:id="@+id/female_btn"
             android:layout_width="0dp"
@@ -49,7 +51,8 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:text="@string/female_sound"
-            android:onClick="onClick"/>
+            android:onClick="onClick"
+            android:visibility="gone"/>
         <Button
             android:id="@+id/pure_btn"
             android:layout_width="0dp"

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <!--     fragment 起始页     是否测试闪光灯     是否用系统后CAMERA      是否用系统前CAMERA-->
-    <Factory fragmentIndex="1"  flashlight="true" systemBackCamera="true" systemFrontCamera="false">
+    <!--     fragment 起始页    是否在nvram存储数据     是否测试闪光灯     是否用系统后CAMERA      是否用系统前CAMERA    sdcard是否造假  是否显示电池电流-->
+    <Factory fragmentIndex="0"  data_in_nvram="true"  flashlight="true" systemBackCamera="true" systemFrontCamera="false"
+        sdcard_fake="false" batteryCurrent="true">
         <Item
             name="lcd"
             action="com.waterworld.intent.action.LCD_TEST"
             title="@string/Test_LCD"></Item>
+
+        <Item
+            name="lcmLight"
+            action="com.waterworld.intent.action.LCM_LIGHT"
+            title="@string/title_lcmlight_test"></Item>
 
         <!--<Item-->
             <!--name="back_camera"-->
@@ -24,7 +30,11 @@
             name="front2Camera"
             action="com.waterworld.intent.action.FRONT2_CAMERA_TEST"
             title="@string/front_camera"></Item>
-
+        <Item
+            name="AssistCamera"
+            action="com.waterworld.intent.action.ASSIST_CAMERA_TEST"
+            title="@string/assist_camera"
+            visible="true"></Item>
 
         <Item
             name="sensor"
@@ -47,7 +57,13 @@
         <Item
             name="key"
             action="com.waterworld.intent.action.KEY_TEST"
-            title="@string/title_activity_key_test"></Item>
+            title="@string/title_activity_key_test"
+            visible="false"></Item>
+        <Item
+            name="NavigationKey"
+            action="com.waterworld.intent.action.NAVIGATION_KEY"
+            title="@string/title_activity_key_test"
+            visible="true"></Item>
         <Item
             name="fm"
             action="com.waterworld.intent.action.FMRADIO_TEST"
@@ -96,7 +112,8 @@
         <Item
             name="finger"
             action="com.waterworld.intent.action.HX_FINGERPRINT_TEST"
-            title="@string/Button_Test_Fingerprint"></Item>
+            title="@string/Button_Test_Fingerprint"
+            visible="false"></Item>
         <!--<Item-->
             <!--name="secondCamera"-->
             <!--action="com.waterworld.intent.action.SECOND_CAMERA_TEST"-->
@@ -104,15 +121,22 @@
         <Item
             name="led"
             action="com.waterworld.intent.action.LED_TEST"
-            title="@string/led_test"></Item>
+            title="@string/led_test"
+            visible="false"></Item>
         <Item
             name="msensor"
             action="com.waterworld.intent.action.MSENSOR_TEST"
-            title="@string/msensor_test"></Item>
+            title="@string/msensor_test"
+            visible="false"></Item>
+        <!--<Item-->
+            <!--name="otg"-->
+            <!--action="com.waterworld.intent.action.OTG_TEST"-->
+            <!--title="@string/otg_test"></Item>-->
         <Item
-            name="otg"
-            action="com.waterworld.intent.action.OTG_TEST"
+            name="otg2"
+            action="com.waterworld.intent.action.OTG2_TEST"
             title="@string/otg_test"></Item>
+
         <Item
             name="masterFlash"
             action="com.waterworld.intent.action.MASTERFLASH_TEST"
@@ -120,6 +144,13 @@
         <Item
             name="secondFlash"
             action="com.waterworld.intent.action.SECONDFLASH_TEST"
-            title="@string/secondflash_test"></Item>
+            title="@string/secondflash_test"
+            visible="false"></Item>
+        <Item
+            name="gySensor"
+            action="com.waterworld.intent.action.GYSENSOR_TEST"
+            title="@string/gy_sensor_test"
+            visible="false"></Item>
+
     </Factory>
 </resources>

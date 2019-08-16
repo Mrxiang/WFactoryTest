@@ -342,44 +342,13 @@ public class MicTest extends FactoryActivity implements OnClickListener {
                 tx_mic_e.setTextColor(Color.BLACK);
                 replay_Button.setEnabled(true);
                 reconding_Button.setEnabled(true);
+
                 super.handleMessage(msg);
             }
 
         };
         if (!audioManager.isWiredHeadsetOn()) {
-            Intent mIntent1 = getIntent();
-            boolean fl1 = mIntent1.getBooleanExtra("textall", false);
 
-            final String text = getString(R.string.msg_masse);
-
-            //ToastUtil mToastUtil = new ToastUtil();
-            //mToastUtil.showMessage(MicTest.this, text);
-            View toastRoot = getLayoutInflater().inflate(R.layout.toast, null);
-            TextView message = (TextView) toastRoot.findViewById(R.id.message);
-            message.setText(text);
-
-            Toast toastStart = new Toast(this);
-            toastStart.setGravity(Gravity.BOTTOM, 0, 110);
-            if (fl1) {
-                toastStart.setDuration(Toast.LENGTH_LONG);
-            } else {
-                toastStart.setDuration(Toast.LENGTH_SHORT);
-            }
-            toastStart.setView(toastRoot);
-            toastStart.show();
-
-            CameraTestStatus = -1;
-
-			/*if(fl1 == true){
-				Intent miIntent = new Intent();
-				miIntent.setAction("com.ykq.intent.action.PHONEMIC_TEST");
-				miIntent.putExtra("textall", true);
-				startActivityForResult(miIntent, RESULT_OK);
-			}*/
-            if (!fl1) {
-                finish();
-                return;
-            }
             reconding_Button.setEnabled(false);
             replay_Button.setEnabled(false);
             //registerHeadsetPlugReceiver();

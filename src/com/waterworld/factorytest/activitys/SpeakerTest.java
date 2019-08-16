@@ -115,14 +115,15 @@ public class SpeakerTest extends FactoryActivity implements View.OnClickListener
 
 
     private void speakerStart() {
-        musicIndex = new Random().nextInt(musicSeed);
+//        musicIndex = new Random().nextInt(musicSeed);
+        musicIndex = 2;
         Log.d(TAG, "loudSpeakerStart: "+musicIndex);
 
         setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
         audioManager.setMode(AudioManager.MODE_IN_CALL);
         audioManager.setSpeakerphoneOn(false);
 
-        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), AudioManager.FLAG_SHOW_UI);//AudioManager.FLAG_PLAY_SOUND);//wlf add 20130820
+        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), AudioManager.FLAG_PLAY_SOUND);//AudioManager.FLAG_PLAY_SOUND);//wlf add 20130820
         //audioManager.adjustStreamVolume (AudioManager.STREAM_VOICE_CALL, AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
 
         AudioSystem.setMasterVolume(1.0f);

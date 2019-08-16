@@ -4,28 +4,65 @@
     android:layout_height="match_parent"
     >
 
+    <!--<FrameLayout-->
+        <!--android:id="@+id/fragment_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <!--</FrameLayout>-->
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:layout_gravity="bottom">-->
+        <!--<Button-->
+            <!--android:id="@+id/led_success"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/Button_Status_Success"-->
+            <!--android:textSize="@dimen/led_text_size"-->
+            <!--android:background="@color/green"/>-->
+        <!--<Button-->
+            <!--android:id="@+id/led_failed"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/Button_Status_Fail"-->
+            <!--android:textSize="@dimen/led_text_size"-->
+            <!--android:background="@color/red"/>-->
+
+    <!--</LinearLayout>-->
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:layout_gravity="bottom">
+        android:visibility="gone">
+
         <Button
-            android:id="@+id/led_success"
+            android:id="@+id/btn_red"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/Button_Status_Success"
-            android:textSize="@dimen/led_text_size"
-            android:background="@color/green"/>
+            android:onClick="light_red">
+        </Button>
         <Button
-            android:id="@+id/led_failed"
+            android:id="@+id/btn_blue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/Button_Status_Fail"
-            android:textSize="@dimen/led_text_size"
-            android:background="@color/red"/>
+            android:onClick="light_blue">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_green"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="light_green">
+        </Button>
 
     </LinearLayout>
 </RelativeLayout>

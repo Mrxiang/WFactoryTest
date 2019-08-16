@@ -90,15 +90,18 @@ public class FactoryTest extends Activity implements NavigationView.OnNavigation
     }
 
     private long                firstTime = 0;
-    public void onBackPressed() {
-        long secondTime = System.currentTimeMillis();
-        if (secondTime - firstTime > 2000) {
-            Toast.makeText(this, getResources().getString(R.string.sure_exit), Toast.LENGTH_SHORT).show();
-            firstTime = secondTime;
-        } else {
-            finish();
-        }
-    }
 
+//    public void onBackPressed() {
+//        long secondTime = System.currentTimeMillis();
+//        if (secondTime - firstTime > 2000) {
+//            Toast.makeText(this, getResources().getString(R.string.sure_exit), Toast.LENGTH_SHORT).show();
+//            firstTime = secondTime;
+//        } else {
+//            finish();
+//        }
+//    }
+    public void onBackPressed() {
+        return;
+    }
 
 }

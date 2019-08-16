@@ -30,7 +30,7 @@
         <SurfaceView
             android:id="@+id/mainSurfaceView"
             android:layout_height="fill_parent"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             />
         <ImageButton
             android:id="@+id/Button_capture"
@@ -47,8 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="50dip"
-            android:visibility="gone">
+            android:layout_marginBottom="10dip"
+            >
 
             <Button
                 android:id="@+id/Button_Success"
@@ -58,7 +58,8 @@
                 android:background="@drawable/bk_true"
                 android:textSize="25dip"
                 android:text="@string/Button_Status_Success"
-                android:onClick="onSuccessClick"/>
+                android:onClick="onSuccessClick"
+                android:enabled="false"/>
 
             <Button
                 android:id="@+id/Button_Fail"

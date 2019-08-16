@@ -17,16 +17,15 @@ import com.waterworld.factorytest.Utils;
 public class GpsTestResult extends FactoryActivity  implements View.OnClickListener{
 	private static final String TAG = Utils.TAG +"GpsTestResult";
 	public static int LocationTestStatus = 0;
-	protected static boolean mCreateFirstTime = true;
-	
+
 	private Button mSuccessButton;
 	private Button mFailButton;
 	private int mLocationMode = 0;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		try {
 			mLocationMode = Secure.getInt(getContentResolver(), Secure.LOCATION_MODE);
 //			Log.i("FactoryTest", "Gps mode = "+mLocationMode);
@@ -38,23 +37,20 @@ public class GpsTestResult extends FactoryActivity  implements View.OnClickListe
 		} catch (Settings.SettingNotFoundException e) {
 			e.printStackTrace();
 		}
-		if (mCreateFirstTime) {
-			mCreateFirstTime = false;
 //			Intent intent = new Intent("com.ykq.intent.action.ygps");
-			Intent intent = new Intent();
-			intent.setComponent(new ComponentName("com.mediatek.ygps", "com.mediatek.ygps.YgpsActivity"));
-			startActivityForResult(intent, 0);//the second para should not smaller then 0.
-		}
-		
+		Intent intent = new Intent();
+		intent.setComponent(new ComponentName("com.mediatek.ygps", "com.mediatek.ygps.YgpsActivity"));
+		startActivityForResult(intent, 0);//the second para should not smaller then 0.
+
 		setContentView(R.layout.test_result);
-		
+
 		mSuccessButton = (Button) findViewById(R.id.Button_Success);
 		mFailButton = (Button) findViewById(R.id.Button_Fail);
-		
+
 		mSuccessButton.setOnClickListener(this);
 		mFailButton.setOnClickListener(this);
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent IntentData) {
 //		Log.i("FactoryTest", "onActivityResult");
@@ -64,21 +60,21 @@ public class GpsTestResult extends FactoryActivity  implements View.OnClickListe
 //			Log.i("FactoryTest", "onActivityResult mLocationMode");
 		}
 	}
-	
+
 	@Override
 	public void onClick(View v) {
-		Intent intent = new Intent(); 
-        intent.setAction("com.ykq.intent.action.FACTORY_TEST_MAIN");
-        setResult(RESULT_OK,intent);
+		Intent intent = new Intent();
+		intent.setAction("com.ykq.intent.action.FACTORY_TEST_MAIN");
+		setResult(RESULT_OK,intent);
 		switch (v.getId()) {
-		case R.id.Button_Success:
-			LocationTestStatus  = 1;
-			break;
-		case R.id.Button_Fail:
-			LocationTestStatus = -1;
-			break;
-		default:
-			break;
+			case R.id.Button_Success:
+				LocationTestStatus  = 1;
+				break;
+			case R.id.Button_Fail:
+				LocationTestStatus = -1;
+				break;
+			default:
+				break;
 		}
 		setResultBeforeFinish( LocationTestStatus );
 		finish();

@@ -34,13 +34,10 @@ public class FpTestResult extends FactoryActivity  //implements View.OnClickList
 					"com.blestech.fingerprinttest.DisPrintActivity");
 			intent.setComponent(cn);
 			this.startActivityForResult(intent, 100);
-		} else if (SystemProperties.getBoolean("ro.hx_using_fp_microarray", false)) {
-			Intent intent = new Intent("ma.fprint.action.FACTORY");
-			//Intent intent = new Intent();
-			//intent.setClassName("ma.fprint", "ma.fprint.CaptureActivity");
-			intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-			intent.putExtra("launchedBy", "factorytest");
-			startActivityForResult(intent, 11110);//the second para should not smaller then 0.
+		} else if (SystemProperties.getBoolean("ro.hx_microarray", false)) { //ro.hx_microarray
+			Intent intent = new Intent();
+			intent.setClassName("ma.android.com.mafactory", "ma.android.com.mafactory.MainActivity");
+			startActivityForResult(intent, 10011);//the second para should not smaller then 0.
 
 		} else if (SystemProperties.getBoolean("ro.hx_using_fingerprint_silead", false)) {
 			Intent intent = new Intent("www.sileadinc.com.fingertest");
@@ -120,12 +117,20 @@ public class FpTestResult extends FactoryActivity  //implements View.OnClickList
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent IntentData) {
 		Log.i("FactoryTest", "onActivityResult resultCode = "+resultCode);
-		if (SystemProperties.getBoolean("ro.hx_using_fp_microarray", false)) {
-
-			if (resultCode == FACTORYTEST_RESULT_CODE_SUCCESS) {
-				FpTestStatus = 1;
-			} else {
-				FpTestStatus = -1;
+		if (SystemProperties.getBoolean("ro.hx_microarray", false)) { //ro.hx_microarray
+			Log.i("xjl", "xjl resultCode = "+resultCode+", requestCode = "+requestCode);
+			if( requestCode == 10011)
+			{
+				if( resultCode != 0)
+				{
+					Log.i("aaaaa", "fail");
+					FpTestStatus = -1;
+				}
+				else if(resultCode == 0)
+				{
+					Log.i("aaaaa", "success");
+					FpTestStatus = 1;
+				}
 			}
 		} else if(SystemProperties.getBoolean("ro.hx_using_fp_blestech", false)) {
 			if( requestCode == 100)

@@ -6,6 +6,9 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.android.internal.util.HexDump;
+import com.waterworld.factorytest.data.DBManager;
+import com.waterworld.factorytest.data.DataInterface;
+import com.waterworld.factorytest.data.NvramManger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,93 +17,56 @@ import java.util.Iterator;
 
 import vendor.mediatek.hardware.nvram.V1_0.INvram;
 
-public class FactoryDatas {
+public class FactoryDatas implements DataInterface{
     private static final String TAG = Utils.TAG+"FactoryDatas";
     public  static List<FactoryBean> mDatas=null;
+    public  Context  mContext;
 
-    private static final String CUSTOM_ADDRESS_FILENAME = "/vendor/nvdata/APCFG/APRDEB/PRODUCT_INFO";
-    private static int FACTORYTEST_VALUE = 342;
+    private static FactoryDatas mFactoryDatas;
+
 //    private static final int TOTAL_BYTE = 29;
 
-    private FactoryDatas( ){
-
+    private FactoryDatas(Context context ){
+        mContext = context;
+        if( mDatas == null ){
+            mDatas = parseFactory( context );
+            readDatasStatus( mDatas );
+        }
     }
 
-    public static List<FactoryBean> getInstance(Context context ){
-        if( mDatas == null ){
+    public static FactoryDatas getInstance(Context context ){
 
-            mDatas = parseFactory( context );
-            readDatasStatusFromNvram( mDatas );
-        }
         Log.d(TAG, "getInstance: "+mDatas);
+        if (mFactoryDatas == null) {
+            mFactoryDatas = new FactoryDatas(context);
+        }
+        return mFactoryDatas;
+    }
+
+    public List<FactoryBean> getListFactoryBean( ){
         return mDatas;
     }
 
-    public static void readDatasStatusFromNvram(List<FactoryBean> mDatas ){
-        try {
-            INvram agent = INvram.getService();
-            if (agent == null) {
-                Log.d(TAG,"readFileByNamevec write agent == null");
-                return ;
-            }
-            String buff = agent.readFileByName(CUSTOM_ADDRESS_FILENAME, FACTORYTEST_VALUE + mDatas.size());
-            byte[] buffArr = HexDump.hexStringToByteArray(buff.substring(0, buff.length() - 1));
-            Log.d(TAG,"readFileByNamevec read buffArr == "+ Arrays.toString(buffArr));
 
-            int i = FACTORYTEST_VALUE;
-
-            if( mDatas != null ) {
-                Iterator<FactoryBean> it = mDatas.iterator();
-                while(it.hasNext()) {
-                    int status = Integer.parseInt(Byte.toString(buffArr[i]));;
-                    FactoryBean bean = it.next();
-                    bean.setStatus( status );
-                    i++;
-                }
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG,"readFileByNamevec Exception == "+e);
-            e.printStackTrace();
+    @Override
+    public void readDatasStatus(List<FactoryBean> mDatas) {
+        if(parseDataInNvram(mContext) ){
+            NvramManger.getInstance(mContext).readDatasStatus( mDatas);
+        }else{
+            DBManager.getInstance(mContext).readDatasStatus(mDatas);
         }
+
     }
 
-    public static void storeDatasToNvram(List<FactoryBean>  mDatas){
-        try {
-            INvram agent = INvram.getService();
-            if (agent == null) {
-                Log.d(TAG,"writeFileByNamevec agent == null");
-                return;
-            }
-            String buff = agent.readFileByName(CUSTOM_ADDRESS_FILENAME, FACTORYTEST_VALUE + mDatas.size());
-            byte[] buffArr = HexDump.hexStringToByteArray(buff.substring(0, buff.length() - 1));
-            Log.d(TAG,"writeFileByNamevec read buffArr == "+Arrays.toString(buffArr));
-            ArrayList<Byte> dataArray = new ArrayList<Byte>(buffArr.length);
-            Log.d(TAG,"writeFileByNamevec dataArray.size == "+dataArray.size());
-            for(int i = 0; i < buffArr.length; i++){
-                if(i >= FACTORYTEST_VALUE){
-                    String data = "0";
-                    int value = mDatas.get(i - FACTORYTEST_VALUE).getStatus();
-                    if(value == 1){
-                        data = "1";
-                    } else if(value == -1){
-                        data = "-1";
-                    }
-                    dataArray.add(i, new Byte(data));
-                }else{
-                    dataArray.add(i, buffArr[i]);
-                }
-            }
-            Log.d(TAG,"writeFileByNamevec dataArray == "+dataArray.toString());
-            int flag = agent.writeFileByNamevec(CUSTOM_ADDRESS_FILENAME, FACTORYTEST_VALUE + mDatas.size(), dataArray);
-            Log.d(TAG,"writeFileByNamevec write flag == "+flag);
-        } catch (RemoteException e) {
-            Log.d(TAG,"writeFileByNamevec Exception == "+e);
-            e.printStackTrace();
+    @Override
+    public void storeDatas(List<FactoryBean> mDatas) {
+        if(parseDataInNvram(mContext) ){
+            NvramManger.getInstance(mContext).storeDatas( mDatas);
+        }else{
+            DBManager.getInstance(mContext).storeDatas(mDatas);
         }
     }
-
-    public static void cleanDatasStatus(List<FactoryBean> mDatas){
+    public  void cleanDatasStatus(List<FactoryBean> mDatas){
         Log.d(TAG, "cleanDatasStatus: ");
         if( mDatas != null ) {
             Iterator<FactoryBean> it = mDatas.iterator();
@@ -108,12 +74,12 @@ public class FactoryDatas {
                 FactoryBean bean = it.next();
                 bean.setStatus( Utils.NONE );
             }
-            storeDatasToNvram( mDatas );
+            storeDatas( mDatas );
         }
 
     }
 
-    public static void cleanDatasStatus( ){
+    public  void cleanDatasStatus( ){
         Log.d(TAG, "cleanDatasStatus: ");
         if( mDatas != null ) {
             Iterator<FactoryBean> it = mDatas.iterator();
@@ -121,7 +87,7 @@ public class FactoryDatas {
                 FactoryBean bean = it.next();
                 bean.setStatus( Utils.NONE );
             }
-            storeDatasToNvram( mDatas );
+            storeDatas( mDatas );
         }
 
     }
@@ -147,7 +113,7 @@ public class FactoryDatas {
                             String factoryName="";
                             int factoryTitle=0;
                             String factoryAction="";
-
+                            boolean visible = true;
                             for(int i=0; i<count; i++){
                                 attrName = parser.getAttributeName(i);
                                 Log.d(TAG, i+" Parser: "+ attrName );
@@ -160,11 +126,17 @@ public class FactoryDatas {
                                 }else if( attrName.equals( Utils.ACTION )){
                                     factoryAction = parser.getAttributeValue(i);
                                     Log.d(TAG, i+" factoryAction: "+ factoryAction );
+                                }else if( attrName.equals( Utils.VISIBLE ) ){
+                                    visible = parser.getAttributeBooleanValue(i, true);
+                                    Log.d(TAG, i+" factoryAction: "+ factoryAction );
+
                                 }
 
                             }
-                            FactoryBean bean = new FactoryBean(factoryName,factoryTitle, factoryAction, Utils.NONE);
-                            datas.add( bean );
+                            if( visible ) {
+                                FactoryBean bean = new FactoryBean(factoryName, factoryTitle, factoryAction, Utils.NONE);
+                                datas.add(bean);
+                            }
                         }
                         break;
                     case XmlResourceParser.END_TAG:
@@ -183,6 +155,50 @@ public class FactoryDatas {
         return datas;
     }
 
+    public static boolean parseDataInNvram(Context context ){
+        Log.d(TAG, "parseFactory: ");
+        boolean    data_in_nvram=true;
+        try {
+            XmlResourceParser parser = context.getResources().getXml(R.xml.factory);
+
+            int event = parser.getEventType();
+            while (event != XmlResourceParser.END_DOCUMENT) {
+                Log.d(TAG, "Parser: " + event);
+                switch (event) {
+                    case XmlResourceParser.START_DOCUMENT:
+                        Log.d(TAG, "start: ");
+                        break;
+                    case XmlResourceParser.START_TAG:
+                        String name = parser.getName();
+                        Log.d(TAG, "start tag: " + name);
+                        if( name.equals( Utils.FACTORY ) ){
+                            int count = parser.getAttributeCount();
+                            String attrName="";
+                            for(int i=0; i<count; i++){
+                                attrName = parser.getAttributeName(i);
+                                Log.d(TAG, i+" Parser: "+ attrName );
+                                if( attrName.equals( Utils.DATA_IN_NVRAM ) ){
+                                    data_in_nvram = parser.getAttributeBooleanValue(i, true);
+                                    Log.d(TAG, "parse Name : "+ data_in_nvram);
+                                }
+                            }
+                        }
+                        break;
+                    case XmlResourceParser.END_TAG:
+                        Log.d(TAG, "end tag: ");
+                        break;
+                    default:
+                        Log.d(TAG, "default: ");
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "getAttr: "+e.toString());
+            e.printStackTrace();
+        }
+        return data_in_nvram;
+    }
     public static int parseFragmentIndex(Context context){
         Log.d(TAG, "parseFactory: ");
         int    fragmentIndex=0;
@@ -341,6 +357,96 @@ public class FactoryDatas {
                                 attrName = parser.getAttributeName(i);
                                 Log.d(TAG, i+" Parser: "+ attrName );
                                 if( attrName.equals( Utils.SYSTEMFRONTCAMERA ) ){
+                                    boolValue = parser.getAttributeBooleanValue(i, false);
+                                    Log.d(TAG, "parse value : "+attrName +" "+boolValue);
+                                }
+                            }
+                        }
+                        break;
+                    case XmlResourceParser.END_TAG:
+                        Log.d(TAG, "end tag: ");
+                        break;
+                    default:
+                        Log.d(TAG, "default: ");
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "getAttr: "+e.toString());
+            e.printStackTrace();
+        }
+        return boolValue;
+    }
+
+    public static boolean parseSDCardFakeValue(Context context){
+        Log.d(TAG, "parseFactory: ");
+        boolean    boolValue =false;
+        try {
+            XmlResourceParser parser = context.getResources().getXml(R.xml.factory);
+
+            int event = parser.getEventType();
+            while (event != XmlResourceParser.END_DOCUMENT) {
+                Log.d(TAG, "Parser: " + event);
+                switch (event) {
+                    case XmlResourceParser.START_DOCUMENT:
+                        Log.d(TAG, "start: ");
+                        break;
+                    case XmlResourceParser.START_TAG:
+                        String name = parser.getName();
+                        Log.d(TAG, "start tag: " + name);
+                        if( name.equals( Utils.FACTORY ) ){
+                            int count = parser.getAttributeCount();
+                            String attrName="";
+                            for(int i=0; i<count; i++){
+                                attrName = parser.getAttributeName(i);
+                                Log.d(TAG, i+" Parser: "+ attrName );
+                                if( attrName.equals( Utils.SDCARDFAKE ) ){
+                                    boolValue = parser.getAttributeBooleanValue(i, false);
+                                    Log.d(TAG, "parse value : "+attrName +" "+boolValue);
+                                }
+                            }
+                        }
+                        break;
+                    case XmlResourceParser.END_TAG:
+                        Log.d(TAG, "end tag: ");
+                        break;
+                    default:
+                        Log.d(TAG, "default: ");
+                        break;
+                }
+                event = parser.next();
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "getAttr: "+e.toString());
+            e.printStackTrace();
+        }
+        return boolValue;
+    }
+
+    public static boolean parseBatteryCurrentValue(Context context){
+        Log.d(TAG, "parseFactory: ");
+        boolean    boolValue =false;
+        try {
+            XmlResourceParser parser = context.getResources().getXml(R.xml.factory);
+
+            int event = parser.getEventType();
+            while (event != XmlResourceParser.END_DOCUMENT) {
+                Log.d(TAG, "Parser: " + event);
+                switch (event) {
+                    case XmlResourceParser.START_DOCUMENT:
+                        Log.d(TAG, "start: ");
+                        break;
+                    case XmlResourceParser.START_TAG:
+                        String name = parser.getName();
+                        Log.d(TAG, "start tag: " + name);
+                        if( name.equals( Utils.FACTORY ) ){
+                            int count = parser.getAttributeCount();
+                            String attrName="";
+                            for(int i=0; i<count; i++){
+                                attrName = parser.getAttributeName(i);
+                                Log.d(TAG, i+" Parser: "+ attrName );
+                                if( attrName.equals( Utils.BATTERY_CURRENT ) ){
                                     boolValue = parser.getAttributeBooleanValue(i, false);
                                     Log.d(TAG, "parse value : "+attrName +" "+boolValue);
                                 }

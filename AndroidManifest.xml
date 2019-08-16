@@ -30,6 +30,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.teleca.permission.ACCESS"></uses-permission>
     <uses-permission android:name="android.permission.TRANSMIT_IR"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
 
     <!--wlf add start for wifiTest in M -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -60,9 +61,10 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!--<action android:name="com.waterworld.action.FACTORY_TEST_MAIN" />-->
+                <action android:name="com.waterworld.action.FACTORY_TEST_MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MONKEY" />
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
             </intent-filter>
         </activity>
         <activity
@@ -89,13 +91,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.BackLightTest"
+            android:name=".activitys.LCMLightTest"
             android:exported="false"
-            android:label="@string/title_activity_buttonlight_test"
+            android:label="@string/title_lcmlight_test"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.ykq.intent.action.BUTTONLIGHT_TEST" />
+                <action android:name="com.waterworld.intent.action.LCM_LIGHT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -182,6 +184,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activitys.NavigationKeyTest"
+            android:exported="false"
+            android:label="@string/title_activity_key_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.NAVIGATION_KEY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".activitys.LCDTest"
@@ -219,18 +232,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activitys.OTGTest"
-            android:exported="false"
-            android:label="@string/title_activity_otg_test"
-            android:screenOrientation="portrait"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.ykq.intent.action.OTG_TEST"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
+
         <activity
             android:name=".activitys.PhoneMicTest"
             android:exported="false"
@@ -394,6 +396,18 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activitys.OTG2Test"
+            android:exported="false"
+            android:label="@string/otg_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.OTG2_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".activitys.MasterFlashTest"
             android:exported="false"
             android:label="@string/masterflash_test"
@@ -428,7 +442,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".activitys.AssistMasterCamera"
+            android:exported="false"
+            android:label="@string/assist_camera"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.ASSIST_CAMERA_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activitys.Front2CameraTest"
             android:exported="false"
@@ -437,6 +461,31 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.waterworld.intent.action.FRONT2_CAMERA_TEST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.CalibMsensor"
+            android:exported="false"
+            android:label="@string/title_activity_all_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.CALIBRATION_MSENSOR" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activitys.GySensorTest"
+            android:exported="false"
+            android:label="@string/title_activity_all_test"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.GYSENSOR_TEST" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -465,6 +514,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".HardwareVersion"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.waterworld.intent.action.HardwareVersion" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <receiver
             android:name=".FactoryTestReceiver"
@@ -472,7 +532,14 @@
             <intent-filter>
                 <action android:name="android.provider.Telephony.SECRET_CODE" />
                 <data
-                    android:host="7799"
+                    android:host="66"
+                    android:scheme="android_secret_code" />
+
+                <data
+                    android:host="8613"
+                    android:scheme="android_secret_code" />
+                <data
+                    android:host="8615"
                     android:scheme="android_secret_code" />
             </intent-filter>
         </receiver>

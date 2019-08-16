@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -40,11 +41,12 @@ public class LCDTest extends FactoryActivity implements View.OnClickListener, Vi
     private Integer[] mImageIds = {
             R.drawable.lcd_test_00,
             R.drawable.lcd_test_01,
-
+            R.drawable.lcd_test_02,
             R.drawable.lcd_test_03,
             R.drawable.lcd_test_04,
             R.drawable.lcd_test_05,
-            R.drawable.lcd_test_02};
+            R.drawable.lcd_test_06
+            };
 
     @Override
     protected void onResume() {
@@ -59,20 +61,20 @@ public class LCDTest extends FactoryActivity implements View.OnClickListener, Vi
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        Window _window = getWindow();
+        WindowManager.LayoutParams params = _window.getAttributes();
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE;
+        _window.setAttributes(params);
+
         setContentView(R.layout.lcd_test);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        RL_image = (RelativeLayout) findViewById(R.id.RL_image);
         RV_button = (RelativeLayout) findViewById(R.id.RV_button);
         mSwitcher = (ImageView) findViewById(R.id.imageSwitcher1);
-        if (android.os.SystemProperties.getBoolean("ro.factorytest_LcdTestClick", false)) {
-            //mSwitcher.setFactory((ViewFactory) this);
-            mSwitcher.setImageResource(mImageIds[position]);
-            mSwitcher.setOnClickListener(this);
-        } else {
-            RL_image.removeView(mSwitcher);
-        }
+
         success_Button = (Button) findViewById(R.id.LCD_BUTTON_SUCCESS);
         Button fail_Button = (Button) findViewById(R.id.LCD_BUTTON_FAIL);
 //	       Button next_Button = (Button) findViewById(R.id.LCD_BUTTON_NEXT);
@@ -80,94 +82,27 @@ public class LCDTest extends FactoryActivity implements View.OnClickListener, Vi
         fail_Button.setOnClickListener(this);
 //	       next_Button.setOnClickListener(this);
 
-
-        final Handler mHandler1 = new Handler() {
-
-            @Override
-            public void handleMessage(Message msg) {
-                // TODO Auto-generated method stub
-                if (flags == 2) {
-                    flags = 3;
-                    setBrightness1(LCDTest.this, 255);
-                } else if (flags == 3) {
-                    flags = 4;
-                    setBrightness1(LCDTest.this, 220);
-                } else if (flags == 4) {
-                    flags = 5;
-                    setBrightness1(LCDTest.this, 150);
-                } else if (flags == 5) {
-                    flags = 6;
-                    setBrightness1(LCDTest.this, 100);
-                } else if (flags == 6) {
-                    if (mTimer1 != null) {
-                        mTimer1.cancel();
-                    }
-                    flags = 7;
-                    setBrightness1(LCDTest.this, 50);
-                    RV_button.setVisibility(View.VISIBLE);
-
-                }
-
-                super.handleMessage(msg);
-            }
-
-        };
-
-
         final Handler mHandler = new Handler() {
 
             @Override
             public void handleMessage(Message msg) {
                 // TODO Auto-generated method stub
+                Log.d(TAG, " handleMessage: "+flags+" "+ mImageIds.length);
 
-                if (flags == 0) {
-                    flags = 1;
-                    RL_image.setBackgroundResource(R.drawable.lcd_test_01);
-                } else if (flags == 1) {
-                    flags = 2;
-
-                    if (FeatureOption.HX_LCD_TEST_CONTAINS_WHITE_BLACK) {
-                        flags = 300;
-                    }
-                    RL_image.setBackgroundResource(R.drawable.lcd_test_02);
-
-                } else if (flags == 300) {
-                    flags = 301;
-                    RL_image.setBackgroundResource(R.drawable.lcd_test_04);
-                } else if (flags == 301) {
-                    flags = 2;
-                    RL_image.setBackgroundResource(R.drawable.lcd_test_05);
-                    RV_button.setBackgroundResource(R.drawable.lcd_test_05);
-
-                } else if (flags == 2) {
+                mSwitcher.setImageResource( mImageIds[flags] );
+                setBrightness1(LCDTest.this, 255);
+                flags++;
+                if( flags >= mImageIds.length ){
                     if (mTimer != null) {
                         mTimer.cancel();
                     }
-                    if (FeatureOption.HX_FACTORYTEST_BACKLIGHT)
-                        RV_button.setVisibility(View.VISIBLE);
-
-                    else {
-                        mTimer1 = new Timer();
-                        TimerTask mTask = new TimerTask() {
-                            @Override
-                            public void run() {
-                                // TODO Auto-generated method stub
-                                Message message = new Message();
-                                mHandler1.sendMessage(message);
-                                Log.e("lyaotao", "mTimer1 is running");
-                            }
-                        };
-                        mTimer1.schedule(mTask, 0, 500);
-                    }
+                    flags =0;
+                    RV_button.setVisibility(View.VISIBLE);
                 }
-
-
-                super.handleMessage(msg);
             }
 
         };
 
-        mTimer = new Timer();
         TimerTask mTask = new TimerTask() {
 
             @Override
@@ -175,13 +110,18 @@ public class LCDTest extends FactoryActivity implements View.OnClickListener, Vi
                 // TODO Auto-generated method stub
                 Message message = new Message();
                 mHandler.sendMessage(message);
-                Log.e("lyaotao", "mTimer is running");
+                Log.e(TAG, "mTimer is running");
             }
         };
-        if (android.os.SystemProperties.getBoolean("ro.factorytest_LcdTestClick", false)) {
+        mTimer = new Timer();
+        if ("1".equals(SystemProperties.get("ro.yk676_cf2_bsh18_hdp_tplink"))) {
+
+            mSwitcher.setImageResource(mImageIds[position]);
+            mSwitcher.setOnClickListener(this);
         } else {
-            mTimer.schedule(mTask, 1500, 1000);
+            mTimer.schedule(mTask, 1000, 1000);
         }
+
 
     }
 
@@ -198,14 +138,11 @@ public class LCDTest extends FactoryActivity implements View.OnClickListener, Vi
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.imageSwitcher1:
-                if (position < 5) {
+                if( position < mImageIds.length-1 ) {
                     position++;
                     mSwitcher.setImageResource(mImageIds[position]);
-                }
-                if (position == 5) {
-                    v.setClickable(false);
+                }else{
                     RV_button.setVisibility(View.VISIBLE);
-
                 }
                 break;
             case R.id.LCD_BUTTON_SUCCESS:

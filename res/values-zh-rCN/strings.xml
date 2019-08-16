@@ -247,8 +247,9 @@
     <string name="tv_G_ceshi">测试中..</string>
 
     <string name="title_activity_sensor">传感器</string>
-    <string name="Text_APS">3. 距离传感器</string>
-    <string name="Text_ALS">2. 光度传感器</string>
+    <string name="Text_APS">4. 距离传感器</string>
+    <string name="Text_ALS">3. 光度传感器</string>
+    <string name="Text_Gysensor"> 2. 陀螺仪 </string>
         <string name="Text_ALSPS">距离/光度传感器</string>
          <string name="Text_Gsensor">1. 重力传感器</string>
          <string name="GSensor_Test_Info">请倾斜转动机身以改变重力传感器值</string>
@@ -321,7 +322,7 @@
 	<string name="msg_Hall_text"> 霍尔测试: \n请点击按钮并等待3秒钟 </string>
 	<string name="msg_Hall_text1"> 霍尔测试: \n测试结束 </string>
 	<!-- yangkun add for coupling test results 2018/02/03 -->
-	<string name="wireless_test_title"> "天线测试结果："</string>
+	<string name="wireless_test_title"> "耦合测试结果："</string>
         <string name="nsft_test_title"> "综合测试结果："</string>
 	<!-- add end -->
 	<string name="finger_active_status">指纹状态：</string>
@@ -354,7 +355,7 @@
     <string name="back_camera1">后置照相机</string>
     <string name="back_camera2">后置照相机2</string>
     <string name="front_camera">前置照相机</string>
-    <string name="Test_LCD">LCD/背光</string>
+    <string name="Test_LCD">LCD</string>
     <string name="title_activity_hardware_info">硬件信息</string>
     <string name="sure_exit">再按一次退出程序</string>
     <string name="test_exit">退出</string>
@@ -366,10 +367,40 @@
     <string name="female_sound"> 女声 </string>
     <string name="pure_music">纯音乐</string>
     <string name="speaking_text">播放中...</string>
-    <string name="masterflash_test">主闪光灯</string>
-    <string name="secondflash_test">副闪光灯</string>
-    <string name="sure_masterflash">主闪光灯是否打开?</string>
-    <string name="sure_secondflash">副闪光灯是否打开?</string>
+    <string name="masterflash_test">后闪光灯</string>
+    <string name="secondflash_test">前闪光灯</string>
+    <string name="sure_masterflash">后闪光灯是否打开?</string>
+    <string name="sure_secondflash">前闪光灯是否打开?</string>
     <string name="master_camera">后置相机</string>
+    <string name="breath_mode">led灯是呼吸模式吗?</string>
+    <string name="light_mode">led 灯颜色正确吗?</string>
+    <string name="title_lcmlight_test"> LCM 背光 </string>
+    <string name="sure_lcm_light">lcm 背光是否打开?</string>
+    <string name="usb_device_detected">usb 设备拔出</string>
+    <string name="usb_device_attached">usb 设备已插入</string>
+    <string name="insert_usb_device"> 请插入usb 设备.如果已经插入usb设备请重新拔插。</string>
+    <string name="key_test_desc">请按下以下按键</string>
+    <string name="volumn_up">音量上</string>
+    <string name="volumn_down">音量下</string>
+    <string name="key_sos">智能键</string>
+    <string name="key_back"> 返回 </string>
+    <string name="key_home"> HOME </string>
+    <string name="key_menu"> 菜单 </string>
 
+    <string name="hw_variant">HW variant</string>
+    <string name="bands">Bands</string>
+    <string name="calibration_success">已校准!</string>
+    <string name="calibration">开始校准</string>
+    <string name="gy_sensor_test">陀螺仪</string>
+    <string name="zongce_title">综测记录</string>
+    <string name="pass">通过</string>
+    <string name="failed">失败</string>
+    <string name="checking"> 检测中</string>
+    <string name="unmounted"> 未挂载</string>
+ <string name="no_test">未校准 </string>
+
+    <string name="coupling_test">耦合测试:</string>
+    <string name="g_coupling_desc"> 天线耦合:</string>
+    <string name="wbg_coupling_desc"> WBG 耦合:</string>
+    <string name="assist_camera">辅助摄像</string>
 </resources>

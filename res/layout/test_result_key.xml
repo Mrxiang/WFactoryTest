@@ -3,182 +3,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-   <LinearLayout
-        android:id="@+id/LL_6"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp" 
-        >
-<!--  delete by wanghe 2013-08-18   -->
-<!--             <Button -->
-<!--                 android:id="@+id/Button_button_light" -->
-<!--                 android:layout_width="fill_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:text="@string/Button_Test_ButtonLight" -->
-<!--                 android:textSize="20dip" /> -->
-    </LinearLayout> 
-    
-    <LinearLayout
-        android:id="@+id/LL_1"
-        android:layout_width="110dp"
-        android:layout_height="50dp" 
-        android:layout_below="@+id/LL_6">
-
-        <Button
-            android:id="@+id/Button_menu"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/values_menu"
-            android:textSize="20dip" />
-    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/LL_2"
-        android:layout_width="110dp"
-        android:layout_height="50dp" 
-        android:layout_toRightOf="@+id/LL_1"
-        android:layout_below="@+id/LL_6">
-
-        <Button
-            android:id="@+id/Button_main"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/values_main"
-            android:textSize="20dip" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LL_3"
-        android:layout_width="110dp"
-        android:layout_height="50dp" 
-        android:layout_toRightOf="@+id/LL_2"
-        android:layout_below="@+id/LL_6">
-
-        <Button
-            android:id="@+id/Button_return"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/values_return"
-            android:textSize="20dip" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LL_4"
-        android:layout_width="110dp"
-        android:layout_height="50dp" 
-        android:layout_below="@+id/LL_1">
-
-        <Button
-            android:id="@+id/Button_volumeup"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/values_volueup"
-            android:textSize="20dip" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LL_5"
-        android:layout_width="110dp"
-        android:layout_height="50dp" 
-        android:layout_below="@+id/LL_1"
-        android:layout_toRightOf="@+id/LL_4">
-
-        <Button
-            android:id="@+id/Button_volumedown"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/values_voluedown"
-            android:textSize="20dip" />
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/LL_7"
-        android:layout_width="110dp"
-        android:layout_height="50dp" 
-        android:layout_below="@+id/LL_1"
-        android:layout_toRightOf="@+id/LL_5">
-
-        <Button
-            android:id="@+id/Button_camera"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:text="@string/values_camera"
-            android:textSize="20dip"
-       		android:visibility="gone" />
-    </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/LL_notification_light"
         android:layout_width="match_parent"
-        android:layout_height="50dp" 
-		android:layout_marginTop="80dip"
-		android:layout_marginLeft="5dip"
-		android:layout_marginRight="5dip"
-        android:layout_below="@+id/LL_5"
-        android:gravity="center_horizontal"
-       	android:visibility="gone">
-
-        <Button
-            android:id="@+id/Button_R"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/light_red"
-            android:textColor="#FFFF0000"
-            android:textSize="20dip" />
-        <Button
-            android:id="@+id/Button_G"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/light_green"
-            android:textColor="#FF00FF00"
-            android:textSize="20dip" />
-        <Button
-            android:id="@+id/Button_B"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/light_blue"
-            android:textColor="#FF0000FF"
-            android:textSize="20dip" />
-    </LinearLayout>
-
-<!--     <TextView -->
-<!--         android:id="@+id/Button_mada" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_toRightOf="@+id/Button_volumedown" -->
-<!--         android:text="@string/values_mada" -->
-<!--         android:textSize="20dip" -->
-<!--         android:visibility="gone" /> -->
-
-    <RelativeLayout
-        android:id="@+id/RV_button"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" >
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/key_test_desc"
+            android:textSize="22sp"/>
+        <Button
+            android:id="@+id/volume_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/volumn_up"/>
+        <Button
+            android:id="@+id/volume_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/volumn_down"/>
 
         <Button
-            android:id="@+id/Button_Success"
-            android:layout_width="150dip"
-            android:layout_height="60dip"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/bk_true"
-            android:textSize="25dip"
-            android:text="@string/Button_Status_Success"/>
+            android:id="@+id/key_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@android:color/transparent"
+            android:text="@string/values_menu"/>
+        <Button
+            android:id="@+id/key_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@android:color/transparent"
+            android:text="@string/values_main"/>
+        <Button
+            android:id="@+id/key_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@android:color/transparent"
+            android:text="@string/values_return"/>
 
         <Button
             android:id="@+id/Button_Fail"
-            android:layout_width="150dip"
-            android:layout_height="60dip"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/bk_fail"
-            android:textSize="25dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="22sp"
             android:text="@string/Button_Status_Fail"/>
-    </RelativeLayout>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

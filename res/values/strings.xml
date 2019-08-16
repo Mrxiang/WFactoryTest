@@ -1,4 +1,5 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name"> FactoryTest </string>
     <string name="title_activity_factory_test"> factoryTest </string>
@@ -247,7 +248,8 @@
 
     <string name="title_activity_sensor"> Sensor </string>
     <string name="Text_APS"> 3. Psensor </string>
-    <string name="Text_ALS"> 2. ALsensor </string>
+    <string name="Text_ALS"> 3. ALsensor </string>
+    <string name="Text_Gysensor"> 2. Gysensor </string>
         <string name="Text_ALSPS"> Psensor/ALsensor </string>
          <string name="Text_Gsensor"> 1. Gsensor </string>
          <string name="GSensor_Test_Info"> please turn the body to change the gravity tilt sensor value </string>
@@ -362,7 +364,7 @@
     <string name="back_camera1">back camera</string>
     <string name="back_camera2">back camera2</string>
     <string name="front_camera">front camera</string>
-    <string name="Test_LCD">LCD/Backlight</string>
+    <string name="Test_LCD">LCD</string>
     <string name="list_style">列表模式</string>
     <string name="grid_style">宫格模式</string>
     <string name="other">其他</string>
@@ -379,10 +381,54 @@
     <string name="female_sound"> female </string>
     <string name="pure_music"> pure music </string>
     <string name="speaking_text">speaking...</string>
-    <string name="masterflash_test">master flash</string>
-    <string name="secondflash_test">secondary flash</string>
-    <string name="sure_masterflash">Has master flash opened?</string>
-    <string name="sure_secondflash">Has secondary flash opened?</string>
+    <string name="masterflash_test">back flash</string>
+    <string name="secondflash_test">front flash</string>
+    <string name="sure_masterflash">Has back flash opened?</string>
+    <string name="sure_secondflash">Has front flash opened?</string>
     <string name="master_camera">master camera</string>
+    <string name="breath_mode">is breath mode?</string>
+    <string name="light_mode">is led color correct?</string>
+    <string name="title_lcmlight_test"> lcm light </string>
+    <string name="sure_lcm_light">lcm light open?</string>
+    <string name="usb_device_detected">usb device detected!</string>
+    <string name="usb_device_attached">usb device attached!</string>
+    <string name="insert_usb_device"> please insert usb device.If you have already inserted the usb device, please re-plug it.</string>
+    <string name="key_test_desc">please press this keys</string>
+    <string name="volumn_up">volumn up</string>
+    <string name="volumn_down">volumn down</string>
+    <string name="key_sos">smart key</string>
+    <string name="key_back"> back </string>
+    <string name="key_home">home</string>
+    <string name="key_menu"> menu </string>
+
+    <string name="hw_variant">HW variant</string>
+    <string name="bands">Bands</string>
+    <string name="calibration_success">calibration success!</string>
+    <string name="calibration">calibration</string>
+    <string name="gy_sensor_test">GySensor</string>
+
+
+    <string name="getting_location">Getting location...</string>
+    <string name="cannot_get_location">Cannot get your location</string>
+    <string name="location_north">%s N</string>
+    <string name="location_south">%s S</string>
+    <string name="location_east">%s E</string>
+    <string name="location_west">%s W</string>
+    <string name="zongce_title">综测记录</string>
+    <string name="pass">pass</string>
+    <string name="failed">failed</string>
+    <string name="no_test"> NONE </string>
+    <string name="coupling_test">耦合測試:</string>
+    <string name="g_coupling_desc"> 天线耦合:</string>
+    <string name="wbg_coupling_desc"> WBG耦合:</string>
+    <string name="please_inset_sdcard"> 您可能没有插入T卡.</string>
+    <string name="pressure_test"> 气压计测试</string>
+    <string name="pressure"> 气压</string>
+    <string name="altitude"> 海拔</string>
+    <string name="checking"> checking</string>
+    <string name="unmounted"> unmounted</string>
+
+
+    <string name="assist_camera">assist camera</string>
 
 </resources>

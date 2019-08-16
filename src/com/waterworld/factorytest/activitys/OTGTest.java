@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,7 +31,9 @@ public class OTGTest extends FactoryActivity  implements OnClickListener{
 	private Button mBtOk;
 	private final int READ_FILE = 215;
 	public static int OTGTestStatus = 0;
-	private final String  PATH = "/sys/class/switch/otg_state/state";
+//	private final String  PATH = "/sys/class/switch/otg_state/state";
+	private final String  PATH = "/sys/bus/usb/devices/1-1/speed";
+
 	private Handler mHandler = new Handler(){
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
@@ -59,6 +62,7 @@ public class OTGTest extends FactoryActivity  implements OnClickListener{
 		try {
 			if(!file.exists()){
 				Log.d(TAG, "文件不存在");
+				Toast.makeText(this, "文件不存在", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			FileInputStream fileInputStream = new FileInputStream(file);
@@ -73,12 +77,18 @@ public class OTGTest extends FactoryActivity  implements OnClickListener{
 			Log.d(TAG, ""+intValue);
 			if(intValue==0){
 				otgTv.setText(getString(R.string.no_link_equipment));
+				Toast.makeText(this, ""+getString(R.string.no_link_equipment), Toast.LENGTH_LONG).show();
+
 			}else{
 				otgTv.setText(getString(R.string.link_equipment));
+				Toast.makeText(this, ""+getString(R.string.link_equipment), Toast.LENGTH_LONG).show();
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			Log.d("fff", "Exception==="+e.toString());
+			Toast.makeText(this, "Error:"+e.toString(), Toast.LENGTH_LONG).show();
+
 		}
 	}
 

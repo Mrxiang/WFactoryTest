@@ -443,40 +443,7 @@ public class PhoneMicTest extends FactoryActivity implements OnClickListener {
         };
 
         if (audioManager.isWiredHeadsetOn()) {
-            Intent mIntent1 = getIntent();
-            boolean fl1 = mIntent1.getBooleanExtra("textall", false);
 
-            final String text = getString(R.string.msg_masse_no);
-
-            //ToastUtil mToastUtil = new ToastUtil();
-            //mToastUtil.showMessage(PhoneMicTest.this, text);
-
-            View toastRoot = getLayoutInflater().inflate(R.layout.toast, null);
-            TextView message = (TextView) toastRoot.findViewById(R.id.message);
-            message.setText(text);
-
-            Toast toastStart = new Toast(this);
-            toastStart.setGravity(Gravity.BOTTOM, 0, 110);
-            if (fl1) {
-                toastStart.setDuration(Toast.LENGTH_LONG);
-            } else {
-                toastStart.setDuration(Toast.LENGTH_SHORT);
-            }
-            toastStart.setView(toastRoot);
-            toastStart.show();
-
-            CameraTestStatus = -1;
-
-			/*if(fl1 == true){
-				Intent miIntent = new Intent();
-				miIntent.setAction("com.ykq.intent.action.LOUDSPEAKER_TEST");
-				miIntent.putExtra("textall", true);
-				startActivityForResult(miIntent, RESULT_OK);
-			}*/
-            if (!fl1) {
-                finish();
-                return;
-            }
             replay_Button.setEnabled(false);
             reconding_Button.setEnabled(false);
             if (SystemProperties.getBoolean("ro.hx_existence_two_mic", false)) {

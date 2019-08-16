@@ -46,8 +46,9 @@ import android.util.Log;
 public class FactoryTestReceiver extends BroadcastReceiver {
 
     private static final String TAG = "FactoryTestReceiver";
-    private final Uri mFtUri = Uri.parse("android_secret_code://7799");
-    private final Uri mAgeUri = Uri.parse("android_secret_code://6688");
+    private final Uri mFtUri = Uri.parse("android_secret_code://8613");
+    private final Uri mFtHXUri = Uri.parse("android_secret_code://66");
+    private final Uri mHardwareUri = Uri.parse("android_secret_code://8615");
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -57,16 +58,16 @@ public class FactoryTestReceiver extends BroadcastReceiver {
             Uri uri = intent.getData();
             Log.i(TAG, "onReceive:"+ uri);
             try {
-                if (uri.equals(mFtUri)) {
+                if (uri.equals(mFtUri) ||uri.equals(mFtHXUri)) {
 
                     Intent intent1 = new Intent();
                     intent1.setAction("com.waterworld.action.FACTORY_TEST_MAIN");
                     intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent1);
-                } else if (uri.equals(mAgeUri)) {
+                } else if (uri.equals(mHardwareUri)) {
 
                     Intent intent1 = new Intent();
-                    ComponentName componentName = new ComponentName("com.wzb.runtimetest", "com.wzb.runtimetest.MainActivity");
+                    intent1.setAction( "com.waterworld.intent.action.HardwareInformationActivity");
                     intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent1);
                 }

@@ -71,7 +71,8 @@ public class LoudSpeakerTest extends FactoryActivity  implements View.OnClickLis
 	}
 	private void loudSpeakerStart( ){
 
-		musicIndex = new Random().nextInt(musicSeed);
+//		musicIndex = new Random().nextInt(musicSeed);
+		musicIndex = 2;
 		Log.d(TAG, "loudSpeakerStart: "+musicIndex);
 		old_volume=audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);//add by yds
 
